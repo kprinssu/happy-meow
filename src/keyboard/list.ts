@@ -18,5 +18,6 @@ const filterPort = (port: PortInfo) => {
 export async function listKeyboards(): SerialPort.PortInfo[] {
   const ports = await SerialPort.list();
   const filteredPorts = ports.filter(filterPort);
+  console.log(filteredPorts);
   return filteredPorts;
 };
