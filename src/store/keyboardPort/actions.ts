@@ -10,3 +10,9 @@ export const fetchKeyboardPorts = (): ThunkAction<void, AppState, unknown, AnyAc
     dispatch(keyboardPortActions.setPorts(ports));
   };
 };
+
+export const setSelectedPort = (selectedPort: PortInfo): ThunkAction<void, AppState, unknown, AnyAction> => {
+  return async (dispatch) => {
+    dispatch(keyboardPortActions.setSelectedPort(selectedPort));
+  };
+};

@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
+import { v4 as uuid } from 'uuid';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { fetchKeyboardPorts } from '../../store/keyboardPort/actions';
+import { fetchKeyboardPorts, setSelectedPort } from '../../store/keyboardPort/actions';
 
 const KeyboardPortSelection = () => {
   const [keyboardPort, setKeyboardPort] = useState(1);
@@ -13,7 +14,24 @@ const KeyboardPortSelection = () => {
     dispatch(fetchKeyboardPorts());
   }, []);
 
-  return (<div></div>);
+  const selectKeyboard = (e: FormEvent<HTMLElement>) => {
+    const selectedIndex = e.target.value;
+    const selectedKeyboardPort = keyboardPorts.at(selectedIndex);
+    setKeyboardPort(selectedIndex);
+    dispatch(setSelectedPort(selectedKeyboardPort));
+  };
+
+  return (
+    <div>
+      <label htmlFor="keyboardPort">Choose a Keyboard</label>
+      <select name="keyboardPort" onChange={selectKeyboard}>
+        <option>Select a Keyboard</option>
+        { keyboardPorts.map((keyboardPort, i) => {
+            return <option value={i} key={uuid()}>{keyboardPort.pnpId}</option>
+        }) }
+      </select>
+    </div>
+  );
 };
 
 export default KeyboardPortSelection;
