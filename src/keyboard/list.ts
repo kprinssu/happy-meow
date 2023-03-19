@@ -3,7 +3,7 @@ import { SerialPort } from 'serialport';
 interface KeyboardProductVendorId {
   vendorId: string;
   productId: string;
-};
+}
 
 const KEYBOARD_IDS: KeyboardProductVendorId[] = [{ vendorId: '05ac', productId: '0256' }];
 
@@ -18,6 +18,6 @@ const filterPort = (port: PortInfo) => {
 export async function listKeyboards(): SerialPort.PortInfo[] {
   const ports = await SerialPort.list();
   const filteredPorts = ports.filter(filterPort);
-  console.log(filteredPorts);
+
   return filteredPorts;
-};
+}

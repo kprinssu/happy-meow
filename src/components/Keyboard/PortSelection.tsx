@@ -10,7 +10,6 @@ const KeyboardPortSelection = () => {
   const selectedPort = useAppSelector(state => state.keyboardPorts.selectedPort);
 
   useEffect(() => {
-    console.log(fetchKeyboardPorts());
     dispatch(fetchKeyboardPorts());
   }, []);
 

@@ -1,17 +1,18 @@
-import { createLogger } from 'redux-logger';
+import { logger } from 'redux-logger';
 import { configureStore } from '@reduxjs/toolkit';
 
 import keyboardPortSlice from './keyboardPort/slice';
 
-const middleware = [
-  createLogger(),
-];
+const customMiddleWare = (getDefaultMiddleware) => {
+  const defaultMiddlware = getDefaultMiddleware();
+  return defaultMiddlware.concat(logger);
+};
 
 const store = configureStore({
   reducer: {
     keyboardPorts: keyboardPortSlice.reducer,
   },
-  middleware: middleware,
+  middleware: customMiddleWare,
 });
 
 export type AppState = ReturnType<typeof store.getState>;
