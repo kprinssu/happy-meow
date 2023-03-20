@@ -2,7 +2,7 @@ import { SerialPort } from 'serialport';
 import { Buffer } from 'buffer';
 
 const createPort = (path: string): SerialPort => {
-  return SerialPort({
+  return new SerialPort({
     path: path,
     baudRate: 9600,
   });

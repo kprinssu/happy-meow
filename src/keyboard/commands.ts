@@ -3,6 +3,8 @@ import { Buffer } from 'buffer';
 import moment from 'moment-timezone';
 import crc8 from 'crc/crc8';
 
+import { createPort, writeToKeyboard } from './io';
+
 const setTime = async (path: string): boolean => {
   const buffer = Buffer.alloc(64);
   buffer[0] = 1;
@@ -13,18 +15,14 @@ const setTime = async (path: string): boolean => {
 
   if (now.isDST()) {
     // 1 hour in seconds
-    nowTimestamp += (12 * 60 * 60);
+    nowTimestamp -= (12 * 60 * 60);
   }
 
-  console.log(nowTimestamp);
-
-  buffer.writeInt32BE(1679385134, 2);
-  console.log(crc8(buffer));
-  console.log(typeof crc8(buffer));
+  buffer.writeInt32BE(nowTimestamp, 2);
   buffer[63] = crc8(buffer);
 
-  console.log(buffer);
-  console.log(buffer[63]);
+  const port = createPort(path);
+  return await writeToKeyboard(port, buffer);
 };
 
 export {

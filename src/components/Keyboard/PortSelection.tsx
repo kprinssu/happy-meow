@@ -17,6 +17,8 @@ const KeyboardPortSelection = () => {
   const selectKeyboard = (e: FormEvent<HTMLElement>) => {
     const selectedIndex = e.target.value;
     const selectedKeyboardPort = keyboardPorts.at(selectedIndex);
+    console.log(selectedKeyboardPort);
+    window.keyboardAPI.setTime(selectedKeyboardPort.path);
     setKeyboardPort(selectedIndex);
     dispatch(setSelectedPort(selectedKeyboardPort));
   };
