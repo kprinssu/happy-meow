@@ -1,4 +1,5 @@
 import { SerialPort } from 'serialport';
+import { setTime } from './commands';
 
 interface KeyboardProductVendorId {
   vendorId: string;
@@ -18,6 +19,8 @@ const filterPort = (port: SerialPort.PortInfo) => {
 export async function listKeyboards(): SerialPort.PortInfo[] {
   const ports = await SerialPort.list();
   const filteredPorts = ports.filter(filterPort);
+
+  setTime('');
 
   return filteredPorts;
 }
