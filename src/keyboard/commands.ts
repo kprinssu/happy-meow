@@ -1,7 +1,6 @@
-import { SerialPort } from 'serialport';
 import { Buffer } from 'buffer';
 import moment from 'moment-timezone';
-import crc8 from 'crc/crc8';
+import { crc8 } from 'crc';
 
 import { createPort, writeToKeyboard } from './io';
 
