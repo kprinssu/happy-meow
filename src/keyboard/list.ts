@@ -7,7 +7,7 @@ interface KeyboardProductVendorId {
 
 const KEYBOARD_IDS: KeyboardProductVendorId[] = [{ vendorId: '05ac', productId: '0256' }];
 
-const filterPort = (port: PortInfo) => {
+const filterPort = (port: SerialPort.PortInfo) => {
   const foundKeyboard = KEYBOARD_IDS.find((e: KeyboardProductVendorId) => {
     return port.vendorId === e.vendorId && port.productId === e.productId;
   });
