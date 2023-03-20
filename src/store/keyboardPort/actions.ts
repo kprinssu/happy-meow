@@ -1,6 +1,7 @@
 import keyboardPortSlice from './slice';
 import { AnyAction, ThunkAction } from '@reduxjs/toolkit';
 import { AppState } from '../index';
+import { PortInfo } from './types';
 
 export const keyboardPortActions = keyboardPortSlice.actions;
 

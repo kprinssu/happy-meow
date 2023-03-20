@@ -4,7 +4,7 @@ import { crc8 } from 'crc';
 
 import { createPort, writeToKeyboard } from './io';
 
-const setTime = async (path: string): boolean => {
+const setTime = async (path: string): Promise<boolean> => {
   const buffer = Buffer.alloc(64);
   buffer[0] = 1;
   buffer[1] = 3;
