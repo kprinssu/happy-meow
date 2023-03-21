@@ -15,12 +15,14 @@ const KeyboardPortSelection = () => {
   }, []);
 
   const selectKeyboard = (e: FormEvent<HTMLElement>) => {
-    const selectedIndex = e.target.value;
+    const target = e.target as HTMLTextAreaElement;
+    const selectedIndex = parseInt(target.value);
     const selectedKeyboardPort = keyboardPorts.at(selectedIndex);
-    console.log(selectedKeyboardPort);
-    window.keyboardAPI.setTime(selectedKeyboardPort.path);
-    setKeyboardPort(selectedIndex);
-    dispatch(setSelectedPort(selectedKeyboardPort));
+    if (selectedKeyboardPort !== undefined) {
+      window.keyboardAPI.setTime(selectedKeyboardPort.path);
+      setKeyboardPort(selectedIndex);
+      dispatch(setSelectedPort(selectedKeyboardPort));
+    }
   };
 
   return (

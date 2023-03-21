@@ -5,7 +5,7 @@ import keyboardPortSlice from './keyboardPort/slice';
 
 const customMiddleWare = (getDefaultMiddleware) => {
   const defaultMiddlware = getDefaultMiddleware();
-  return defaultMiddlware.concat(logger);
+  return defaultMiddlware.concat([logger]);
 };
 
 const store = configureStore({
@@ -15,6 +15,6 @@ const store = configureStore({
   middleware: customMiddleWare,
 });
 
-export type AppState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export default store;

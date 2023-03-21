@@ -6,6 +6,6 @@ export interface PortInfo {
 }
 
 export interface KeyboardPortState {
-  selectedPort: PortInfo;
+  selectedPort: PortInfo | null;
   allPorts: PortInfo[];
 }
