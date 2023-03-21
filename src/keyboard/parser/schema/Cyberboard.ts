@@ -9,7 +9,7 @@ import { MacroKey } from './MacroKey';
 import { SwapKey } from './SwapKey';
 
 
-const Cyberboard = z.object({
+export const Cyberboard = z.object({
   product_info: ProductInfo,
   page_num: z.number(),
   page_data: PageData.array(),
@@ -26,4 +26,4 @@ const Cyberboard = z.object({
   key_layer
 });
 
-export const Cyberboard;
+export type Cyberboard = z.infer<typeof Cyberboard>;

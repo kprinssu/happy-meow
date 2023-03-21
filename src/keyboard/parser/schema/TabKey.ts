@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const TabKey = z.object({
+export const TabKey = z.object({
   ta_key_index: z.number(),
   key_value: z.string(),
   single_key_out: z.string().array(),
@@ -9,4 +9,4 @@ const TabKey = z.object({
   long_key_out: z.string().array(),
 });
 
-export const TabKey;
+export type TabKey = z.infer<typeof TabKey>;

@@ -34,7 +34,7 @@ const Keyframe = z.object({
   frame_data: KeyframeData.array(),
 });
 
-const PageData = z.object({
+export const PageData = z.object({
   valid: z.boolean(),
   page_index: z.number(),
   lightness: z.number(),
@@ -45,4 +45,4 @@ const PageData = z.object({
   keyframes: Keyframe.array().optional(),
 });
 
-export const PageData;
+export type PageData = z.infer<typeof PageData>;
