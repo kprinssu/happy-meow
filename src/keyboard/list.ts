@@ -1,4 +1,5 @@
 import { SerialPort } from 'serialport';
+import { PortInfo } from '@serialport/bindings-cpp';
 
 interface KeyboardProductVendorId {
   vendorId: string;
@@ -7,7 +8,7 @@ interface KeyboardProductVendorId {
 
 const KEYBOARD_IDS: KeyboardProductVendorId[] = [{ vendorId: '05ac', productId: '0256' }];
 
-const filterPort = (port: SerialPort.PortInfo) => {
+const filterPort = (port: PortInfo) => {
   const foundKeyboard = KEYBOARD_IDS.find((e: KeyboardProductVendorId) => {
     return port.vendorId === e.vendorId && port.productId === e.productId;
   });
@@ -15,7 +16,7 @@ const filterPort = (port: SerialPort.PortInfo) => {
   return foundKeyboard !== undefined;
 };
 
-export async function listKeyboards(): Promise<SerialPort.PortInfo[]> {
+export async function listKeyboards(): Promise<PortInfo[]> {
   const ports = await SerialPort.list();
   const filteredPorts = ports.filter(filterPort);
 

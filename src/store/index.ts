@@ -3,16 +3,12 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import keyboardPortSlice from './keyboardPort/slice';
 
-const customMiddleWare = (getDefaultMiddleware) => {
-  const defaultMiddlware = getDefaultMiddleware();
-  return defaultMiddlware.concat([logger]);
-};
-
 const store = configureStore({
   reducer: {
     keyboardPorts: keyboardPortSlice.reducer,
   },
-  middleware: customMiddleWare,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(logger),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -7,6 +7,7 @@ import { TabKey } from './TabKey';
 import { FunctionKey } from './FunctionKey';
 import { MacroKey } from './MacroKey';
 import { SwapKey } from './SwapKey';
+import { KeyLayer } from './KeyLayer';
 
 
 export const Cyberboard = z.object({
@@ -23,7 +24,7 @@ export const Cyberboard = z.object({
   macro_key: MacroKey.array(),
   swap_key_num: z.number(),
   swap_key: SwapKey.array(),
-  key_layer
+  key_layer: KeyLayer.array(),
 });
 
 export type Cyberboard = z.infer<typeof Cyberboard>;
