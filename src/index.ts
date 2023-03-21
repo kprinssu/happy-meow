@@ -61,4 +61,3 @@ app.whenReady().then(() => {
    ipcMain.handle('keyboard:setTime', (_, portPath) => setTime(portPath));
    ipcMain.handle('keyboard:loadConfig', (_, path) => readJSON(path));
 });
-

@@ -13,8 +13,8 @@ const WordPage = z.object({
 });
 
 const FrameData = z.object({
-  frame_index: z.number(),
-  frame_rgb: z.string().array(),
+  frame_index: z.coerce.number(),
+  frame_RGB: z.string().array(),
 });
 
 const Frames = z.object({
@@ -25,7 +25,7 @@ const Frames = z.object({
 
 const KeyframeData = z.object({
   frame_index: z.number(),
-  frame_rgb: z.string(),
+  frame_RGB: z.string().array(),
 });
 
 const Keyframe = z.object({
@@ -42,7 +42,7 @@ export const PageData = z.object({
   color: Color,
   word_page: WordPage,
   frames: Frames,
-  keyframes: Keyframe.array().optional(),
+  keyframes: Keyframe.optional(),
 });
 
 export type PageData = z.infer<typeof PageData>;

@@ -18,13 +18,13 @@ export const Cyberboard = z.object({
   exchange_key: ExchangeKey.array(),
   tab_key_num: z.number(),
   tab_key: TabKey.array(),
-  fn_key_num: z.number(),
-  fn_key: FunctionKey.array(),
-  macro_key_num: z.number(),
-  macro_key: MacroKey.array(),
+  Fn_key_num: z.number(),
+  Fn_key: FunctionKey.array(),
+  MACRO_key_num: z.number(),
+  MACRO_key: MacroKey.array(),
   swap_key_num: z.number(),
   swap_key: SwapKey.array(),
-  key_layer: KeyLayer.array(),
+  key_layer: KeyLayer,
 });
 
 export type Cyberboard = z.infer<typeof Cyberboard>;
