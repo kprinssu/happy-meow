@@ -10,9 +10,10 @@ import { MacroKey } from './MacroKey';
 import { SwapKey } from './SwapKey';
 import { KeyLayer } from './KeyLayer';
 
+/*
 const generateCommand = (): Buffer => {
 
-};
+};*/
 
 
 export const Cyberboard = z.object({
@@ -30,7 +31,6 @@ export const Cyberboard = z.object({
   swap_key_num: z.number(),
   swap_key: SwapKey.array(),
   key_layer: KeyLayer,
-  generateCommand: generateCommand,
 });
 
 export type Cyberboard = z.infer<typeof Cyberboard>;
