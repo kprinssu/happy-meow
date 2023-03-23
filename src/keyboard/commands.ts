@@ -1,7 +1,7 @@
 import { Buffer } from 'buffer';
 import { crc8 } from 'crc';
 
-const setTime = (): Buffer => {
+const generateSetTime = (): Buffer => {
   const buffer = Buffer.alloc(64);
   buffer[0] = 1;
   buffer[1] = 3;
@@ -15,5 +15,5 @@ const setTime = (): Buffer => {
 };
 
 export {
-  setTime,
+  generateSetTime,
 };
