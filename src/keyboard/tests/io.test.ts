@@ -37,8 +37,18 @@ describe('writeToKeyboard', () => {
     expect(result).toEqual(true);
   });
 
-  test('logs an error and returns false on failure', () => {
+  test('logs an error and returns false on failure', async () => {
     const port = createPort(path);
+    const data: any = null;
+    port.open();
+
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const result = await writeToKeyboard(port, data);
+    expect(result).toEqual(false);
+    expect(errorSpy).toHaveBeenCalledWith('Failed to write data.');
+
+    errorSpy.mockRestore();
   });
 });
 

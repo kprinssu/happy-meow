@@ -14,6 +14,7 @@ const writeToKeyboard = async function (port: SerialPortStream, data: Buffer): P
   try {
     await port.write(data);
   } catch (e) {
+    console.error('Failed to write data.');
     console.error(e);
     return false;
   }
