@@ -52,7 +52,7 @@ describe('writeToKeyboard', () => {
     const port = createPort(path);
     const data: any = null;
     port.open(async () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { return {}; });
 
       const result = await writeToKeyboard(port, data);
       expect(result).toEqual(false);
