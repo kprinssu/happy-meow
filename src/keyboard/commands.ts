@@ -21,6 +21,7 @@ const setTime = async (path: string): Promise<boolean> => {
   buffer[63] = crc8(buffer);
 
   const port = createPort(path);
+  await port.open();
   return await writeToKeyboard(port, buffer);
 };
 

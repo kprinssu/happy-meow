@@ -1,14 +1,16 @@
 import { SerialPort } from 'serialport';
+import { SerialPortStream } from '@serialport/stream';
 import { Buffer } from 'buffer';
 
 const createPort = (path: string): SerialPort => {
   return new SerialPort({
     path: path,
     baudRate: 9600,
+    autoOpen: false,
   });
 };
 
-const writeToKeyboard = async function (port: SerialPort, data: Buffer): Promise<boolean> {
+const writeToKeyboard = async function (port: SerialPortStream, data: Buffer): Promise<boolean> {
   try {
     await port.write(data);
   } catch (e) {
@@ -19,12 +21,12 @@ const writeToKeyboard = async function (port: SerialPort, data: Buffer): Promise
   return true;
 };
 
-const readFromKeyboard = async function (port: SerialPort, size?: number): Promise<Buffer> {
+const readFromKeyboard = async function (port: SerialPortStream, size?: number): Promise<Buffer> {
   if (size !== undefined) {
     return await port.read(size);
   }
 
-  return port.read();
+  return await port.read();
 };
 
 
