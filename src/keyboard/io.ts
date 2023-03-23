@@ -12,7 +12,14 @@ const createPort = (path: string): SerialPort => {
 
 const writeToKeyboard = async function (port: SerialPortStream, data: Buffer): Promise<boolean> {
   try {
-    await port.write(data);
+    await new Promise((resolve, reject) => {
+      port.write(data, (err) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(true);
+      });
+    });
   } catch (e) {
     console.error('Failed to write data.');
     console.error(e);
