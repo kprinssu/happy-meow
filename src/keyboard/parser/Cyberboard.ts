@@ -1,6 +1,8 @@
+import { Buffer } from 'buffer';
+
 import * as Schema from './schema';
 
-interface UnknownCommand {
+interface UnknownInfoCommand {
   pageIndex: number;
   wordNum: number;
   frameNum: number;
@@ -30,12 +32,20 @@ interface WordPageInfoCommand {
   unicode: string[];
 }
 
+interface RgbFrameInfoCommand {
+  pageIndex: number;
+  frameIndex: number;
+  usbFrameIndex: number;
+  frameRgb: Buffer;
+}
+
 export class Cyberboard {
   config: Schema.CyberboardConfig;
   commandCount: number;
-  unknownCommands: UnknownCommand[];
+  unknownCommands: UnknownInfoCommand[];
   pageControlInfos: PageControlInfoCommand[];
   wordPageInfos: WordPageInfoCommand[];
+  rgbFrameInfos: RgbFrameInfoCommand[];
 
   constructor(config: Schema.CyberboardConfig) {
     this.config = config;
@@ -43,6 +53,7 @@ export class Cyberboard {
     this.unknownCommands = [];
     this.pageControlInfos = [];
     this.wordPageInfos = [];
+    this.rgbFrameInfos = [];
 
     this.preprocessCommands();
   }
@@ -56,7 +67,7 @@ export class Cyberboard {
       if (pageData.keyframes !== undefined) {
         keyframeNum = pageData.keyframes.frame_num;
       } else {
-        const unknownCommand: UnknownCommand = {
+        const unknownCommand: UnknownInfoCommand = {
           pageIndex: pageData.page_index,
           wordNum: pageData.word_page.word_len,
           frameNum: pageData.frames.frame_num,
@@ -134,7 +145,49 @@ export class Cyberboard {
       }
     }
 
-    console.log(this.commandCount);
+    // Process the RGB
+    let frameCount = wordPageCount;
+    for (let i = 0; i < this.config.page_num; i++) {
+      const pageData = this.config.page_data[i];
+      const frames = pageData.frames;
+
+      if (frames.frame_num !== 0) {
+        frameCount = 11;
+      }
+
+      if (i == 6) break;
+
+      for (let j = 0; j < frames.frame_data.length; j++) {
+        const frameData = frames.frame_data[j];
+        const frameRgb = Buffer.alloc(600);
+        let lastWritten = 0;
+
+        for (let k = 0; k < frameData.frame_RGB.length; k++) {
+          const rgb = frameData.frame_RGB[k];
+          // Strip the # out of the colour code and convert to a buffer
+          const newFrameRgb = Buffer.from(rgb.substring(1), 'hex');
+
+          newFrameRgb.copy(frameRgb, lastWritten);
+          lastWritten += newFrameRgb.length;
+
+          if (k == 0) {
+            console.log(frameData.frame_RGB[0]);
+          }
+        }
+
+        let rgbFrameInfo: RgbFrameInfoCommand = {
+          pageIndex: pageData.page_index,
+          frameIndex: frameData.frame_index,
+          usbFrameIndex: 10,
+          frameRgb: frameRgb.subarray(560, 600),
+        };
+
+        //console.log(pageData.page_index + " " + frameData.frame_index + " " + 10 + " " + frameRgb[0])
+
+        this.commandCount += 1;
+        this.rgbFrameInfos.push(rgbFrameInfo);
+      }
+    }
   }
 
   createPageControlCommands(pageControlInfoItems: PageControlInfo[], pageDataSet: Schema.PageData[]) {
