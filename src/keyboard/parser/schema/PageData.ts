@@ -46,3 +46,4 @@ export const PageData = z.object({
 });
 
 export type PageData = z.infer<typeof PageData>;
+export type Color = z.infer<typeof Color>;

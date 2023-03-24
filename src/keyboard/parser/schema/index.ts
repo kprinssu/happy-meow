@@ -1,5 +1,5 @@
 import { ProductInfo } from './ProductInfo';
-import { PageData } from './PageData';
+import { PageData, Color } from './PageData';
 import { ExchangeKey } from './ExchangeKey';
 import { TabKey } from './TabKey';
 import { FunctionKey } from './FunctionKey';
@@ -19,4 +19,5 @@ export {
   MacroKey,
   SwapKey,
   KeyLayer,
+  Color,
 };
