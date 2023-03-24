@@ -1,6 +1,6 @@
 import { Buffer } from 'buffer';
 
-import { generateSetTime } from '../commands';
+import { generateSetTime } from '../../commands/setTime';
 
 describe('generateSetTime', ()=>{
   test('generates a buffer containing the data to be sent to the keyboard', () => {
@@ -11,7 +11,7 @@ describe('generateSetTime', ()=>{
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 112
     ]);
 
-    const mockDate = jest.useFakeTimers().setSystemTime(testDate);
+    jest.useFakeTimers().setSystemTime(testDate);
     const generatedData = generateSetTime();
     jest.useRealTimers();
 

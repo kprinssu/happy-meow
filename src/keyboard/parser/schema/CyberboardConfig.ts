@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { Buffer } from 'buffer';
 
 import { ProductInfo } from './ProductInfo';
 import { PageData } from './PageData';
@@ -10,13 +9,7 @@ import { MacroKey } from './MacroKey';
 import { SwapKey } from './SwapKey';
 import { KeyLayer } from './KeyLayer';
 
-/*
-const generateCommand = (): Buffer => {
-
-};*/
-
-
-export const Cyberboard = z.object({
+export const CyberboardConfig = z.object({
   product_info: ProductInfo,
   page_num: z.number(),
   page_data: PageData.array(),
@@ -33,4 +26,4 @@ export const Cyberboard = z.object({
   key_layer: KeyLayer,
 });
 
-export type Cyberboard = z.infer<typeof Cyberboard>;
+export type CyberboardConfig = z.infer<typeof CyberboardConfig>;

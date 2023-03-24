@@ -1,5 +1,5 @@
 import { MockBinding, MockPortBinding } from '@serialport/binding-mock';
-import { SerialPort, SerialPortMock } from 'serialport';
+import { SerialPortMock } from 'serialport';
 import { randomBytes } from 'crypto'
 
 import { createPort, writeToKeyboard, readFromKeyboard } from '../io';
@@ -89,7 +89,6 @@ describe('readFromKeyboard', () => {
 
   test('reads data from the keyboard with a fixed buffer size', (done) => {
     const port = createPort(path) as unknown as SerialPortMock;
-    const readSize = 20;
     const data = randomBytes(32);
 
     port.on('open', async () => {
