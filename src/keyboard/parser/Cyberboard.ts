@@ -155,8 +155,6 @@ export class Cyberboard {
         frameCount = 11;
       }
 
-      if (i == 6) break;
-
       for (let j = 0; j < frames.frame_data.length; j++) {
         const frameData = frames.frame_data[j];
         const frameRgb = Buffer.alloc(600);
@@ -169,10 +167,6 @@ export class Cyberboard {
 
           newFrameRgb.copy(frameRgb, lastWritten);
           lastWritten += newFrameRgb.length;
-
-          if (k == 0) {
-            console.log(frameData.frame_RGB[0]);
-          }
         }
 
         let rgbFrameInfo: RgbFrameInfoCommand = {
@@ -182,12 +176,11 @@ export class Cyberboard {
           frameRgb: frameRgb.subarray(560, 600),
         };
 
-        //console.log(pageData.page_index + " " + frameData.frame_index + " " + 10 + " " + frameRgb[0])
-
         this.commandCount += 1;
         this.rgbFrameInfos.push(rgbFrameInfo);
       }
     }
+
   }
 
   createPageControlCommands(pageControlInfoItems: PageControlInfo[], pageDataSet: Schema.PageData[]) {
