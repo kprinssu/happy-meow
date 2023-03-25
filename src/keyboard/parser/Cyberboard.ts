@@ -85,7 +85,7 @@ export class Cyberboard {
   functionKeyInfos: FunctionKeyInfoCommand[];
   macroKeyInfos: MacroKeyInfoCommand[];
   swapKeyInfos: SwapKeyInfoCommand[];
-  keyLaferInfos: KeyLayerInfoCommand[];
+  keyLayerInfos: KeyLayerInfoCommand[];
 
   constructor(config: Schema.CyberboardConfig) {
     this.config = config;
@@ -100,12 +100,36 @@ export class Cyberboard {
     this.functionKeyInfos = [];
     this.macroKeyInfos = [];
     this.swapKeyInfos = [];
-    this.keyLaferInfos = [];
+    this.keyLayerInfos = [];
 
     this.preprocessCommands();
   }
 
   preprocessCommands() {
+    this.processUnknownCommands();
+
+    this.processPageControl();
+
+    this.processWordPage();
+
+    this.processRgbFrames();
+
+    this.processKeyFrames();
+
+    this.processExchangeKeys();
+
+    this.processTabKeys();
+
+    this.processFunctionKeys();
+
+    this.processMacroKeys();
+
+    this.processSwapKeys();
+
+    this.processKeyLayer();
+  }
+
+  processUnknownCommands() {
     // Process the Page Data for Unknown Commands
     for (let i = 0; i < this.config.page_num; i++) {
       const pageData = this.config.page_data[i];
@@ -126,44 +150,69 @@ export class Cyberboard {
     }
 
     this.commandCount += 1;
+  }
 
+  processPageControl() {
     // Process the Page Control Commands
     const pageControlCount = Math.ceil(this.config.page_num / 4);
-    for (let i = 0; i < pageControlCount; i++) {
-      const pageControlInfoItems: PageControlInfo[] = [];
 
-      if (4 * (i + 1) > this.config.page_num) {
-        const currentPageNum = this.config.page_num % 4;
-        const pageDataSet = this.config.page_data.slice(4 * i, this.config.page_num);
+    // Create the PageControl
+    const createPageControlCommands = (pageControlInfoItems: PageControlInfo[], pageDataSet: Schema.PageData[]) => {
 
-        this.createPageControlCommands(pageControlInfoItems, pageDataSet)
-      } else {
-        const currentPageNum = 4;
-        const pageDataSet = this.config.page_data.slice(4 * i, 4 * i + 4);
-
-        this.createPageControlCommands(pageControlInfoItems, pageDataSet)
-
-        this.commandCount += 1;
-        const pageControlInfoCommand: PageControlInfoCommand = {
-          usbFrameCount: pageControlCount,
-          usbFrameIndex: i,
-          pageNum: currentPageNum,
-          controlInfos: pageControlInfoItems,
+      for (let j = 0; j < pageDataSet.length; j++) {
+        const pageData: Schema.PageData = pageDataSet[j];
+        const pageControlInfo: PageControlInfo = {
+          valid: pageData.valid,
+          pageIndex: pageData.page_index,
+          brightness: pageData.lightness,
+          speed: pageData.speed_ms,
+          color: pageData.color,
         };
 
-        this.pageControlInfos.push(pageControlInfoCommand);
+        pageControlInfoItems.push(pageControlInfo);
       }
-    }
+    };
 
+    for (let i = 0; i < pageControlCount; i++) {
+      const pageControlInfoItems: PageControlInfo[] = [];
+      let pageNum = 0;
+
+      if (4 * (i + 1) > this.config.page_num) {
+        pageNum = this.config.page_num % 4;
+        const pageDataSet = this.config.page_data.slice(4 * i, this.config.page_num);
+
+        createPageControlCommands(pageControlInfoItems, pageDataSet)
+      } else {
+        pageNum = 4;
+        const pageDataSet = this.config.page_data.slice(4 * i, 4 * i + 4);
+
+        createPageControlCommands(pageControlInfoItems, pageDataSet)
+      }
+
+      this.commandCount += 1;
+      const pageControlInfoCommand: PageControlInfoCommand = {
+        usbFrameCount: pageControlCount,
+        usbFrameIndex: i,
+        pageNum: pageNum,
+        controlInfos: pageControlInfoItems,
+      };
+
+      this.pageControlInfos.push(pageControlInfoCommand);
+    }
+  }
+
+  processWordPage()  {
     // Process the Word Page
-    let wordPageCount = pageControlCount;
+    let wordPageCount = 0;
     for (let i = 0; i < this.config.page_num; i++) {
       const pageData = this.config.page_data[i];
       const wordPage = pageData.word_page;
 
-      if (wordPage.word_len !== 0) {
-        wordPageCount = Math.ceil(wordPage.word_len / 28);
+      if (wordPage.word_len === 0) {
+        continue;
       }
+
+      wordPageCount = Math.ceil(wordPage.word_len / 28);
 
       for (let j = 0; j < wordPageCount; j++) {
         const pageIndex = pageData.page_index;
@@ -191,16 +240,20 @@ export class Cyberboard {
         this.wordPageInfos.push(wordPageInfo);
       }
     }
+  }
 
+  processRgbFrames() {
     // Process the RGB Frames
-    let frameCount = wordPageCount;
+    let frameCount = 0;
     for (let i = 0; i < this.config.page_num; i++) {
       const pageData = this.config.page_data[i];
       const frames = pageData.frames;
 
-      if (frames.frame_num !== 0) {
-        frameCount = 11;
+      if (frames.frame_num === 0) {
+        continue;
       }
+
+      frameCount = 11;
 
       for (let j = 0; j < frames.frame_data.length; j++) {
         const frameData = frames.frame_data[j];
@@ -228,7 +281,9 @@ export class Cyberboard {
         this.rgbFrameInfos.push(rgbFrameInfo);
       }
     }
+  }
 
+  processKeyFrames() {
     // Process the Keyframes
     for (let i = 0; i < this.config.page_num; i++) {
       const pageData = this.config.page_data[i];
@@ -265,21 +320,27 @@ export class Cyberboard {
         this.commandCount += 1;
       }
     }
+  }
 
+  processExchangeKeys() {
     // Process the Exchange Keys
     for (let i = 0; i < this.config.exchange_key.length; i++) {
       const exchangeKey = this.config.exchange_key[i] as ExtendKeyInfoCommand;
       this.exchangeKeyInfos.push(exchangeKey);
       this.commandCount += 1;
     }
+  }
 
+  processTabKeys() {
     // Process the Tab Keys
     for (let i = 0; i < this.config.tab_key.length; i++) {
       const tabKey = this.config.tab_key[i] as TabKeyInfoCommand;
       this.tabKeyInfos.push(tabKey);
       this.commandCount += 1;
     }
+  }
 
+  processFunctionKeys() {
     // Process the Function Keys
     let functionKeyCount = Math.ceil(this.config.Fn_key_num / 11);
     for (let i = 0; i < functionKeyCount; i++) {
@@ -298,14 +359,18 @@ export class Cyberboard {
       this.functionKeyInfos.push(functionKeyInfo);
       this.commandCount += 1;
     }
+  }
 
+  processMacroKeys() {
     // Process the Macro Keys
     for (let i = 0; i < this.config.MACRO_key.length; i++) {
       const macroKeyInfo = this.config.MACRO_key[i] as MacroKeyInfoCommand;
       this.macroKeyInfos.push(macroKeyInfo);
       this.commandCount += 1;
     }
+  }
 
+  processSwapKeys() {
     // Process the Swap Keys
     let swapKeyCount = Math.ceil(this.config.swap_key_num/ 11)
     for (let i = 0; i < swapKeyCount; i++) {
@@ -324,30 +389,6 @@ export class Cyberboard {
       this.swapKeyInfos.push(swapKeyInfo);
       this.commandCount += 1;
     }
-
-    // TODO: Implement Hatsu later
-
-    // Process Key Layer
-    this.processKeyLayer();
-
-    // console.log(this.commandCount + ' ' + this.swapKeyInfos.length);
-  }
-
-  createPageControlCommands(pageControlInfoItems: PageControlInfo[], pageDataSet: Schema.PageData[]) {
-    // Create the PageControl
-    for (let j = 0; j < pageDataSet.length; j++) {
-      const pageData: Schema.PageData = pageDataSet[j];
-
-      const pageControlInfo: PageControlInfo = {
-        valid: pageData.valid,
-        pageIndex: pageData.page_index,
-        brightness: pageData.lightness,
-        speed: pageData.speed_ms,
-        color: pageData.color,
-      };
-
-      pageControlInfoItems.push(pageControlInfo);
-    }
   }
 
   processKeyLayer() {
@@ -355,34 +396,43 @@ export class Cyberboard {
       return;
     }
 
-     // TODO: Make this more sane than the arbitrary size of 10000
-    const layerBytes = Buffer.alloc(10000);
+    // TODO: Make this more sane than the arbitrary size of 2000
+    // AM has this at 1600 bytes
+    const layerBytes = Buffer.alloc(2000);
     let lastWritten = 0;
 
-
-    // TODO: Verify that this works as this is an assumption and
-    // not based on the AM outputs
     for (let i = 0; i < this.config.key_layer.layer_data.length; i++) {
       const layer = this.config.key_layer.layer_data[i].layer;
 
       for (let j = 0; j < layer.length; j++) {
         const rgba = layer[j].substring(1);
-        const rgbaData = Buffer.from(rgba);
+        const rgbaData = Buffer.from(rgba, 'hex');
 
         rgbaData.copy(layerBytes, lastWritten);
         lastWritten += rgbaData.length;
       }
     }
 
-    // Note: No idea why this is 40
-    for (let i = 0; i < 40; i++) {
-      const keyframeInfo: KeyLayerInfoCommand = {
-        usbFrameIndex: i,
-        layerBytes: layerBytes.subarray(i * 60, (i + 1) * 60),
-      };
+    // Note: No idea why this is 60
+    let keyLayerCount = Math.ceil(lastWritten / 60);
+    for (let i = 0; i < keyLayerCount; i++) {
+      if ((i + 1) == keyLayerCount) {
+        const keyframeInfo: KeyLayerInfoCommand = {
+          usbFrameIndex: i,
+          layerBytes: layerBytes.subarray(i * 60, lastWritten),
+        };
 
-      this.keyLaferInfos.push(keyframeInfo);
-      this.commandCount += 1;
+        this.keyLayerInfos.push(keyframeInfo);
+      } else if ((i + 1) < keyLayerCount) {
+        const keyframeInfo: KeyLayerInfoCommand = {
+          usbFrameIndex: i,
+          layerBytes: layerBytes.subarray(i * 60, (i + 1) * 60),
+        };
+
+        this.keyLayerInfos.push(keyframeInfo);
+
+        this.commandCount += 1;
+      }
     }
   }
 }
