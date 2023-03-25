@@ -1,10 +1,13 @@
 import { z } from 'zod';
 
+const Layer = z.object({
+  layer: z.string().array(),
+});
+
 export const KeyLayer = z.object({
   valid: z.boolean(),
-  layer0: z.string().array().optional(),
-  layer1: z.string().array().optional(),
-  layer2: z.string().array().optional(),
+  layer_num: z.number(),
+  layer_data: Layer.array(),
 });
 
 export type KeyLayer = z.infer<typeof KeyLayer>;

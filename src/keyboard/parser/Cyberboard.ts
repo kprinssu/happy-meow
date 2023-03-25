@@ -46,6 +46,32 @@ interface KeyframeInfoCommand {
   frameRgb: Buffer;
 }
 
+interface ExtendKeyInfoCommand extends Schema.ExchangeKey {
+}
+
+interface TabKeyInfoCommand extends Schema.TabKey {
+}
+
+interface FunctionKeyInfoCommand {
+  functionKeyCount: number;
+  keyNumber: number;
+  functionKeys: Schema.FunctionKey[];
+}
+
+interface MacroKeyInfoCommand extends Schema.MacroKey {
+}
+
+interface SwapKeyInfoCommand {
+  swapKeyCount: number;
+  keyNumber: number;
+  swapKeys: Schema.SwapKey[];
+}
+
+interface KeyLayerInfoCommand {
+  usbFrameIndex: number;
+  layerBytes: Buffer;
+}
+
 export class Cyberboard {
   config: Schema.CyberboardConfig;
   commandCount: number;
@@ -54,6 +80,12 @@ export class Cyberboard {
   wordPageInfos: WordPageInfoCommand[];
   rgbFrameInfos: RgbFrameInfoCommand[];
   keyframeInfos: KeyframeInfoCommand[];
+  exchangeKeyInfos: ExtendKeyInfoCommand[];
+  tabKeyInfos: TabKeyInfoCommand[];
+  functionKeyInfos: FunctionKeyInfoCommand[];
+  macroKeyInfos: MacroKeyInfoCommand[];
+  swapKeyInfos: SwapKeyInfoCommand[];
+  keyLaferInfos: KeyLayerInfoCommand[];
 
   constructor(config: Schema.CyberboardConfig) {
     this.config = config;
@@ -63,6 +95,12 @@ export class Cyberboard {
     this.wordPageInfos = [];
     this.rgbFrameInfos = [];
     this.keyframeInfos = [];
+    this.exchangeKeyInfos = [];
+    this.tabKeyInfos = [];
+    this.functionKeyInfos = [];
+    this.macroKeyInfos = [];
+    this.swapKeyInfos = [];
+    this.keyLaferInfos = [];
 
     this.preprocessCommands();
   }
@@ -226,9 +264,73 @@ export class Cyberboard {
         this.keyframeInfos.push(keyframeInfo);
         this.commandCount += 1;
       }
-
-      console.log(this.keyframeInfos.length + ' ' + this.commandCount);
     }
+
+    // Process the Exchange Keys
+    for (let i = 0; i < this.config.exchange_key.length; i++) {
+      const exchangeKey = this.config.exchange_key[i] as ExtendKeyInfoCommand;
+      this.exchangeKeyInfos.push(exchangeKey);
+      this.commandCount += 1;
+    }
+
+    // Process the Tab Keys
+    for (let i = 0; i < this.config.tab_key.length; i++) {
+      const tabKey = this.config.tab_key[i] as TabKeyInfoCommand;
+      this.tabKeyInfos.push(tabKey);
+      this.commandCount += 1;
+    }
+
+    // Process the Function Keys
+    let functionKeyCount = Math.ceil(this.config.Fn_key_num / 11);
+    for (let i = 0; i < functionKeyCount; i++) {
+      // Note: This loop won't execute when i = 0
+      // this may be a bug even in the AM software
+      if ((i + 1) === functionKeyCount) {
+        continue;
+      }
+
+      const functionKeyInfo: FunctionKeyInfoCommand = {
+        functionKeyCount: this.config.Fn_key_num,
+        keyNumber: 11,
+        functionKeys: this.config.Fn_key.slice(11 * i, 11 * (i + 1)),
+      };
+
+      this.functionKeyInfos.push(functionKeyInfo);
+      this.commandCount += 1;
+    }
+
+    // Process the Macro Keys
+    for (let i = 0; i < this.config.MACRO_key.length; i++) {
+      const macroKeyInfo = this.config.MACRO_key[i] as MacroKeyInfoCommand;
+      this.macroKeyInfos.push(macroKeyInfo);
+      this.commandCount += 1;
+    }
+
+    // Process the Swap Keys
+    let swapKeyCount = Math.ceil(this.config.swap_key_num/ 11)
+    for (let i = 0; i < swapKeyCount; i++) {
+      // Note: Just as with funcion keys, this loop
+      // will not run when i = 0 and is found in AM software too
+      if ((i + 1) === swapKeyCount) {
+        continue;
+      }
+
+      const swapKeyInfo: SwapKeyInfoCommand = {
+        swapKeyCount: this.config.swap_key_num,
+        keyNumber: 11,
+        swapKeys: this.config.swap_key.slice(11 * i, 11 * (i + 1)),
+      };
+
+      this.swapKeyInfos.push(swapKeyInfo);
+      this.commandCount += 1;
+    }
+
+    // TODO: Implement Hatsu later
+
+    // Process Key Layer
+    this.processKeyLayer();
+
+    // console.log(this.commandCount + ' ' + this.swapKeyInfos.length);
   }
 
   createPageControlCommands(pageControlInfoItems: PageControlInfo[], pageDataSet: Schema.PageData[]) {
@@ -245,6 +347,42 @@ export class Cyberboard {
       };
 
       pageControlInfoItems.push(pageControlInfo);
+    }
+  }
+
+  processKeyLayer() {
+    if (!this.config.key_layer.valid) {
+      return;
+    }
+
+     // TODO: Make this more sane than the arbitrary size of 10000
+    const layerBytes = Buffer.alloc(10000);
+    let lastWritten = 0;
+
+
+    // TODO: Verify that this works as this is an assumption and
+    // not based on the AM outputs
+    for (let i = 0; i < this.config.key_layer.layer_data.length; i++) {
+      const layer = this.config.key_layer.layer_data[i].layer;
+
+      for (let j = 0; j < layer.length; j++) {
+        const rgba = layer[j].substring(1);
+        const rgbaData = Buffer.from(rgba);
+
+        rgbaData.copy(layerBytes, lastWritten);
+        lastWritten += rgbaData.length;
+      }
+    }
+
+    // Note: No idea why this is 40
+    for (let i = 0; i < 40; i++) {
+      const keyframeInfo: KeyLayerInfoCommand = {
+        usbFrameIndex: i,
+        layerBytes: layerBytes.subarray(i * 60, (i + 1) * 60),
+      };
+
+      this.keyLaferInfos.push(keyframeInfo);
+      this.commandCount += 1;
     }
   }
 }
