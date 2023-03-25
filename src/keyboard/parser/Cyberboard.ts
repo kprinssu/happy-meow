@@ -39,21 +39,30 @@ interface RgbFrameInfoCommand {
   frameRgb: Buffer;
 }
 
+interface KeyframeInfoCommand {
+  pageIndex: number;
+  frameIndex: number;
+  usbFrameIndex: number;
+  frameRgb: Buffer;
+}
+
 export class Cyberboard {
   config: Schema.CyberboardConfig;
   commandCount: number;
-  unknownCommands: UnknownInfoCommand[];
+  unknownInfos: UnknownInfoCommand[];
   pageControlInfos: PageControlInfoCommand[];
   wordPageInfos: WordPageInfoCommand[];
   rgbFrameInfos: RgbFrameInfoCommand[];
+  keyframeInfos: KeyframeInfoCommand[];
 
   constructor(config: Schema.CyberboardConfig) {
     this.config = config;
     this.commandCount = 0;
-    this.unknownCommands = [];
+    this.unknownInfos = [];
     this.pageControlInfos = [];
     this.wordPageInfos = [];
     this.rgbFrameInfos = [];
+    this.keyframeInfos = [];
 
     this.preprocessCommands();
   }
@@ -74,7 +83,7 @@ export class Cyberboard {
           keyframeNum: keyframeNum,
         };
 
-        this.unknownCommands.push(unknownCommand);
+        this.unknownInfos.push(unknownCommand);
       }
     }
 
@@ -145,7 +154,7 @@ export class Cyberboard {
       }
     }
 
-    // Process the RGB
+    // Process the RGB Frames
     let frameCount = wordPageCount;
     for (let i = 0; i < this.config.page_num; i++) {
       const pageData = this.config.page_data[i];
@@ -169,6 +178,7 @@ export class Cyberboard {
           lastWritten += newFrameRgb.length;
         }
 
+        // USB Frame Index is constant at 10 (no idea why)
         let rgbFrameInfo: RgbFrameInfoCommand = {
           pageIndex: pageData.page_index,
           frameIndex: frameData.frame_index,
@@ -181,6 +191,44 @@ export class Cyberboard {
       }
     }
 
+    // Process the Keyframes
+    for (let i = 0; i < this.config.page_num; i++) {
+      const pageData = this.config.page_data[i];
+      const keyframes = pageData.keyframes;
+
+      // Keyframes are optional and can be null
+      if (keyframes === undefined || keyframes.frame_num === 0) {
+        continue;
+      }
+
+      for (let j = 0; j < keyframes.frame_data.length; j++) {
+        const frameData = keyframes.frame_data[j];
+        const frameRgb = Buffer.alloc(270);
+        let lastWritten = 0;
+
+        for (let k = 0; k < frameData.frame_RGB.length; k++) {
+          const rgb = frameData.frame_RGB[k];
+          // Strip the # out of the colour code and convert to a buffer
+          const newFrameRgb = Buffer.from(rgb.substring(1), 'hex');
+
+          newFrameRgb.copy(frameRgb, lastWritten);
+          lastWritten += newFrameRgb.length;
+        }
+
+        // USB Frame Index is constant at 4 (no idea why)
+        const keyframeInfo: KeyframeInfoCommand = {
+          pageIndex: pageData.page_index,
+          frameIndex: frameData.frame_index,
+          usbFrameIndex: 4,
+          frameRgb: frameRgb.subarray(224, 270),
+        };
+
+        this.keyframeInfos.push(keyframeInfo);
+        this.commandCount += 1;
+      }
+
+      console.log(this.keyframeInfos.length + ' ' + this.commandCount);
+    }
   }
 
   createPageControlCommands(pageControlInfoItems: PageControlInfo[], pageDataSet: Schema.PageData[]) {
