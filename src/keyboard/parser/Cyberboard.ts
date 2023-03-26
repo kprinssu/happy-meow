@@ -46,7 +46,7 @@ export interface KeyframeInfoCommand {
   frameRgb: Buffer;
 }
 
-export interface ExtendKeyInfoCommand extends Schema.ExchangeKey {
+export interface ExchangeKeyInfoCommand extends Schema.ExchangeKey {
 }
 
 export interface TabKeyInfoCommand extends Schema.TabKey {
@@ -80,7 +80,7 @@ export class Cyberboard {
   wordPageInfos: WordPageInfoCommand[];
   rgbFrameInfos: RgbFrameInfoCommand[];
   keyframeInfos: KeyframeInfoCommand[];
-  exchangeKeyInfos: ExtendKeyInfoCommand[];
+  exchangeKeyInfos: ExchangeKeyInfoCommand[];
   tabKeyInfos: TabKeyInfoCommand[];
   functionKeyInfos: FunctionKeyInfoCommand[];
   macroKeyInfos: MacroKeyInfoCommand[];
@@ -325,7 +325,7 @@ export class Cyberboard {
   processExchangeKeys() {
     // Process the Exchange Keys
     for (let i = 0; i < this.config.exchange_key.length; i++) {
-      const exchangeKey = this.config.exchange_key[i] as ExtendKeyInfoCommand;
+      const exchangeKey = this.config.exchange_key[i] as ExchangeKeyInfoCommand;
       this.exchangeKeyInfos.push(exchangeKey);
       this.commandCount += 1;
     }
