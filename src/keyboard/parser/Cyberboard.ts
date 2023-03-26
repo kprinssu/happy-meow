@@ -2,14 +2,14 @@ import { Buffer } from 'buffer';
 
 import * as Schema from './schema';
 
-interface UnknownInfoCommand {
+export interface UnknownInfoCommand {
   pageIndex: number;
   wordNum: number;
   frameNum: number;
   keyframeNum: number;
 }
 
-interface PageControlInfo {
+export interface PageControlInfo {
   valid: boolean;
   pageIndex: number;
   brightness: number;
@@ -17,14 +17,14 @@ interface PageControlInfo {
   color: Schema.Color;
 }
 
-interface PageControlInfoCommand {
+export interface PageControlInfoCommand {
   usbFrameCount: number;
   usbFrameIndex: number;
   pageNum: number;
   controlInfos: PageControlInfo[];
 }
 
-interface WordPageInfoCommand {
+export interface WordPageInfoCommand {
   frameIndex: number;
   pageIndex: number;
   valid: boolean;
@@ -32,42 +32,42 @@ interface WordPageInfoCommand {
   unicode: string[];
 }
 
-interface RgbFrameInfoCommand {
+export interface RgbFrameInfoCommand {
   pageIndex: number;
   frameIndex: number;
   usbFrameIndex: number;
   frameRgb: Buffer;
 }
 
-interface KeyframeInfoCommand {
+export interface KeyframeInfoCommand {
   pageIndex: number;
   frameIndex: number;
   usbFrameIndex: number;
   frameRgb: Buffer;
 }
 
-interface ExtendKeyInfoCommand extends Schema.ExchangeKey {
+export interface ExtendKeyInfoCommand extends Schema.ExchangeKey {
 }
 
-interface TabKeyInfoCommand extends Schema.TabKey {
+export interface TabKeyInfoCommand extends Schema.TabKey {
 }
 
-interface FunctionKeyInfoCommand {
+export interface FunctionKeyInfoCommand {
   functionKeyCount: number;
   keyNumber: number;
   functionKeys: Schema.FunctionKey[];
 }
 
-interface MacroKeyInfoCommand extends Schema.MacroKey {
+export interface MacroKeyInfoCommand extends Schema.MacroKey {
 }
 
-interface SwapKeyInfoCommand {
+export interface SwapKeyInfoCommand {
   swapKeyCount: number;
   keyNumber: number;
   swapKeys: Schema.SwapKey[];
 }
 
-interface KeyLayerInfoCommand {
+export interface KeyLayerInfoCommand {
   usbFrameIndex: number;
   layerBytes: Buffer;
 }
