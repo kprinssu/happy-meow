@@ -5,7 +5,7 @@ const Layer = z.object({
 });
 
 export const KeyLayer = z.object({
-  valid: z.boolean(),
+  valid: z.coerce.boolean(),
   layer_num: z.number(),
   layer_data: Layer.array(),
 });

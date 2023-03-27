@@ -1,13 +1,13 @@
 import { z } from 'zod';
 
 const Color = z.object({
-  default: z.boolean(),
+  default: z.coerce.boolean(),
   back_rgb: z.string(),
   rgb: z.string(),
 });
 
 const WordPage = z.object({
-  valid: z.boolean(),
+  valid: z.coerce.boolean(),
   word_len: z.number(),
   unicode: z.string().array(),
 });
@@ -18,7 +18,7 @@ const FrameData = z.object({
 });
 
 const Frames = z.object({
-  valid: z.boolean(),
+  valid: z.coerce.boolean(),
   frame_num: z.number(),
   frame_data: FrameData.array(),
 });
@@ -29,13 +29,13 @@ const KeyframeData = z.object({
 });
 
 const Keyframe = z.object({
-  valid: z.boolean(),
+  valid: z.coerce.boolean(),
   frame_num: z.number(),
   frame_data: KeyframeData.array(),
 });
 
 export const PageData = z.object({
-  valid: z.boolean(),
+  valid: z.coerce.boolean(),
   page_index: z.number(),
   lightness: z.number(),
   speed_ms: z.number(),
