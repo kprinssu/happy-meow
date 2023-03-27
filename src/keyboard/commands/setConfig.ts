@@ -1,14 +1,19 @@
 import { Buffer } from 'buffer';
-import { crc8 } from 'crc';
+import { crc8 } from 'easy-crc';
 
 import { Cyberboard } from '../parser';
+
+const generateChecksum = (buffer: Buffer): number => {
+  const subarray = buffer.subarray(0, 63);
+  return crc8('CRC-8', subarray);
+};
 
 const generateStartCommand = (): Buffer => {
   const buffer = Buffer.alloc(64);
   buffer[0] = 1;
   buffer[1] = 5;
 
-  buffer[63] = crc8(buffer);
+  buffer[63] = generateChecksum(buffer);
   return buffer;
 };
 
@@ -29,7 +34,7 @@ const generateUnknownInfoCommand = (config: Cyberboard): Buffer => {
     index += 6;
   }
 
-  buffer[63] = crc8(buffer);
+  buffer[63] = generateChecksum(buffer);
   return buffer;
 };
 
@@ -69,7 +74,7 @@ const generatePageControlInfoCommands = (config: Cyberboard): Buffer[] => {
       index += 3;
     }
 
-    buffer[63] = crc8(buffer);
+    buffer[63] = generateChecksum(buffer);
     buffers.push(buffer);
   }
 
@@ -99,7 +104,7 @@ const generateWordInfoCommands = (config: Cyberboard): Buffer[] => {
       index += 2;
     }
 
-    buffer[63] = crc8(buffer);
+    buffer[63] = generateChecksum(buffer);
     buffers.push(buffer);
   }
 
@@ -119,7 +124,7 @@ const generateRgbFrameCommands = (config: Cyberboard): Buffer[] => {
     buffer[4] = rgbFrame.usbFrameIndex;
     rgbFrame.frameRgb.copy(buffer, 5);
 
-    buffer[63] = crc8(buffer);
+    buffer[63] = generateChecksum(buffer);
     buffers.push(buffer);
   }
 
@@ -139,7 +144,7 @@ const generateKeyframeCommands = (config: Cyberboard): Buffer[] => {
     buffer[3] = keyframe.usbFrameIndex;
     keyframe.frameRgb.copy(buffer, 4);
 
-    buffer[63] = crc8(buffer);
+    buffer[63] = generateChecksum(buffer);
     buffers.push(buffer);
   }
 
@@ -174,7 +179,7 @@ const generateExchangeKeyCommands = (config: Cyberboard): Buffer[] => {
       index += 4;
     }
 
-    buffer[63] = crc8(buffer);
+    buffer[63] = generateChecksum(buffer);
     buffers.push(buffer);
   }
 
@@ -213,7 +218,7 @@ const generateTabKeyCommands = (config: Cyberboard): Buffer[] => {
       index += 4;
     }
 
-    buffer1[63] = crc8(buffer1);
+    buffer1[63] = crc8('CRC-8', buffer1);
     buffers.push(buffer1);
 
     // The 2nd buffer
@@ -240,7 +245,7 @@ const generateTabKeyCommands = (config: Cyberboard): Buffer[] => {
       index += 4;
     }
 
-    buffer2[63] = crc8(buffer2);
+    buffer2[63] = crc8('CRC-8', buffer2);
     buffers.push(buffer2);
   }
 
@@ -273,7 +278,7 @@ const generateFunctionKeyCommands = (config: Cyberboard): Buffer[] => {
       index += 4;
     }
 
-    buffer[63] = crc8(buffer)
+    buffer[63] = crc8('CRC-8', buffer)
     buffers.push(buffer);
   }
 
@@ -309,7 +314,7 @@ const generateMacroKeyCommands = (config: Cyberboard): Buffer[] => {
       index += 2;
     }
 
-    buffer[63] = crc8(buffer)
+    buffer[63] = crc8('CRC-8', buffer)
     buffers.push(buffer);
   }
 
@@ -343,7 +348,7 @@ const generateSwapKeyCommands = (config: Cyberboard): Buffer[] => {
       index += 4;
     }
 
-    buffer[63] = crc8(buffer)
+    buffer[63] = crc8('CRC-8', buffer)
     buffers.push(buffer);
   }
 
@@ -356,7 +361,7 @@ const generateKeyLayerControlCommand = (config: Cyberboard): Buffer => {
   buffer[1] = 8;
   buffer[2] = config.config.key_layer.layer_num;
 
-  buffer[63] = crc8(buffer)
+  buffer[63] = crc8('CRC-8', buffer)
   return buffer;
 };
 
@@ -372,7 +377,7 @@ const generateKeyLayerCommands = (config: Cyberboard): Buffer[] => {
     buffer[2] = keyLayerInfo.usbFrameIndex;
     keyLayerInfo.layerBytes.copy(buffer, 3);
 
-    buffer[63] = crc8(buffer);
+    buffer[63] = generateChecksum(buffer);
     buffers.push(buffer);
   }
 
@@ -385,7 +390,7 @@ const generateStopCommand = (frameCount: number): Buffer => {
   buffer[1] = 6;
 
   buffer.writeInt32BE(frameCount, 2);
-  buffer[63] = crc8(buffer);
+  buffer[63] = generateChecksum(buffer);
   return buffer;
 };
 

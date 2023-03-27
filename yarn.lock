@@ -2546,11 +2546,6 @@ cosmiconfig@^7.0.1:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-crc@^4.3.2:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/crc/-/crc-4.3.2.tgz#49b7821cbf2cf61dfd079ed93863bbebd5469b9a"
-  integrity sha512-uGDHf4KLLh2zsHa8D8hIQ1H/HtFQhyHrc0uhHBcoKGol/Xnb+MPYfUMw7cvON6ze/GUESTudKayDcJC5HnJv1A==
-
 create-require@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/create-require/-/create-require-1.1.1.tgz#c1d7e8f1e5f6cfc9ff65f9cd352d37348756c333"
@@ -2845,6 +2840,11 @@ dot-case@^3.0.4:
   dependencies:
     no-case "^3.0.4"
     tslib "^2.0.3"
+
+easy-crc@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/easy-crc/-/easy-crc-1.1.0.tgz#fe59a33a9a33faf3ff54cf8f2ba7f13ab3730c1d"
+  integrity sha512-cvtERLTu8mYt1pOVVekJ4E0VdwyuKgL+VAfE3LY+Lw762i9M1bSEikm6fyGD2grxOdBfI0HgOmSi3HQneKr33A==
 
 ee-first@1.1.1:
   version "1.1.1"
