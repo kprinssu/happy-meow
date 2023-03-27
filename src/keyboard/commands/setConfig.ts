@@ -106,6 +106,81 @@ const generateWordInfoCommands = (config: Cyberboard): Buffer[] => {
   return buffers;
 };
 
+const generateRgbFrameCommands = (config: Cyberboard): Buffer[] => {
+  const buffers: Buffer[] = [];
+
+  for (let i = 0; i < config.rgbFrameInfos.length; i++) {
+    const rgbFrame = config.rgbFrameInfos[i];
+
+    const buffer = Buffer.alloc(64);
+    buffer[0] = 4;
+    buffer[1] = rgbFrame.pageIndex;
+    buffer.writeInt16BE(rgbFrame.frameIndex, 2);
+    buffer[4] = rgbFrame.usbFrameIndex;
+    rgbFrame.frameRgb.copy(buffer, 5);
+
+    buffer[63] = crc8(buffer);
+    buffers.push(buffer);
+  }
+
+  return buffer;
+};
+
+const generateKeyframeCommands() = (config: Cyberboard): Buffer[] => {
+  const buffers: Buffer[] = [];
+
+  for (let i = 0; i < config.keyframeInfos.length; i++) {
+    const keyframe = config.keyframeInfos[i];
+
+    const buffer = Buffer.alloc(64);
+    buffer[0] = 5;
+    buffer[1] = keyframe.pageIndex;
+    buffer[2] = keyframe.frameIndex;
+    buffer[3] = keyframe.usbFrameIndex;
+    keyframe.frameRgb.copy(buffer, 4);
+
+    buffer[63] = crc8(buffer);
+    buffers.push(buffer);
+  }
+
+  return buffer;
+};
+
+const generateExchangeKeyCommands() = (config: Cyberboard): Buffer[] => {
+    const buffers: Buffer[] = [];
+
+  for (let i = 0; i < config.exchangeKeyInfos.length; i++) {
+    const exchangeKey = config.exchangeKeyInfos[i];
+
+    const buffer = Buffer.alloc(64);
+    buffer[0] = 6;
+    buffer[1] = 1;
+    buffer[2] = config.exchangeKey.length; // TODO: Verify if this is the count or the "exchange_num" from the JSON file
+    buffer[3] = exchangeKey.exchange_key;
+
+    let index = 4;
+    for (let j = 0; j < exchangeKey.input_key; j++) {
+      const inputkey = exchangeKey.input_key[j];
+      const inputKeyBuffer = Buffer.from(inputkey.substring(1), 'hex');
+      inputKeyBuffer.copy(buffer, index);
+      index += 4;
+    }
+
+    let index = 24;
+    for (let j = 0; j < exchangeKey.out_key; j++) {
+      const outputkey = exchangeKey.out_key[j];
+      const outputputKeyBuffer = Buffer.from(outputkey.substring(1), 'hex');
+      outputputKeyBuffer.copy(buffer, index);
+      index += 4;
+    }
+
+    buffer[63] = crc8(buffer);
+    buffers.push(buffer);
+  }
+
+  return buffer;
+};
+
 const generateStopCommand = (frameCount: number): Buffer => {
   const buffer = Buffer.alloc(64);
   buffer[0] = 1;
@@ -121,5 +196,8 @@ export {
   generateUnknownInfoCommand,
   generatePageControlInfoCommands,
   generateWordInfoCommands,
+  generateRgbFrameCommands,
+  generateKeyframeCommands,
+  generateExchangeKeyCommands,
   generateStopCommand,
 };
