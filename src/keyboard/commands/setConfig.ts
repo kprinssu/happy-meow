@@ -316,6 +316,68 @@ const generateMacroKeyCommands = (config: Cyberboard): Buffer[] => {
   return buffers;
 };
 
+const generateSwapKeyCommands = (config: Cyberboard): Buffer[] => {
+  const buffers: Buffer[] = [];
+
+  for (let i = 0; i < config.swapKeyInfos.length; i++) {
+    const swapKey = config.swapKeyInfos[i];
+
+    const buffer = Buffer.alloc(64);
+    buffer[0] = 6;
+    buffer[1] = 6;
+    buffer[2] = swapKey.swapKeyCount;
+    buffer[3] = swapKey.keyNumber;
+
+    let index = 4;
+    for (let j = 0; j < swapKey.swapKeys.length; j++) {
+      const key = swapKey.swapKeys[j];
+
+      const inKeyBuffer = Buffer.from(key.input_key.substring(1), 'hex')
+      const outKeyBuffer = Buffer.from(key.out_key.substring(1), 'hex')
+
+      buffer[index] = key.swap_key_index;
+      index += 1;
+      inKeyBuffer.copy(buffer, index);
+      index += 4;
+      outKeyBuffer.copy(buffer, index);
+      index += 4;
+    }
+
+    buffer[63] = crc8(buffer)
+    buffers.push(buffer);
+  }
+
+  return buffers;
+};
+
+const generateKeyLayerControlCommand = (config: Cyberboard): Buffer => {
+  const buffer = Buffer.alloc(64);
+  buffer[0] = 6;
+  buffer[1] = 8;
+  buffer[2] = config.config.key_layer.layer_num;
+
+  buffer[63] = crc8(buffer)
+  return buffer;
+};
+
+const generateKeyLayerCommands = (config: Cyberboard): Buffer[] => {
+  const buffers: Buffer[] = [];
+
+  for (let i = 0; i < config.keyLayerInfos.length; i++) {
+    const keyLayerInfo = config.keyLayerInfos[i];
+
+    const buffer = Buffer.alloc(64);
+    buffer[0] = 6;
+    buffer[1] = 7;
+    buffer[2] = keyLayerInfo.usbFrameIndex;
+    keyLayerInfo.layerBytes.copy(buffer, 3);
+
+    buffer[63] = crc8(buffer);
+    buffers.push(buffer);
+  }
+
+  return buffers;
+};
 
 const generateStopCommand = (frameCount: number): Buffer => {
   const buffer = Buffer.alloc(64);
@@ -338,6 +400,8 @@ export {
   generateTabKeyCommands,
   generateFunctionKeyCommands,
   generateMacroKeyCommands,
-
+  generateSwapKeyCommands,
+  generateKeyLayerControlCommand,
+  generateKeyLayerCommands,
   generateStopCommand,
 };
