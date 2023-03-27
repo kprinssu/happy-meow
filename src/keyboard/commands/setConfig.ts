@@ -123,10 +123,10 @@ const generateRgbFrameCommands = (config: Cyberboard): Buffer[] => {
     buffers.push(buffer);
   }
 
-  return buffer;
+  return buffers;
 };
 
-const generateKeyframeCommands() = (config: Cyberboard): Buffer[] => {
+const generateKeyframeCommands = (config: Cyberboard): Buffer[] => {
   const buffers: Buffer[] = [];
 
   for (let i = 0; i < config.keyframeInfos.length; i++) {
@@ -143,10 +143,10 @@ const generateKeyframeCommands() = (config: Cyberboard): Buffer[] => {
     buffers.push(buffer);
   }
 
-  return buffer;
+  return buffers;
 };
 
-const generateExchangeKeyCommands() = (config: Cyberboard): Buffer[] => {
+const generateExchangeKeyCommands = (config: Cyberboard): Buffer[] => {
     const buffers: Buffer[] = [];
 
   for (let i = 0; i < config.exchangeKeyInfos.length; i++) {
@@ -178,7 +178,73 @@ const generateExchangeKeyCommands() = (config: Cyberboard): Buffer[] => {
     buffers.push(buffer);
   }
 
-  return buffer;
+  return buffers;
+};
+
+const generateTabKeyCommands = (config: Cyberboard): Buffer[] => {
+  const buffers: Buffer[] = [];
+
+  for (let i = 0; i < config.tabKeyInfos.length; i++) {
+    const tabKey = config.tabKeyInfos[i];
+    const keyValue = tabKey.key_value;
+    const keyValueBuffer = Buffer.from(keyValue.substring(1), 'hex');
+
+    // There are two buffers for every tab key
+    const buffer1 = Buffer.alloc(64);
+    buffer1[0] = 6;
+    buffer1[1] = 2;
+    buffer1[2] = config.tabKeyInfos.length;
+    buffer1[3] = tabKey.ta_key_index;
+    keyValueBuffer.copy(buffer1, 4);
+
+    let index = 9;
+    for (let j = 0; j < tabKey.single_key_out.length; j++) {
+      const key = tabKey.single_key_out[j];
+      const keyBuffer = Buffer.from(key.substring(1), 'hex');
+      keyBuffer.copy(buffer1, index);
+      index += 4;
+    }
+
+    index = 29;
+    for (let j = 0; j < tabKey.double_key_out.length; j++) {
+      const key = tabKey.double_key_out[j];
+      const keyBuffer = Buffer.from(key.substring(1), 'hex');
+      keyBuffer.copy(buffer1, index);
+      index += 4;
+    }
+
+    buffer1[63] = crc8(buffer1);
+    buffers.push(buffer1);
+
+    // The 2nd buffer
+    const buffer2 = Buffer.alloc(64);
+    buffer2[0] = 6;
+    buffer2[1] = 3;
+    buffer2[2] = config.tabKeyInfos.length;
+    buffer2[3] = tabKey.ta_key_index;
+    keyValueBuffer.copy(buffer2, 4);
+
+    let index = 9;
+    for (let j = 0; j < tabKey.three_key_out.length; j++) {
+      const key = tabKey.three_key_out[j];
+      const keyBuffer = Buffer.from(key.substring(1), 'hex');
+      keyBuffer.copy(buffer1, index);
+      index += 4;
+    }
+
+    index = 29;
+    for (let j = 0; j < tabKey.long_key_out.length; j++) {
+      const key = tabKey.long_key_out[j];
+      const keyBuffer = Buffer.from(key.substring(1), 'hex');
+      keyBuffer.copy(buffer1, index);
+      index += 4;
+    }
+
+    buffer2[63] = crc8(buffer2);
+    buffers.push(buffer2);
+  }
+
+  return buffers;
 };
 
 const generateStopCommand = (frameCount: number): Buffer => {
@@ -199,5 +265,6 @@ export {
   generateRgbFrameCommands,
   generateKeyframeCommands,
   generateExchangeKeyCommands,
+  generateTabKeyCommands,
   generateStopCommand,
 };
