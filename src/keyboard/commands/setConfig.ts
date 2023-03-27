@@ -12,11 +12,11 @@ const generateStartCommand = (): Buffer => {
   return buffer;
 };
 
-const generateUnknownInfoCommand = (pageNum: number, config: Cyberboard): Buffer => {
+const generateUnknownInfoCommand = (config: Cyberboard): Buffer => {
   const buffer = Buffer.alloc(64);
   buffer[0] = 2;
   buffer[1] = 1;
-  buffer[2] = pageNum;
+  buffer[2] = config.config.page_num;
 
   let index = 0;
   for (let i = 0; i < config.unknownInfos.length; i++) {
@@ -53,7 +53,7 @@ const generatePageControlInfoCommands = (config: Cyberboard): Buffer[] => {
       buffer[index] = controlInfo.valid ? 1 : 0;
       buffer[index + 1] = controlInfo.pageIndex;
       buffer[index + 2] = controlInfo.brightness;
-      buffer.writeInt16BE(controlInfo.speed, index + 3);
+      buffer.writeInt16LE(controlInfo.speed, index + 3);
       index += 5;
 
       const color = controlInfo.color;
@@ -115,7 +115,7 @@ const generateRgbFrameCommands = (config: Cyberboard): Buffer[] => {
     const buffer = Buffer.alloc(64);
     buffer[0] = 4;
     buffer[1] = rgbFrame.pageIndex;
-    buffer.writeInt16BE(rgbFrame.frameIndex, 2);
+    buffer.writeInt16LE(rgbFrame.frameIndex, 2);
     buffer[4] = rgbFrame.usbFrameIndex;
     rgbFrame.frameRgb.copy(buffer, 5);
 
@@ -155,7 +155,7 @@ const generateExchangeKeyCommands = (config: Cyberboard): Buffer[] => {
     const buffer = Buffer.alloc(64);
     buffer[0] = 6;
     buffer[1] = 1;
-    buffer[2] = config.exchangeKeyInfos.length; // TODO: Verify if this is the count or the "exchange_num" from the JSON file
+    buffer[2] = config.config.exchange_num;
     buffer[3] = exchangeKey.exchange_index;
 
     let index = 4;
@@ -228,7 +228,7 @@ const generateTabKeyCommands = (config: Cyberboard): Buffer[] => {
     for (let j = 0; j < tabKey.three_key_out.length; j++) {
       const key = tabKey.three_key_out[j];
       const keyBuffer = Buffer.from(key.substring(1), 'hex');
-      keyBuffer.copy(buffer1, index);
+      keyBuffer.copy(buffer2, index);
       index += 4;
     }
 
@@ -236,7 +236,7 @@ const generateTabKeyCommands = (config: Cyberboard): Buffer[] => {
     for (let j = 0; j < tabKey.long_key_out.length; j++) {
       const key = tabKey.long_key_out[j];
       const keyBuffer = Buffer.from(key.substring(1), 'hex');
-      keyBuffer.copy(buffer1, index);
+      keyBuffer.copy(buffer2, index);
       index += 4;
     }
 
@@ -294,10 +294,10 @@ const generateMacroKeyCommands = (config: Cyberboard): Buffer[] => {
 
     let index = 4;
     const inKeyBuffer = Buffer.from(macroKey.input_key.substring(1), 'hex');
-
     inKeyBuffer.copy(buffer, index);
     index += 4;
-    for (let j = 0; macroKey.out_key.length; j++) {
+
+    for (let j = 0; j < macroKey.out_key.length; j++) {
       const outKeyBuffer = Buffer.from(macroKey.out_key[j].substring(1), 'hex');
       outKeyBuffer.copy(buffer, index);
       index += 4;
@@ -305,7 +305,7 @@ const generateMacroKeyCommands = (config: Cyberboard): Buffer[] => {
 
     for (let j = 0; j < macroKey.intvel_ms.length; j++) {
       const speed = macroKey.intvel_ms[j];
-      buffer.writeInt16BE(speed, index);
+      buffer.writeInt16LE(speed, index);
       index += 2;
     }
 
