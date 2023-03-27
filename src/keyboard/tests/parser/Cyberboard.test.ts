@@ -1,5 +1,4 @@
 import { Cyberboard } from '../../parser/Cyberboard';
-import { CyberboardConfig } from '../../parser/schema';
 import { readJSON } from '../../parser/reader';
 import { expectedPageControl,
   expectedWordPage,

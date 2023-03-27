@@ -24,8 +24,8 @@ const generateUnknownInfoCommand = (config: Cyberboard): Buffer => {
 
     buffer[index] = unknownInfo.pageIndex;
     buffer[index + 1] = unknownInfo.wordNum;
-    buffer.writeInt16BE(unknownInfo.frameNum, index + 2);
-    buffer.writeInt16BE(unknownInfo.keyframeNum, index + 4);
+    buffer.writeInt16LE(unknownInfo.frameNum, index + 2);
+    buffer.writeInt16LE(unknownInfo.keyframeNum, index + 4);
     index += 6;
   }
 

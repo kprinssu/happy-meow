@@ -21,11 +21,7 @@ const validJsonConfig = readJSON('./src/keyboard/tests/parser/valid.json');
 
 describe('generateStartCommand', () => {
   test('it generates a buffer containing the start command', () => {
-    const expectedData = Buffer.from([
-      1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 97
-    ]);
+    const expectedData = Buffer.from('01050000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000061', 'hex');
 
     const generatedData = generateStartCommand();
     expect(generatedData).toEqual(expectedData);
@@ -640,7 +636,6 @@ describe('generateKeyLayerControlCommand', () => {
   });
 });
 
-
 describe('generateKeyLayerCommands', () => {
   test('it generates an array of buffers containing the key layer commands', async () => {
     const jsonConfig =  await validJsonConfig;
@@ -683,11 +678,7 @@ describe('generateKeyLayerCommands', () => {
 describe('generateStopCommand', () => {
   test('it generates a buffer containing the stop command', () => {
     const frameCount = 100;
-    const expectedData = Buffer.from([
-      1, 6, 0, 0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 189
-    ]);
+    const expectedData = Buffer.from('010600000064000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000bd', 'hex');
 
     const generatedData = generateStopCommand(frameCount);
     expect(generatedData).toEqual(expectedData);

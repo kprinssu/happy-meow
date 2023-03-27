@@ -46,11 +46,9 @@ export interface KeyframeInfoCommand {
   frameRgb: Buffer;
 }
 
-export interface ExchangeKeyInfoCommand extends Schema.ExchangeKey {
-}
+export type ExchangeKeyInfoCommand = Schema.ExchangeKey
 
-export interface TabKeyInfoCommand extends Schema.TabKey {
-}
+export type TabKeyInfoCommand = Schema.TabKey
 
 export interface FunctionKeyInfoCommand {
   functionKeyCount: number;
@@ -58,8 +56,7 @@ export interface FunctionKeyInfoCommand {
   functionKeys: Schema.FunctionKey[];
 }
 
-export interface MacroKeyInfoCommand extends Schema.MacroKey {
-}
+export type MacroKeyInfoCommand = Schema.MacroKey
 
 export interface SwapKeyInfoCommand {
   swapKeyCount: number;
@@ -107,25 +104,15 @@ export class Cyberboard {
 
   preprocessCommands() {
     this.processUnknownCommands();
-
     this.processPageControl();
-
     this.processWordPage();
-
     this.processRgbFrames();
-
     this.processKeyFrames();
-
     this.processExchangeKeys();
-
     this.processTabKeys();
-
     this.processFunctionKeys();
-
     this.processMacroKeys();
-
     this.processSwapKeys();
-
     this.processKeyLayer();
   }
 
@@ -230,7 +217,7 @@ export class Cyberboard {
 
         const wordPageInfo: WordPageInfoCommand = {
           frameIndex: j,
-          pageIndex: pageData.page_index,
+          pageIndex: pageIndex,
           valid: valid,
           wordLen: wordLen,
           unicode: selectedUnicode,
@@ -244,7 +231,6 @@ export class Cyberboard {
 
   processRgbFrames() {
     // Process the RGB Frames
-    let frameCount = 0;
     for (let i = 0; i < this.config.page_num; i++) {
       const pageData = this.config.page_data[i];
       const frames = pageData.frames;
@@ -252,8 +238,6 @@ export class Cyberboard {
       if (frames.frame_num === 0) {
         continue;
       }
-
-      frameCount = 11;
 
       for (let j = 0; j < frames.frame_data.length; j++) {
         const frameData = frames.frame_data[j];
@@ -270,7 +254,7 @@ export class Cyberboard {
         }
 
         // USB Frame Index is constant at 10 (no idea why)
-        let rgbFrameInfo: RgbFrameInfoCommand = {
+        const rgbFrameInfo: RgbFrameInfoCommand = {
           pageIndex: pageData.page_index,
           frameIndex: frameData.frame_index,
           usbFrameIndex: 10,
@@ -342,7 +326,7 @@ export class Cyberboard {
 
   processFunctionKeys() {
     // Process the Function Keys
-    let functionKeyCount = Math.ceil(this.config.Fn_key_num / 11);
+    const functionKeyCount = Math.ceil(this.config.Fn_key_num / 11);
     for (let i = 0; i < functionKeyCount; i++) {
       // Note: This loop won't execute when i = 0
       // this may be a bug even in the AM software
@@ -372,7 +356,7 @@ export class Cyberboard {
 
   processSwapKeys() {
     // Process the Swap Keys
-    let swapKeyCount = Math.ceil(this.config.swap_key_num/ 11)
+    const swapKeyCount = Math.ceil(this.config.swap_key_num/ 11)
     for (let i = 0; i < swapKeyCount; i++) {
       // Note: Just as with funcion keys, this loop
       // will not run when i = 0 and is found in AM software too
@@ -414,7 +398,7 @@ export class Cyberboard {
     }
 
     // Note: No idea why this is 60
-    let keyLayerCount = Math.ceil(lastWritten / 60);
+    const keyLayerCount = Math.ceil(lastWritten / 60);
     for (let i = 0; i < keyLayerCount; i++) {
       if ((i + 1) == keyLayerCount) {
         const keyframeInfo: KeyLayerInfoCommand = {
