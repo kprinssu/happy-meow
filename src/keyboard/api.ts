@@ -28,6 +28,17 @@ export class KeyboardApi {
       const config = await this.loadConfig(jsonPath);
       const port = createPort(portPath);
 
+      await new Promise<void>((resolve, reject) => {
+        try {
+          port.open();
+        } catch(e) {
+          console.log(e);
+          reject(e);
+        }
+
+        resolve();
+      });
+
       const startCommand = SetConfig.generateStartCommand();
       await writeToKeyboard(port, startCommand);
 
@@ -90,7 +101,7 @@ export class KeyboardApi {
       const stopCommand = SetConfig.generateStopCommand(config.commandCount);
       await writeToKeyboard(port, stopCommand);
 
-      console.log('write keyboard finished')
+      port.close();
     } catch(e) {
       console.log(e);
       return false;

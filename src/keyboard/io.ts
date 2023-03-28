@@ -2,6 +2,8 @@ import { SerialPort } from 'serialport';
 import { SerialPortStream } from '@serialport/stream';
 import { Buffer } from 'buffer';
 
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
 const createPort = (path: string): SerialPort => {
   return new SerialPort({
     path: path,
@@ -12,6 +14,7 @@ const createPort = (path: string): SerialPort => {
 
 const writeToKeyboard = async function (port: SerialPortStream, data: Buffer): Promise<boolean> {
   try {
+    await sleep(5);
     await port.write(data);
   } catch (e) {
     console.error('Failed to write data.');
