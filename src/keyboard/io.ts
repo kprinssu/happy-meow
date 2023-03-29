@@ -26,11 +26,18 @@ const writeToKeyboard = async function (port: SerialPortStream, data: Buffer): P
 };
 
 const readFromKeyboard = async function (port: SerialPortStream, size?: number): Promise<Buffer> {
-  if (size !== undefined) {
-    return await port.read(size);
-  }
-
-  return await port.read();
+  return new Promise<Buffer>((resolve, reject) => {
+    try {
+      port.on('data', (data) => {
+        if (size !== undefined) {
+          data = data.subarray(0, size);
+        }
+        resolve(data);
+      });
+    } catch (e) {
+      reject(e);
+    }
+  });
 };
 
 

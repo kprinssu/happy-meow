@@ -75,12 +75,9 @@ describe('readFromKeyboard', () => {
     port.on('open', async () => {
       const mockPort = (port.port as unknown as MockPortBinding);
       mockPort.emitData(data);
-    });
 
-    port.on('readable', async () => {
       const readData = await readFromKeyboard(port, readSize);
-      expect(readData.equals(slicedData)).toEqual(true);
-
+      expect(readData).toEqual(slicedData);
       done();
     });
 
@@ -94,12 +91,9 @@ describe('readFromKeyboard', () => {
     port.on('open', async () => {
       const mockPort = (port.port as unknown as MockPortBinding);
       mockPort.emitData(data);
-    });
 
-    port.on('readable', async () => {
       const readData = await readFromKeyboard(port);
-      expect(readData.equals(data)).toEqual(true);
-
+      expect(data).toEqual(data);
       done();
     });
 

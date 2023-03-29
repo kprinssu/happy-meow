@@ -8,6 +8,15 @@ const generateChecksum = (buffer: Buffer): number => {
   return crc8('CRC-8', subarray);
 };
 
+const generateCheckPageCommand = (): Buffer => {
+  const buffer = Buffer.alloc(64);
+  buffer[0] = 2;
+  buffer[1] = 6;
+
+  buffer[63] = generateChecksum(buffer);
+  return buffer;
+};
+
 const generateStartCommand = (): Buffer => {
   const buffer = Buffer.alloc(64);
   buffer[0] = 1;
@@ -395,6 +404,7 @@ const generateStopCommand = (frameCount: number): Buffer => {
 };
 
 export {
+  generateCheckPageCommand,
   generateStartCommand,
   generateUnknownInfoCommand,
   generatePageControlInfoCommands,

@@ -2,6 +2,7 @@ import { Buffer } from 'buffer';
 
 import { readJSON, Cyberboard } from '../../parser';
 import {
+  generateCheckPageCommand,
   generateStartCommand,
   generatePageControlInfoCommands,
   generateWordInfoCommands,
@@ -18,6 +19,21 @@ import {
 } from '../../commands/setConfig';
 
 const validJsonConfig = readJSON('./src/keyboard/tests/parser/valid.json');
+
+describe('generateCheckPageCommand', () => {
+  test('it generates a buffer containing the check page command', () => {
+    const expectedData = Buffer.from('020600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ef', 'hex');
+
+    const generatedData = generateCheckPageCommand();
+    expect(generatedData).toEqual(expectedData);
+  });
+});
+
+describe('generateUsefulDirectives', () => {
+  test('it generates a buffer containing the useful directive command', () => {
+
+  });
+});
 
 describe('generateStartCommand', () => {
   test('it generates a buffer containing the start command', () => {

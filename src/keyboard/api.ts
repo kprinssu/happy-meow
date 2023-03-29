@@ -2,7 +2,7 @@ import { PortInfo } from '@serialport/bindings-cpp';
 
 import { readJSON, Cyberboard } from './parser';
 import { listKeyboards } from './list';
-import { createPort, writeToKeyboard } from './io';
+import { createPort, writeToKeyboard, readFromKeyboard } from './io';
 import { generateSetTime } from './commands/setTime';
 import * as SetConfig from './commands/setConfig';
 
@@ -39,6 +39,11 @@ export class KeyboardApi {
         resolve();
       });
 
+      const checkPageCommand = SetConfig.generateCheckPageCommand();
+      await writeToKeyboard(port, checkPageCommand);
+
+      const readData = await readFromKeyboard(port);
+
       const startCommand = SetConfig.generateStartCommand();
       await writeToKeyboard(port, startCommand);
 
@@ -46,47 +51,47 @@ export class KeyboardApi {
       await writeToKeyboard(port, unknownInfo);
 
       const pageControlInfos = SetConfig.generatePageControlInfoCommands(config);
-      for (let pageControlCommand of pageControlInfos) {
+      for (const pageControlCommand of pageControlInfos) {
         await writeToKeyboard(port, pageControlCommand);
       }
 
       const wordInfos = SetConfig.generateWordInfoCommands(config);
-      for (let wordInfoCommand of wordInfos) {
+      for (const wordInfoCommand of wordInfos) {
         await writeToKeyboard(port, wordInfoCommand);
       }
 
       const rgbFrames = SetConfig.generateRgbFrameCommands(config);
-      for (let rgbFrameCommand of rgbFrames) {
+      for (const rgbFrameCommand of rgbFrames) {
         await writeToKeyboard(port, rgbFrameCommand);
       }
 
       const keyframeInfos = SetConfig.generateKeyframeCommands(config);
-      for (let keyframeCommand of keyframeInfos) {
+      for (const keyframeCommand of keyframeInfos) {
         await writeToKeyboard(port, keyframeCommand);
       }
 
       const exchangeKeyInfos = SetConfig.generateExchangeKeyCommands(config);
-      for (let exchangeKeyCommand of exchangeKeyInfos) {
+      for (const exchangeKeyCommand of exchangeKeyInfos) {
         await writeToKeyboard(port, exchangeKeyCommand);
       }
 
       const tabKeyInfos = SetConfig.generateTabKeyCommands(config);
-      for (let tabKeyCommand of tabKeyInfos) {
+      for (const tabKeyCommand of tabKeyInfos) {
         await writeToKeyboard(port, tabKeyCommand);
       }
 
       const functionKeyInfos = SetConfig.generateFunctionKeyCommands(config);
-      for (let functionKeyCommand of functionKeyInfos) {
+      for (const functionKeyCommand of functionKeyInfos) {
         await writeToKeyboard(port, functionKeyCommand);
       }
 
       const macroKeyInfos = SetConfig.generateMacroKeyCommands(config);
-      for (let macroKeyCommand of macroKeyInfos) {
+      for (const macroKeyCommand of macroKeyInfos) {
         await writeToKeyboard(port, macroKeyCommand);
       }
 
       const swapKeyInfos = SetConfig.generateSwapKeyCommands(config);
-      for (let swapKeyCommand of swapKeyInfos) {
+      for (const swapKeyCommand of swapKeyInfos) {
         await writeToKeyboard(port, swapKeyCommand);
       }
 
@@ -94,7 +99,7 @@ export class KeyboardApi {
       await writeToKeyboard(port, keyLayerControl);
 
       const keyLayerInfos = SetConfig.generateKeyLayerCommands(config);
-      for (let functionLayerCommand of keyLayerInfos) {
+      for (const functionLayerCommand of keyLayerInfos) {
         await writeToKeyboard(port, functionLayerCommand);
       }
 
@@ -103,7 +108,9 @@ export class KeyboardApi {
 
       port.close();
     } catch(e) {
-      console.log(e);
+      console.log('errr!')
+      console.error(e);
+      console.log('error done????')
       return false;
     }
 
