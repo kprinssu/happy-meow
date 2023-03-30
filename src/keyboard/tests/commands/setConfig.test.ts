@@ -3,6 +3,7 @@ import { Buffer } from 'buffer';
 import { readJSON, Cyberboard } from '../../parser';
 import {
   generateCheckPageCommand,
+  generateUsefulDirectives,
   generateStartCommand,
   generatePageControlInfoCommands,
   generateWordInfoCommands,
@@ -31,7 +32,11 @@ describe('generateCheckPageCommand', () => {
 
 describe('generateUsefulDirectives', () => {
   test('it generates a buffer containing the useful directive command', () => {
+    const processedValid = [true, false, false, false, true, false, false, false, true, false, false, false, false, true, false, false, false, false, false, false, true, false, true, true, true, false, true, true, true, false, true, true, true];
+    const expectedData = Buffer.from('0205080100000001000000010000000001000000000000010001010100010101000101010000000000000000000000000000000000000000000000000000006c', 'hex');
 
+    const generatedData = generateUsefulDirectives(8, processedValid);
+    expect(generatedData).toEqual(expectedData);
   });
 });
 
@@ -53,7 +58,7 @@ describe('generateUnknownInfoCommand', () => {
 
 describe('generatePageControlInfoCommands', () => {
   test('it generates an array of buffer containing the page control infos', async () => {
-    const jsonConfig =  await validJsonConfig;
+    const jsonConfig =  (await validJsonConfig).config;
     const config = new Cyberboard(jsonConfig);
 
     const expectedData = [
@@ -68,7 +73,7 @@ describe('generatePageControlInfoCommands', () => {
 
 describe('generateWordInfoCommands', () => {
   test('it generates an array of buffers containing the word info commands', async () => {
-    const jsonConfig =  await validJsonConfig;
+    const jsonConfig =  (await validJsonConfig).config;
     const config = new Cyberboard(jsonConfig);
 
     const expectedData = [Buffer.from('03010003011c004100420043004400450046004700480049004a004b004c004d004e004f0050005100520053005400550056005700580059005a005b005c00e4', 'hex')];
@@ -80,7 +85,7 @@ describe('generateWordInfoCommands', () => {
 
 describe('generateRgbFrameCommands', () => {
   test('it generates an array of buffers containing the RGB frames', async () => {
-    const jsonConfig =  await validJsonConfig;
+    const jsonConfig =  (await validJsonConfig).config;
     const config = new Cyberboard(jsonConfig);
 
     const expectedData = [
@@ -312,7 +317,7 @@ describe('generateRgbFrameCommands', () => {
 
 describe('generateKeyframeCommands', () => {
   test('it generates an array of buffers containing the Keyframes', async () => {
-    const jsonConfig =  await validJsonConfig;
+    const jsonConfig =  (await validJsonConfig).config;
     const config = new Cyberboard(jsonConfig);
 
     const expectedData = [
@@ -561,7 +566,7 @@ describe('generateKeyframeCommands', () => {
 
 describe('generateExchangeKeyCommands', () => {
   test('it generates an array of buffers containing the exchange key', async () => {
-    const jsonConfig =  await validJsonConfig;
+    const jsonConfig =  (await validJsonConfig).config;
     const config = new Cyberboard(jsonConfig);
 
     const expectedData = [
@@ -581,7 +586,7 @@ describe('generateExchangeKeyCommands', () => {
 
 describe('generateTabKeyCommands', () => {
   test('it generates an array of buffers containing the tab keys', async () => {
-    const jsonConfig =  await validJsonConfig;
+    const jsonConfig =  (await validJsonConfig).config;
     const config = new Cyberboard(jsonConfig);
 
     const expectedData = [
@@ -598,7 +603,7 @@ describe('generateTabKeyCommands', () => {
 
 describe('generateFunctionKeyCommands', () => {
   test('it generates an array of buffers containing the function keys', async () => {
-    const jsonConfig =  await validJsonConfig;
+    const jsonConfig =  (await validJsonConfig).config;
     const config = new Cyberboard(jsonConfig);
 
     const expectedData = [];
@@ -611,7 +616,7 @@ describe('generateFunctionKeyCommands', () => {
 
 describe('generateMacroKeyCommands', () => {
   test('it generates an array of buffers containing the macro keys', async () => {
-    const jsonConfig =  await validJsonConfig;
+    const jsonConfig =  (await validJsonConfig).config;
     const config = new Cyberboard(jsonConfig);
 
     const expectedData = [
@@ -627,7 +632,7 @@ describe('generateMacroKeyCommands', () => {
 
 describe('generateSwapKeyCommands', () => {
   test('it generates an array of buffers containing the swap keys', async () => {
-    const jsonConfig =  await validJsonConfig;
+    const jsonConfig =  (await validJsonConfig).config;
     const config = new Cyberboard(jsonConfig);
 
     const expectedData = [];
@@ -641,7 +646,7 @@ describe('generateSwapKeyCommands', () => {
 
 describe('generateKeyLayerControlCommand', () => {
   test('it generates a buffer containing the key layer control info', async () => {
-    const jsonConfig =  await validJsonConfig;
+    const jsonConfig =  (await validJsonConfig).config;
     const config = new Cyberboard(jsonConfig);
 
     const expectedData = Buffer.from('06080200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000099', 'hex');
@@ -653,7 +658,7 @@ describe('generateKeyLayerControlCommand', () => {
 
 describe('generateKeyLayerCommands', () => {
   test('it generates an array of buffers containing the key layer commands', async () => {
-    const jsonConfig =  await validJsonConfig;
+    const jsonConfig =  (await validJsonConfig).config;
     const config = new Cyberboard(jsonConfig);
 
     const expectedData = [

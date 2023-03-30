@@ -11,9 +11,8 @@ export class KeyboardApi {
     return listKeyboards();
   }
 
-  static async loadConfig(path: string): Promise<Cyberboard> {
-    const jsonData = await readJSON(path);
-    return new Cyberboard(jsonData);
+  static async loadConfig(path: string): Promise<ParsedConfig> {
+    return await readJSON(path);
   }
 
   static async setTime(path: string): Promise<boolean> {
@@ -25,7 +24,8 @@ export class KeyboardApi {
 
   static async writeConfig(portPath: string, jsonPath: string): Promise<boolean> {
     try {
-      const config = await this.loadConfig(jsonPath);
+      const parsedConfig = await this.loadConfig(jsonPath);
+      const config = parsedConfig.config;
       const port = createPort(portPath);
 
       await new Promise<void>((resolve, reject) => {
@@ -43,6 +43,9 @@ export class KeyboardApi {
       await writeToKeyboard(port, checkPageCommand);
 
       const readData = await readFromKeyboard(port);
+      console.log(readData);
+
+      const usefulDirectivesCommand = SetConfig.generateUsefulDirectives(config.page_num, parsedConfig.processedValid);
 
       const startCommand = SetConfig.generateStartCommand();
       await writeToKeyboard(port, startCommand);

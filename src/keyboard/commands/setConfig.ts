@@ -17,6 +17,20 @@ const generateCheckPageCommand = (): Buffer => {
   return buffer;
 };
 
+const generateUsefulDirectives = (pageCount: number, processedValids: boolean[]) => {
+  const buffer = Buffer.alloc(64);
+  buffer[0] = 2;
+  buffer[1] = 5;
+  buffer[2] = pageCount;
+
+  for (let i = 0; i < processedValids.length; i++) {
+    buffer[i + 3] = processedValids[i] ? 1 : 0;
+  }
+
+  buffer[63] = generateChecksum(buffer);
+  return buffer;
+};
+
 const generateStartCommand = (): Buffer => {
   const buffer = Buffer.alloc(64);
   buffer[0] = 1;
@@ -405,6 +419,7 @@ const generateStopCommand = (frameCount: number): Buffer => {
 
 export {
   generateCheckPageCommand,
+  generateUsefulDirectives,
   generateStartCommand,
   generateUnknownInfoCommand,
   generatePageControlInfoCommands,
