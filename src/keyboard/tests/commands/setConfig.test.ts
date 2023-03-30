@@ -59,7 +59,7 @@ describe('generateUnknownInfoCommand', () => {
 describe('generatePageControlInfoCommands', () => {
   test('it generates an array of buffer containing the page control infos', async () => {
     const jsonConfig =  (await validJsonConfig).config;
-    const config = new Cyberboard(jsonConfig);
+    const config = jsonConfig;
 
     const expectedData = [
       Buffer.from('0202020004010064320000000000000000010164320000000000000000010264320000000000ffffff000364320001000500f91d000000000000000000000084', 'hex'),
@@ -74,7 +74,7 @@ describe('generatePageControlInfoCommands', () => {
 describe('generateWordInfoCommands', () => {
   test('it generates an array of buffers containing the word info commands', async () => {
     const jsonConfig =  (await validJsonConfig).config;
-    const config = new Cyberboard(jsonConfig);
+    const config = jsonConfig;
 
     const expectedData = [Buffer.from('03010003011c004100420043004400450046004700480049004a004b004c004d004e004f0050005100520053005400550056005700580059005a005b005c00e4', 'hex')];
 
@@ -86,7 +86,7 @@ describe('generateWordInfoCommands', () => {
 describe('generateRgbFrameCommands', () => {
   test('it generates an array of buffers containing the RGB frames', async () => {
     const jsonConfig =  (await validJsonConfig).config;
-    const config = new Cyberboard(jsonConfig);
+    const config = jsonConfig;
 
     const expectedData = [
       Buffer.from('040500000a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000029', 'hex'),
@@ -318,7 +318,7 @@ describe('generateRgbFrameCommands', () => {
 describe('generateKeyframeCommands', () => {
   test('it generates an array of buffers containing the Keyframes', async () => {
     const jsonConfig =  (await validJsonConfig).config;
-    const config = new Cyberboard(jsonConfig);
+    const config = jsonConfig;
 
     const expectedData = [
       Buffer.from('05050004008463bd3539a53539a50000003539a53539a53539a50000000000000000003539a53539a53539a58463bd8463bd000000000000000000000000006d', 'hex'),
@@ -567,7 +567,7 @@ describe('generateKeyframeCommands', () => {
 describe('generateExchangeKeyCommands', () => {
   test('it generates an array of buffers containing the exchange key', async () => {
     const jsonConfig =  (await validJsonConfig).config;
-    const config = new Cyberboard(jsonConfig);
+    const config = jsonConfig;
 
     const expectedData = [
       Buffer.from('0601000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000009e', 'hex'),
@@ -587,13 +587,13 @@ describe('generateExchangeKeyCommands', () => {
 describe('generateTabKeyCommands', () => {
   test('it generates an array of buffers containing the tab keys', async () => {
     const jsonConfig =  (await validJsonConfig).config;
-    const config = new Cyberboard(jsonConfig);
+    const config = jsonConfig;
 
     const expectedData = [
-      Buffer.from('060202000007000b000007000b000000000000000000000000000000000007000c000000000000000000000000000000000000000000000000000000000000fe', 'hex'),
-      Buffer.from('060302000007000b000007000d000000000000000000000000000000000007000e000000000000000000000000000000000000000000000000000000000000ec', 'hex'),
-      Buffer.from('060202010007000f000007000f0000000000000000000000000000000000070010000000000000000000000000000000000000000000000000000000000000f1', 'hex'),
-      Buffer.from('060302010007000f00000701000000000000000000000000000000000000070012000000000000000000000000000000000000000000000000000000000000d1', 'hex')
+      Buffer.from('060202000007000b000007000b000000000000000000000000000000000007000c00000000000000000000000000000000000000000000000000000000000091', 'hex'),
+      Buffer.from('060302000007000b000007000b000000000000000000000000000000000007000c000000000000000000000000000000000000000000000000000000000000ac', 'hex'),
+      Buffer.from('060202010007000f000007000f00000000000000000000000000000000000700100000000000000000000000000000000000000000000000000000000000004a', 'hex'),
+      Buffer.from('060302010007000f000007000f000000000000000000000000000000000007001000000000000000000000000000000000000000000000000000000000000077', 'hex')
     ];
     const generatedData = generateTabKeyCommands(config);
 
@@ -604,7 +604,7 @@ describe('generateTabKeyCommands', () => {
 describe('generateFunctionKeyCommands', () => {
   test('it generates an array of buffers containing the function keys', async () => {
     const jsonConfig =  (await validJsonConfig).config;
-    const config = new Cyberboard(jsonConfig);
+    const config = jsonConfig;
 
     const expectedData = [];
     const generatedData = generateFunctionKeyCommands(config);
@@ -617,12 +617,12 @@ describe('generateFunctionKeyCommands', () => {
 describe('generateMacroKeyCommands', () => {
   test('it generates an array of buffers containing the macro keys', async () => {
     const jsonConfig =  (await validJsonConfig).config;
-    const config = new Cyberboard(jsonConfig);
+    const config = jsonConfig;
 
     const expectedData = [
-      Buffer.from('0605030000070013000700130007001400070015000700160007001700006400640064006400000000000000000000000000000000000000000000000000007d', 'hex'),
-      Buffer.from('06050301000700140007001300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011', 'hex'),
-      Buffer.from('060503020007001500070013000700140000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ca', 'hex')
+      Buffer.from('0605030000070013000700130007001400070015000700160007001700006400640064006400000000000000000000000000000000000000000000000000007e', 'hex'),
+      Buffer.from('0605030100070014000700130000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006a', 'hex'),
+      Buffer.from('0605030200070015000700130007001400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002e', 'hex')
     ];
     const generatedData = generateMacroKeyCommands(config);
 
@@ -633,7 +633,7 @@ describe('generateMacroKeyCommands', () => {
 describe('generateSwapKeyCommands', () => {
   test('it generates an array of buffers containing the swap keys', async () => {
     const jsonConfig =  (await validJsonConfig).config;
-    const config = new Cyberboard(jsonConfig);
+    const config = jsonConfig;
 
     const expectedData = [];
     const generatedData = generateSwapKeyCommands(config);
@@ -647,9 +647,9 @@ describe('generateSwapKeyCommands', () => {
 describe('generateKeyLayerControlCommand', () => {
   test('it generates a buffer containing the key layer control info', async () => {
     const jsonConfig =  (await validJsonConfig).config;
-    const config = new Cyberboard(jsonConfig);
+    const config = jsonConfig;
 
-    const expectedData = Buffer.from('06080200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000099', 'hex');
+    const expectedData = Buffer.from('06080200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000033', 'hex');
     const generatedData = generateKeyLayerControlCommand(config);
 
     expect(generatedData).toEqual(expectedData);
@@ -659,7 +659,7 @@ describe('generateKeyLayerControlCommand', () => {
 describe('generateKeyLayerCommands', () => {
   test('it generates an array of buffers containing the key layer commands', async () => {
     const jsonConfig =  (await validJsonConfig).config;
-    const config = new Cyberboard(jsonConfig);
+    const config = jsonConfig;
 
     const expectedData = [
       Buffer.from('060700000700290007003a0007003b0007003c0007003d0007003e0007003f0007004000070041000700420007004300070044000700450007004c0007004aa1', 'hex'),

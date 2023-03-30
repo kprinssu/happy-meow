@@ -241,7 +241,7 @@ const generateTabKeyCommands = (config: Cyberboard): Buffer[] => {
       index += 4;
     }
 
-    buffer1[63] = crc8('CRC-8', buffer1);
+    buffer1[63] = generateChecksum(buffer1);
     buffers.push(buffer1);
 
     // The 2nd buffer
@@ -253,22 +253,22 @@ const generateTabKeyCommands = (config: Cyberboard): Buffer[] => {
     keyValueBuffer.copy(buffer2, 4);
 
     index = 9;
-    for (let j = 0; j < tabKey.three_key_out.length; j++) {
-      const key = tabKey.three_key_out[j];
+    for (let j = 0; j < tabKey.single_key_out.length; j++) {
+      const key = tabKey.single_key_out[j];
       const keyBuffer = Buffer.from(key.substring(1), 'hex');
       keyBuffer.copy(buffer2, index);
       index += 4;
     }
 
     index = 29;
-    for (let j = 0; j < tabKey.long_key_out.length; j++) {
-      const key = tabKey.long_key_out[j];
+    for (let j = 0; j < tabKey.double_key_out.length; j++) {
+      const key = tabKey.double_key_out[j];
       const keyBuffer = Buffer.from(key.substring(1), 'hex');
       keyBuffer.copy(buffer2, index);
       index += 4;
     }
 
-    buffer2[63] = crc8('CRC-8', buffer2);
+    buffer2[63] = generateChecksum(buffer2);
     buffers.push(buffer2);
   }
 
@@ -301,7 +301,7 @@ const generateFunctionKeyCommands = (config: Cyberboard): Buffer[] => {
       index += 4;
     }
 
-    buffer[63] = crc8('CRC-8', buffer)
+    buffer[63] = generateChecksum(buffer);
     buffers.push(buffer);
   }
 
@@ -337,7 +337,7 @@ const generateMacroKeyCommands = (config: Cyberboard): Buffer[] => {
       index += 2;
     }
 
-    buffer[63] = crc8('CRC-8', buffer)
+    buffer[63] = generateChecksum(buffer);
     buffers.push(buffer);
   }
 
@@ -371,7 +371,7 @@ const generateSwapKeyCommands = (config: Cyberboard): Buffer[] => {
       index += 4;
     }
 
-    buffer[63] = crc8('CRC-8', buffer)
+    buffer[63] = generateChecksum(buffer);
     buffers.push(buffer);
   }
 
@@ -384,7 +384,7 @@ const generateKeyLayerControlCommand = (config: Cyberboard): Buffer => {
   buffer[1] = 8;
   buffer[2] = config.config.key_layer.layer_num;
 
-  buffer[63] = crc8('CRC-8', buffer)
+  buffer[63] = generateChecksum(buffer);
   return buffer;
 };
 
