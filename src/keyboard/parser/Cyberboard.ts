@@ -124,16 +124,16 @@ export class Cyberboard {
 
       if (pageData.keyframes !== undefined) {
         keyframeNum = pageData.keyframes.frame_num;
-      } else {
-        const unknownCommand: UnknownInfoCommand = {
-          pageIndex: pageData.page_index,
-          wordNum: pageData.word_page.word_len,
-          frameNum: pageData.frames.frame_num,
-          keyframeNum: keyframeNum,
-        };
-
-        this.unknownInfos.push(unknownCommand);
       }
+
+      const unknownCommand: UnknownInfoCommand = {
+        pageIndex: pageData.page_index,
+        wordNum: pageData.word_page.word_len,
+        frameNum: pageData.frames.frame_num,
+        keyframeNum: keyframeNum,
+      };
+
+      this.unknownInfos.push(unknownCommand);
     }
 
     this.commandCount += 1;
@@ -253,16 +253,22 @@ export class Cyberboard {
           lastWritten += newFrameRgb.length;
         }
 
-        // USB Frame Index is constant at 10 (no idea why)
-        const rgbFrameInfo: RgbFrameInfoCommand = {
-          pageIndex: pageData.page_index,
-          frameIndex: frameData.frame_index,
-          usbFrameIndex: 10,
-          frameRgb: frameRgb.subarray(560, 600),
-        };
+        // 600 bytes of data can fit in 11 * 64 byte size frames
+        for (let k = 0; k < 11; k++) {
+          const rgbFrameInfo: RgbFrameInfoCommand = {
+            pageIndex: pageData.page_index,
+            frameIndex: frameData.frame_index,
+            usbFrameIndex: k,
+            frameRgb: frameRgb.subarray(560, 600),
+          };
 
-        this.commandCount += 1;
-        this.rgbFrameInfos.push(rgbFrameInfo);
+          if (k < 10) {
+            rgbFrameInfo.frameRgb = frameRgb.subarray(k * 56, (k + 1) * 56);
+          }
+
+          this.commandCount += 1;
+          this.rgbFrameInfos.push(rgbFrameInfo);
+        }
       }
     }
   }
@@ -292,16 +298,22 @@ export class Cyberboard {
           lastWritten += newFrameRgb.length;
         }
 
-        // USB Frame Index is constant at 4 (no idea why)
-        const keyframeInfo: KeyframeInfoCommand = {
-          pageIndex: pageData.page_index,
-          frameIndex: frameData.frame_index,
-          usbFrameIndex: 4,
-          frameRgb: frameRgb.subarray(224, 270),
-        };
+        for (let k = 0; k < 5; k++) {
+          // USB Frame Index is constant at 4 (no idea why)
+          const keyframeInfo: KeyframeInfoCommand = {
+            pageIndex: pageData.page_index,
+            frameIndex: frameData.frame_index,
+            usbFrameIndex: k,
+            frameRgb: frameRgb.subarray(224, 270),
+          };
 
-        this.keyframeInfos.push(keyframeInfo);
-        this.commandCount += 1;
+          if (k < 4) {
+            keyframeInfo.frameRgb = frameRgb.subarray(k * 56, (k + 1) * 56);
+          }
+
+          this.keyframeInfos.push(keyframeInfo);
+          this.commandCount += 1;
+        }
       }
     }
   }
@@ -328,17 +340,17 @@ export class Cyberboard {
     // Process the Function Keys
     const functionKeyCount = Math.ceil(this.config.Fn_key_num / 11);
     for (let i = 0; i < functionKeyCount; i++) {
-      // Note: This loop won't execute when i = 0
-      // this may be a bug even in the AM software
-      if ((i + 1) === functionKeyCount) {
-        continue;
-      }
-
       const functionKeyInfo: FunctionKeyInfoCommand = {
         functionKeyCount: this.config.Fn_key_num,
-        keyNumber: 11,
-        functionKeys: this.config.Fn_key.slice(11 * i, 11 * (i + 1)),
+        keyNumber: i % 11,
+        functionKeys: [],
       };
+
+      if ((i + 1) == functionKeyCount) {
+        functionKeyInfo.functionKeys = this.config.Fn_key.slice(i * 11, this.config.Fn_key.length);
+      } else {
+        functionKeyInfo.functionKeys = this.config.Fn_key.slice(11 * i, 11 * (i + 1));
+      }
 
       this.functionKeyInfos.push(functionKeyInfo);
       this.commandCount += 1;
@@ -358,17 +370,17 @@ export class Cyberboard {
     // Process the Swap Keys
     const swapKeyCount = Math.ceil(this.config.swap_key_num/ 11)
     for (let i = 0; i < swapKeyCount; i++) {
-      // Note: Just as with funcion keys, this loop
-      // will not run when i = 0 and is found in AM software too
-      if ((i + 1) === swapKeyCount) {
-        continue;
-      }
-
       const swapKeyInfo: SwapKeyInfoCommand = {
         swapKeyCount: this.config.swap_key_num,
-        keyNumber: 11,
-        swapKeys: this.config.swap_key.slice(11 * i, 11 * (i + 1)),
+        keyNumber: i % 11,
+        swapKeys: [],
       };
+
+      if ((i + 1) == swapKeyCount) {
+        swapKeyInfo.swapKeys = this.config.swap_key.slice(11 * i, this.config.swap_key.length);
+      } else {
+        swapKeyInfo.swapKeys = this.config.swap_key.slice(11 * i, 11 * (i + 1));
+      }
 
       this.swapKeyInfos.push(swapKeyInfo);
       this.commandCount += 1;
@@ -380,9 +392,9 @@ export class Cyberboard {
       return;
     }
 
-    // TODO: Make this more sane than the arbitrary size of 2000
-    // AM has this at 1600 bytes
-    const layerBytes = Buffer.alloc(2000);
+    // TODO: Ensure that 16000 is enough
+    // AM has this at max 1600 bytes
+    const layerBytes = Buffer.alloc(1600);
     let lastWritten = 0;
 
     for (let i = 0; i < this.config.key_layer.layer_data.length; i++) {
@@ -397,26 +409,21 @@ export class Cyberboard {
       }
     }
 
-    // Note: No idea why this is 60
     const keyLayerCount = Math.ceil(lastWritten / 60);
     for (let i = 0; i < keyLayerCount; i++) {
-      if ((i + 1) == keyLayerCount) {
-        const keyframeInfo: KeyLayerInfoCommand = {
-          usbFrameIndex: i,
-          layerBytes: layerBytes.subarray(i * 60, lastWritten),
-        };
+      const keyframeInfo: KeyLayerInfoCommand = {
+        usbFrameIndex: i,
+        layerBytes: Buffer.alloc(0),
+      };
 
-        this.keyLayerInfos.push(keyframeInfo);
-      } else if ((i + 1) < keyLayerCount) {
-        const keyframeInfo: KeyLayerInfoCommand = {
-          usbFrameIndex: i,
-          layerBytes: layerBytes.subarray(i * 60, (i + 1) * 60),
-        };
-
-        this.keyLayerInfos.push(keyframeInfo);
-
-        this.commandCount += 1;
+      if ((i + 1) < keyLayerCount) {
+        keyframeInfo.layerBytes = layerBytes.subarray(i * 60, (i + 1) * 60);
+      } else {
+        keyframeInfo.layerBytes = layerBytes.subarray(i * 60, lastWritten)
       }
+
+      this.keyLayerInfos.push(keyframeInfo);
+      this.commandCount += 1;
     }
   }
 }

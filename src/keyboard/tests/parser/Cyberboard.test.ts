@@ -1,4 +1,8 @@
-import { Cyberboard } from '../../parser/Cyberboard';
+import { Cyberboard,
+  UnknownInfoCommand,
+  FunctionKeyInfoCommand,
+  SwapKeyInfoCommand,
+} from '../../parser/Cyberboard';
 import { readJSON } from '../../parser/reader';
 import { expectedPageControl,
   expectedWordPage,
@@ -15,7 +19,18 @@ describe('Cyberboard', () => {
       const config =  (await validJsonConfig).config;
       const parsedCyberboard = config;
 
-      // console.log(parsedCyberboard.unknownInfos);
+      const expectedData: UnknownInfoCommand[] = [
+        { pageIndex: 0, wordNum: 0, frameNum: 0, keyframeNum: 0 },
+        { pageIndex: 1, wordNum: 0, frameNum: 0, keyframeNum: 0 },
+        { pageIndex: 2, wordNum: 0, frameNum: 0, keyframeNum: 0 },
+        { pageIndex: 3, wordNum: 28, frameNum: 0, keyframeNum: 0 },
+        { pageIndex: 4, wordNum: 0, frameNum: 0, keyframeNum: 0 },
+        { pageIndex: 5, wordNum: 0, frameNum: 80, keyframeNum: 123 },
+        { pageIndex: 6, wordNum: 0, frameNum: 79, keyframeNum: 42 },
+        { pageIndex: 7, wordNum: 0, frameNum: 60, keyframeNum: 71 }
+      ];
+
+      expect(config.unknownInfos).toEqual(expectedData);
     });
 
     test('it processes the page control', async () => {
@@ -37,7 +52,7 @@ describe('Cyberboard', () => {
       const parsedCyberboard = config;
 
       // RGB Frames have binary data and hard to store the buffer data as JSON
-      expect(parsedCyberboard.rgbFrameInfos.length).toEqual(219);
+      expect(parsedCyberboard.rgbFrameInfos.length).toEqual(2409);
     });
 
     test('it processes the keyframes', async () => {
@@ -45,7 +60,7 @@ describe('Cyberboard', () => {
       const parsedCyberboard = config;
 
       // Keyframes have binary data and hard to store the buffer data as JSON
-      expect(parsedCyberboard.keyframeInfos.length).toEqual(236);
+      expect(parsedCyberboard.keyframeInfos.length).toEqual(1180);
     });
 
     test('it process the exchange keys', async () => {
@@ -66,7 +81,21 @@ describe('Cyberboard', () => {
       const config =  (await validJsonConfig).config;
       const parsedCyberboard = config;
 
-      // console.log(parsedCyberboard.functionKeyInfos)
+      const expectedData: FunctionKeyInfoCommand[] = [
+        {
+          functionKeyCount: 5,
+          keyNumber: 0,
+          functionKeys: [
+            { Fn_key_index: 0, input_key: '#00070013', out_key: '#00070014' },
+            { Fn_key_index: 1, input_key: '#00070014', out_key: '#00070015' },
+            { Fn_key_index: 2, input_key: '#00070015', out_key: '#00070016' },
+            { Fn_key_index: 3, input_key: '#00070016', out_key: '#00070017' },
+            { Fn_key_index: 4, input_key: '#00070017', out_key: '#00070018' }
+          ],
+        }
+      ];
+
+      expect(parsedCyberboard.functionKeyInfos).toEqual(expectedData);
     });
 
     test('it process the Macro keys', async () => {
@@ -80,6 +109,20 @@ describe('Cyberboard', () => {
       const config =  (await validJsonConfig).config;
       const parsedCyberboard = config;
 
+      const expectedData: SwapKeyInfoCommand[] = [
+        {
+          swapKeyCount: 4,
+          keyNumber: 0,
+          swapKeys: [
+            { swap_key_index: 0, input_key: '#00070004', out_key: '#00070005' },
+            { swap_key_index: 1, input_key: '#00070005', out_key: '#00070004' },
+            { swap_key_index: 2, input_key: '#00070007', out_key: '#00070008' },
+            { swap_key_index: 3, input_key: '#00070008', out_key: '#00070009' }
+          ]
+        }
+      ];
+
+      expect(parsedCyberboard.swapKeyInfos).toEqual(expectedData);
     });
 
     test('it process the key layer', async () => {

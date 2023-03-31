@@ -128,6 +128,8 @@ export class KeyboardApi {
       await writeToKeyboard(port, stopCommand);
       const endData = await readFromKeyboard(port);
 
+      console.log('Total frames sent: ' + totalFrameSent);
+
       port.close();
     } catch(e) {
       console.error(e);
