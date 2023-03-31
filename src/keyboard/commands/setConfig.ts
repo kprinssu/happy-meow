@@ -46,7 +46,7 @@ const generateUnknownInfoCommand = (config: Cyberboard): Buffer => {
   buffer[1] = 1;
   buffer[2] = config.config.page_num;
 
-  let index = 0;
+  let index = 3;
   for (let i = 0; i < config.unknownInfos.length; i++) {
     const unknownInfo = config.unknownInfos[i];
 

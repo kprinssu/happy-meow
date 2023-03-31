@@ -46,8 +46,8 @@ export class KeyboardApi {
       const readCheckPage = await readFromKeyboard(port);
 
       const usefulDirectivesCommand = SetConfig.generateUsefulDirectives(config.config.page_num, parsedConfig.processedValid);
-      await writeToKeyboard(port, usefulDirectivesCommand);
-      const usefulDirectivesData = await readFromKeyboard(port);
+      //await writeToKeyboard(port, usefulDirectivesCommand);
+      //const usefulDirectivesData = await readFromKeyboard(port);
 
       const startCommand = SetConfig.generateStartCommand();
       await writeToKeyboard(port, startCommand);

@@ -342,13 +342,14 @@ export class Cyberboard {
     for (let i = 0; i < functionKeyCount; i++) {
       const functionKeyInfo: FunctionKeyInfoCommand = {
         functionKeyCount: this.config.Fn_key_num,
-        keyNumber: i % 11,
+        keyNumber: this.config.Fn_key_num % 11,
         functionKeys: [],
       };
 
       if ((i + 1) == functionKeyCount) {
         functionKeyInfo.functionKeys = this.config.Fn_key.slice(i * 11, this.config.Fn_key.length);
       } else {
+        functionKeyInfo.keyNumber = 11;
         functionKeyInfo.functionKeys = this.config.Fn_key.slice(11 * i, 11 * (i + 1));
       }
 
@@ -372,7 +373,7 @@ export class Cyberboard {
     for (let i = 0; i < swapKeyCount; i++) {
       const swapKeyInfo: SwapKeyInfoCommand = {
         swapKeyCount: this.config.swap_key_num,
-        keyNumber: i % 11,
+        keyNumber: this.config.swap_key_num % 11,
         swapKeys: [],
       };
 

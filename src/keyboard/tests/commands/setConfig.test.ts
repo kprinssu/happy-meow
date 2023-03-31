@@ -5,6 +5,7 @@ import {
   generateCheckPageCommand,
   generateUsefulDirectives,
   generateStartCommand,
+  generateUnknownInfoCommand,
   generatePageControlInfoCommands,
   generateWordInfoCommands,
   generateRgbFrameCommands,
@@ -50,9 +51,14 @@ describe('generateStartCommand', () => {
 });
 
 describe('generateUnknownInfoCommand', () => {
-  test('it generates a buffer containing the unknown/uncertainty infos', () => {
-    // No Data
-    // TODO: Generate a config so we can validate the output buffer
+  test('it generates a buffer containing the unknown/uncertainty infos', async () => {
+    const jsonConfig = (await validJsonConfig).config;
+    const config = jsonConfig;
+
+    const expectedData = Buffer.from('020108000000000000010000000000020000000000031c00000000040000000000050050007b0006004f002a0007003c0047000000000000000000000000008b', 'hex');
+
+    const generatedData = generateUnknownInfoCommand(config);
+    expect(generatedData).toEqual(expectedData);
   });
 });
 
@@ -3740,11 +3746,10 @@ describe('generateFunctionKeyCommands', () => {
     const jsonConfig =  (await validJsonConfig).config;
     const config = jsonConfig;
 
-    const expectedData = [];
+    const expectedData = [Buffer.from('06040505000007001300070014010007001400070015020007001500070016030007001600070017040007001700070018000000000000000000000000000070', 'hex')];
     const generatedData = generateFunctionKeyCommands(config);
 
-    // No Data
-    // TODO: Generate a config so we can validate the output buffer
+    expect(generatedData).toEqual(expectedData);
   });
 });
 
@@ -3769,12 +3774,10 @@ describe('generateSwapKeyCommands', () => {
     const jsonConfig =  (await validJsonConfig).config;
     const config = jsonConfig;
 
-    const expectedData = [];
+    const expectedData = [Buffer.from('06060404000007000400070005010007000500070004020007000700070008030007000800070009000000000000000000000000000000000000000000000058', 'hex')];
     const generatedData = generateSwapKeyCommands(config);
 
-
-    // No Data
-    // TODO: Generate a config so we can validate the output buffer
+    expect(generatedData).toEqual(expectedData);
   });
 });
 

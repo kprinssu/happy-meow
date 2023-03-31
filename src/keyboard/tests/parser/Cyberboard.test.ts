@@ -84,7 +84,7 @@ describe('Cyberboard', () => {
       const expectedData: FunctionKeyInfoCommand[] = [
         {
           functionKeyCount: 5,
-          keyNumber: 0,
+          keyNumber: 5,
           functionKeys: [
             { Fn_key_index: 0, input_key: '#00070013', out_key: '#00070014' },
             { Fn_key_index: 1, input_key: '#00070014', out_key: '#00070015' },
@@ -112,7 +112,7 @@ describe('Cyberboard', () => {
       const expectedData: SwapKeyInfoCommand[] = [
         {
           swapKeyCount: 4,
-          keyNumber: 0,
+          keyNumber: 4,
           swapKeys: [
             { swap_key_index: 0, input_key: '#00070004', out_key: '#00070005' },
             { swap_key_index: 1, input_key: '#00070005', out_key: '#00070004' },
