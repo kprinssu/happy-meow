@@ -18,8 +18,28 @@ export class KeyboardApi {
   static async setTime(path: string): Promise<boolean> {
     const port = createPort(path);
 
+    await new Promise<void>((resolve, reject) => {
+      try {
+        port.open((err) => {
+          console.log(err);
+          reject(err);
+        });
+      } catch (e) {
+        console.log(e);
+        throw e;
+      }
+
+      resolve();
+    });
+
+    console.log('Opened port' + ' ' + port.isOpen);
+
+
     const data = generateSetTime();
-    return await writeToKeyboard(port, data);
+
+    await writeToKeyboard(port, data);
+    port.close();
+    return true;
   }
 
   static async writeConfig(portPath: string, jsonPath: string): Promise<boolean> {
@@ -116,8 +136,6 @@ export class KeyboardApi {
       const stopCommand = SetConfig.generateStopCommand(totalFrameSent);
       await writeToKeyboard(port, stopCommand);
       const endData = await readFromKeyboard(port);
-
-      console.log('Total frames sent: ' + totalFrameSent);
 
       port.close();
     } catch (e) {
