@@ -1,6 +1,6 @@
 import { PortInfo } from '@serialport/bindings-cpp';
 
-import { readJSON, Cyberboard } from './parser';
+import { readJSON, Cyberboard, ParsedConfig } from './parser';
 import { listKeyboards } from './list';
 import { createPort, writeToKeyboard, readFromKeyboard } from './io';
 import { generateSetTime } from './commands/setTime';
@@ -30,24 +30,14 @@ export class KeyboardApi {
 
       await new Promise<void>((resolve, reject) => {
         try {
-          port.open();
-        } catch(e) {
+          port.open((err) => reject(err));
+        } catch (e) {
           console.log(e);
-          reject(e);
+          throw e;
         }
 
         resolve();
       });
-
-
-      const checkPageCommand = SetConfig.generateCheckPageCommand();
-      await writeToKeyboard(port, checkPageCommand);
-
-      const readCheckPage = await readFromKeyboard(port);
-
-      const usefulDirectivesCommand = SetConfig.generateUsefulDirectives(config.config.page_num, parsedConfig.processedValid);
-      //await writeToKeyboard(port, usefulDirectivesCommand);
-      //const usefulDirectivesData = await readFromKeyboard(port);
 
       const startCommand = SetConfig.generateStartCommand();
       await writeToKeyboard(port, startCommand);
@@ -114,7 +104,6 @@ export class KeyboardApi {
       }
 
       const keyLayerControl = SetConfig.generateKeyLayerControlCommand(config);
-
       await writeToKeyboard(port, keyLayerControl);
       totalFrameSent += 1;
 
@@ -131,8 +120,9 @@ export class KeyboardApi {
       console.log('Total frames sent: ' + totalFrameSent);
 
       port.close();
-    } catch(e) {
-      console.error(e);
+    } catch (e) {
+      console.log('Failed to write config.');
+      console.log(e);
       return false;
     }
 

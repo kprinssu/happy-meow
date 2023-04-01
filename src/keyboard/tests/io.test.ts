@@ -4,7 +4,6 @@ import { randomBytes } from 'crypto'
 
 import { createPort, writeToKeyboard, readFromKeyboard } from '../io';
 
-
 jest.mock('serialport', () => {
   return {
     ...jest.requireActual('serialport'),

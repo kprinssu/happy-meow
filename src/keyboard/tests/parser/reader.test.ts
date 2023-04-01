@@ -3,9 +3,9 @@ import { readJSON } from '../../parser';
 
 describe('readJOSN', () => {
   test('successfully parses a valid Cyberboard JSON file', async () => {
-    await expect(readJSON('./src/keyboard/tests/parser/valid.json')).resolves.not.toThrowError();
+    await expect(readJSON('./src/keyboard/tests/_files_/valid.json')).resolves.not.toThrowError();
 
-    const parsedConfig = await readJSON('./src/keyboard/tests/parser/valid.json');
+    const parsedConfig = await readJSON('./src/keyboard/tests/_files_/valid.json');
     expect(parsedConfig.config instanceof Cyberboard).toEqual(true);
     expect(parsedConfig.processedValid).toEqual([true, false, false, false, true, false, false, false, true,
       false, false, false, false, true, false, false, false, false, false, false, true,
@@ -22,6 +22,6 @@ describe('readJOSN', () => {
   });
 
   test('throws a parsing error for a invalid JSON file', async () => {
-    await expect(readJSON('./src/keyboard/tests/parser/invalid.json')).rejects.toThrowError();
+    await expect(readJSON('./src/keyboard/tests/_files_/invalid.json')).rejects.toThrowError();
   });
 });

@@ -12,11 +12,16 @@ const createPort = (path: string): SerialPort => {
   });
 };
 
-const writeToKeyboard = async function (port: SerialPortStream, data: Buffer): Promise<boolean> {
+const writeToKeyboard = async (port: SerialPortStream, data: Buffer): Promise<boolean> => {
   try {
-    await sleep(5);
-    await port.write(data);
-    console.log(data.toString('hex'));
+    await sleep(2);
+    await new Promise<void>((resolve, reject) => {
+      port.write(data, (err) => {
+        reject(err);
+      });
+
+      resolve();
+    });
   } catch (e) {
     console.error('Failed to write data.');
     console.error(e);
@@ -26,7 +31,7 @@ const writeToKeyboard = async function (port: SerialPortStream, data: Buffer): P
   return true;
 };
 
-const readFromKeyboard = async function (port: SerialPortStream, size?: number): Promise<Buffer> {
+const readFromKeyboard = async (port: SerialPortStream, size?: number): Promise<Buffer> => {
   return new Promise<Buffer>((resolve, reject) => {
     try {
       port.on('data', (data) => {

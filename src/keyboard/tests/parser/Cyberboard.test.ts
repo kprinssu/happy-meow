@@ -11,7 +11,7 @@ import { expectedPageControl,
   expectedMacroKeyData,
 } from './expectedData';
 
-const validJsonConfig = readJSON('./src/keyboard/tests/parser/valid.json');
+const validJsonConfig = readJSON('./src/keyboard/tests/_files_/valid.json');
 
 describe('Cyberboard', () => {
   describe('processes a valid config file', () => {

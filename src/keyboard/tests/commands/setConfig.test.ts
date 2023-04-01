@@ -20,7 +20,7 @@ import {
   generateStopCommand,
 } from '../../commands/setConfig';
 
-const validJsonConfig = readJSON('./src/keyboard/tests/parser/valid.json');
+const validJsonConfig = readJSON('./src/keyboard/tests/_files_/valid.json');
 
 describe('generateCheckPageCommand', () => {
   test('it generates a buffer containing the check page command', () => {
