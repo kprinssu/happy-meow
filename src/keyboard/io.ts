@@ -33,7 +33,11 @@ const openPort = async (port: SerialPort): Promise<boolean> => {
 
 const writeToKeyboard = async (port: SerialPortStream, data: Buffer): Promise<boolean> => {
   try {
-    await sleep(2);
+    if (process.env.NODE_ENV !== 'test') {
+      // Sleep for 5ms to prevent overwhelming the serial port.
+      await sleep(5);
+    }
+
     await new Promise<void>((resolve, reject) => {
       port.write(data, (err) => {
         if (err) {

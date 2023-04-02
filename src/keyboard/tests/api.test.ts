@@ -46,5 +46,5 @@ describe('writeConfig', () => {
 
     await KeyboardApi.writeConfig(portPath, './src/keyboard/tests/_files_/valid.json');
     expect(mockPort?.port?.recording?.equals(expectedData)).toEqual(true);
-  }, 30000);
+  }, 10000);
 });
