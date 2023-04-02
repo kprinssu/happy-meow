@@ -15,7 +15,5 @@ jobs:
           node-version: '18'
       - name: Install Yarn packages
         run: yarn install
-      - name: Run linters
-        uses: wearerequired/lint-action@v2
-        with:
-          eslint: true
+      - name: Run ESlint
+        run: yarn run lint
