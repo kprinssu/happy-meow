@@ -1,0 +1,19 @@
+name: Test
+
+on: [push, pull_request]
+permissions:
+  checks: write
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '18'
+      - name: Install Yarn packages
+        run: yarn install
+      - name: Run Jest
+        run: yarn run jest
