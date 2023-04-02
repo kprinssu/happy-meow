@@ -1,0 +1,21 @@
+name: Lint
+
+on: [push, pull_request]
+permissions:
+  checks: write
+  contents: write
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '18'
+      - name: Install Yarn packages
+        run: yarn install
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          eslint: true
