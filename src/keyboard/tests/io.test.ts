@@ -121,7 +121,7 @@ describe('readFromKeyboard', () => {
       mockPort.emitData(data);
 
       const readData = await readFromKeyboard(port);
-      expect(data).toEqual(data);
+      expect(readData).toEqual(data);
       done();
     });
 

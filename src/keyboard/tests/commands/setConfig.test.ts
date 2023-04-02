@@ -1,6 +1,6 @@
 import { Buffer } from 'buffer';
 
-import { readJSON, Cyberboard } from '../../parser';
+import { readJSON } from '../../parser';
 import {
   generateCheckPageCommand,
   generateUsefulDirectives,

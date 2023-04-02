@@ -1,6 +1,6 @@
 import { PortInfo } from '@serialport/bindings-cpp';
 
-import { readJSON, Cyberboard, ParsedConfig } from './parser';
+import { readJSON, ParsedConfig } from './parser';
 import { listKeyboards } from './list';
 import { createPort,
   openPort,

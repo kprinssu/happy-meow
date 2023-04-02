@@ -1,4 +1,4 @@
-import { Cyberboard,
+import {
   UnknownInfoCommand,
   FunctionKeyInfoCommand,
   SwapKeyInfoCommand,
@@ -30,7 +30,7 @@ describe('Cyberboard', () => {
         { pageIndex: 7, wordNum: 0, frameNum: 60, keyframeNum: 71 }
       ];
 
-      expect(config.unknownInfos).toEqual(expectedData);
+      expect(parsedCyberboard.unknownInfos).toEqual(expectedData);
     });
 
     test('it processes the page control', async () => {

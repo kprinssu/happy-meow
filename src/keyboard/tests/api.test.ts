@@ -3,8 +3,6 @@ import { SerialPortMock } from 'serialport';
 import { Buffer } from 'buffer';
 import * as fs from 'fs';
 
-import { createPort } from '../io';
-import { generateSetTime } from '../commands/setTime';
 import { KeyboardApi } from '../api';
 
 const portPath = '/dev/CB00';
@@ -12,7 +10,7 @@ let mockPort: SerialPortMock | null = null;
 jest.mock('serialport', () => {
   return {
     ...jest.requireActual('serialport'),
-    SerialPort: jest.fn().mockImplementation((options) => mockPort),
+    SerialPort: jest.fn().mockImplementation(() => mockPort),
   };
 });
 
