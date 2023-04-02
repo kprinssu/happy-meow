@@ -19,26 +19,26 @@ export class KeyboardApi {
     const port = createPort(path);
 
     await new Promise<void>((resolve, reject) => {
-      try {
-        port.open((err) => {
-          console.log(err);
+      port.open((err) => {
+        if (err) {
           reject(err);
-        });
-      } catch (e) {
-        console.log(e);
-        throw e;
-      }
-
-      resolve();
+        }
+        resolve();
+      });
     });
 
-    console.log('Opened port' + ' ' + port.isOpen);
-
-
     const data = generateSetTime();
-
     await writeToKeyboard(port, data);
-    port.close();
+
+    await new Promise<void>((resolve, reject) => {
+      port.close((err) => {
+        if (err) {
+          reject(err);
+        }
+        resolve();
+      });
+    });
+
     return true;
   }
 
@@ -49,14 +49,12 @@ export class KeyboardApi {
       const port = createPort(portPath);
 
       await new Promise<void>((resolve, reject) => {
-        try {
-          port.open((err) => reject(err));
-        } catch (e) {
-          console.log(e);
-          throw e;
-        }
-
-        resolve();
+        port.open((err) => {
+          if (err) {
+            reject(err);
+          }
+          resolve();
+        });
       });
 
       const startCommand = SetConfig.generateStartCommand();
@@ -137,7 +135,14 @@ export class KeyboardApi {
       await writeToKeyboard(port, stopCommand);
       const endData = await readFromKeyboard(port);
 
-      port.close();
+      await new Promise<void>((resolve, reject) => {
+        port.close((err) => {
+          if (err) {
+            reject(err);
+          }
+          resolve();
+        });
+      });
     } catch (e) {
       console.log('Failed to write config.');
       console.log(e);

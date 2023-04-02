@@ -17,10 +17,11 @@ const writeToKeyboard = async (port: SerialPortStream, data: Buffer): Promise<bo
     await sleep(2);
     await new Promise<void>((resolve, reject) => {
       port.write(data, (err) => {
-        reject(err);
+        if (err) {
+          reject(err);
+        }
+        resolve();
       });
-
-      resolve();
     });
   } catch (e) {
     console.error('Failed to write data.');

@@ -4,6 +4,7 @@ import { Buffer } from 'buffer';
 import * as fs from 'fs';
 
 import { createPort } from '../io';
+import { generateSetTime } from '../commands/setTime';
 import { KeyboardApi } from '../api';
 
 const portPath = '/dev/CB00';
@@ -15,6 +16,12 @@ jest.mock('serialport', () => {
   };
 });
 
+const mockGenerateTime = Buffer.from('01036428d0e701050000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000065', 'hex');
+jest.mock('../commands/setTime', () => ({
+  generateSetTime: jest.fn().mockImplementation(() => {
+    return mockGenerateTime;
+  }),
+}));
 
 const setupMockPort = () => {
   MockBinding.reset();
@@ -26,10 +33,10 @@ describe('setTime', () => {
   test('it writes the time to the keyboard', async () => {
     setupMockPort();
 
-    //const expectedData = fs.readFileSync('./src/keyboard/tests/_files_/setTime.bin');
-
+    const expectedData = mockGenerateTime;
     await KeyboardApi.setTime(portPath);
-    // /expect(mockPort?.port?.recording?.equals(expectedData)).toEqual(true);
+
+    expect(mockPort?.port?.recording).toEqual(expectedData);
   });
 });
 
