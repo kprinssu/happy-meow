@@ -2,7 +2,12 @@ import { PortInfo } from '@serialport/bindings-cpp';
 
 import { readJSON, Cyberboard, ParsedConfig } from './parser';
 import { listKeyboards } from './list';
-import { createPort, writeToKeyboard, readFromKeyboard } from './io';
+import { createPort,
+  openPort,
+  writeToKeyboard,
+  readFromKeyboard,
+  closePort,
+} from './io';
 import { generateSetTime } from './commands/setTime';
 import * as SetConfig from './commands/setConfig';
 
@@ -18,27 +23,11 @@ export class KeyboardApi {
   static async setTime(path: string): Promise<boolean> {
     const port = createPort(path);
 
-    await new Promise<void>((resolve, reject) => {
-      port.open((err) => {
-        if (err) {
-          reject(err);
-        }
-        resolve();
-      });
-    });
-
+    await openPort(port);
     const data = generateSetTime();
     await writeToKeyboard(port, data);
 
-    await new Promise<void>((resolve, reject) => {
-      port.close((err) => {
-        if (err) {
-          reject(err);
-        }
-        resolve();
-      });
-    });
-
+    await closePort(port);
     return true;
   }
 
@@ -48,14 +37,7 @@ export class KeyboardApi {
       const config = parsedConfig.config;
       const port = createPort(portPath);
 
-      await new Promise<void>((resolve, reject) => {
-        port.open((err) => {
-          if (err) {
-            reject(err);
-          }
-          resolve();
-        });
-      });
+      await openPort(port);
 
       const startCommand = SetConfig.generateStartCommand();
       await writeToKeyboard(port, startCommand);
@@ -135,14 +117,7 @@ export class KeyboardApi {
       await writeToKeyboard(port, stopCommand);
       const endData = await readFromKeyboard(port);
 
-      await new Promise<void>((resolve, reject) => {
-        port.close((err) => {
-          if (err) {
-            reject(err);
-          }
-          resolve();
-        });
-      });
+      await closePort(port);
     } catch (e) {
       console.log('Failed to write config.');
       console.log(e);

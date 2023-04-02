@@ -12,6 +12,25 @@ const createPort = (path: string): SerialPort => {
   });
 };
 
+const openPort = async (port: SerialPort): Promise<boolean> => {
+  try {
+    await new Promise<void>((resolve, reject) => {
+      port.open((err) => {
+        if (err) {
+          reject(err);
+        }
+        resolve();
+      });
+    });
+  } catch (e) {
+    console.error('Failed to open port.');
+    console.error(e);
+    return false;
+  }
+
+  return true;
+};
+
 const writeToKeyboard = async (port: SerialPortStream, data: Buffer): Promise<boolean> => {
   try {
     await sleep(2);
@@ -47,9 +66,29 @@ const readFromKeyboard = async (port: SerialPortStream, size?: number): Promise<
   });
 };
 
+const closePort = async (port: SerialPortStream): Promise<boolean> => {
+  try {
+    await new Promise<void>((resolve, reject) => {
+      port.close((err) => {
+        if (err) {
+          reject(err);
+        }
+        resolve();
+      });
+    });
+  } catch (e) {
+    console.error('Failed to close port.');
+    console.error(e);
+    return false;
+  }
+
+  return true;
+};
 
 export {
   createPort,
+  openPort,
   writeToKeyboard,
   readFromKeyboard,
+  closePort,
 };

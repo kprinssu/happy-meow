@@ -2,7 +2,12 @@ import { MockBinding, MockPortBinding } from '@serialport/binding-mock';
 import { SerialPortMock } from 'serialport';
 import { randomBytes } from 'crypto'
 
-import { createPort, writeToKeyboard, readFromKeyboard } from '../io';
+import { createPort,
+  openPort,
+  writeToKeyboard,
+  readFromKeyboard,
+  closePort,
+} from '../io';
 
 jest.mock('serialport', () => {
   return {
@@ -18,7 +23,7 @@ beforeEach(() => {
 });
 
 describe('createPort', () => {
-  test('creates a new SerialPort object', () => {
+  test('creates a new SerialPort object', async () => {
     const port = createPort(path);
 
     expect(port.path).toEqual(path);
@@ -26,8 +31,32 @@ describe('createPort', () => {
   });
 });
 
-describe('writeToKeyboard', () => {
+describe('openPort', () => {
+  test('opens the port and returns true for success', async () => {
+    const port = createPort(path);
+    expect(port.isOpen).toEqual(false);
+    await openPort(port);
+    expect(port.isOpen).toEqual(true);
+  });
 
+  test('logs an error and returns false on failure', async () => {
+    const port = createPort(path);
+    port.open = jest.fn().mockImplementation((callback) => {
+      callback(new Error('Test error'));
+    });
+
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { return {}; });
+
+    const result = await openPort(port);
+    expect(result).toEqual(false);
+    expect(port.isOpen).toEqual(false);
+    expect(errorSpy).toHaveBeenCalledWith('Failed to open port.');
+
+    errorSpy.mockRestore();
+  });
+});
+
+describe('writeToKeyboard', () => {
   test('writes data to the port and returns true for success', (done) => {
     const port = createPort(path);
     const data = randomBytes(32);
@@ -97,5 +126,30 @@ describe('readFromKeyboard', () => {
     });
 
     port.open();
+  });
+});
+
+describe('closePort', () => {
+  test('closes the port and returns true for success', async () => {
+    const port = createPort(path);
+    await openPort(port);
+    expect(port.isOpen).toEqual(true);
+    await closePort(port);
+    expect(port.isOpen).toEqual(false);
+  });
+
+  test('logs an error and returns false on failure', async () => {
+    const port = createPort(path);
+    port.close = jest.fn().mockImplementation((callback) => {
+      callback(new Error('Test error'));
+    });
+
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { return {}; });
+
+    const result = await closePort(port);
+    expect(result).toEqual(false);
+    expect(errorSpy).toHaveBeenCalledWith('Failed to close port.');
+
+    errorSpy.mockRestore();
   });
 });
