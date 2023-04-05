@@ -1,11 +1,21 @@
 import React from 'react';
 
-import './index.css';
+import Body from './Body';
+import Footer from './Footer';
 
-export default () => {
-  return (
-    <div className="content">
-      Content
-    </div>
-  );
-};
+import './content.css';
+
+export default class Content extends React.Component {
+  render() {
+    return (
+      <div className="content">
+        <div className="content-wrapper">
+          <Body>
+          </Body>
+
+          <Footer></Footer>
+        </div>
+      </div>
+    );
+  }
+}

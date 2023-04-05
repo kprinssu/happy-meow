@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './index.css';
+import './layout.css';
 
 import Content from './Content';
 import Sidebar from './Sidebar';

@@ -1,0 +1,11 @@
+.content {
+  grid-area: content;
+  background-color: #54a0ff;
+  height: 100%;
+}
+
+.content-wrapper {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+}
