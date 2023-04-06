@@ -28,7 +28,5 @@ describe('sync button', () => {
 
     await act(async () => fireEvent.click(button));
     expect(window.keyboardAPI.setTime).toHaveBeenCalledWith(mockKeyboard.path);
-
-    //expect(state.keyboardPorts.selectedPort).toEqual(mockKeyboard);
   });
 });
