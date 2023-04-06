@@ -4,8 +4,6 @@ import { v4 as uuid } from 'uuid';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchKeyboardPorts, setSelectedPort } from '../../store/keyboardPort/actions';
 
-import './KeyboardSelector.css';
-
 const KeyboardPortSelection = () => {
   const [keyboardPort, setKeyboardPort] = useState(1);
   const dispatch = useAppDispatch();
@@ -29,7 +27,7 @@ const KeyboardPortSelection = () => {
   return (
     <div className="keybord-selector inline-block m-1">
       <label htmlFor="keyboard-port" className="mr-1">Keyboard</label>
-      <select name="keyboard-port" onChange={selectKeyboard}>
+      <select name="keyboard-port" data-testid="keyboard-port-selector" onChange={selectKeyboard}>
         <option>Select a Keyboard</option>
         { keyboardPorts.map((keyboardPort, i) => {
             return <option value={i} key={uuid()}>{keyboardPort.pnpId}</option>

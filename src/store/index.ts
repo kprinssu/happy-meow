@@ -7,8 +7,13 @@ const store = configureStore({
   reducer: {
     keyboardPorts: keyboardPortSlice.reducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(logger),
+  middleware: (getDefaultMiddleware) => {
+    if (process.env.NODE_ENV === 'development') {
+      return getDefaultMiddleware().concat(logger);
+    }
+
+    return getDefaultMiddleware();
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

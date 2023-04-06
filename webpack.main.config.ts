@@ -17,5 +17,8 @@ export const mainConfig: Configuration = {
   },
   externals: {
     serialport: 'serialport',
+  },
+  optimization: {
+    usedExports: true,
   }
 };
