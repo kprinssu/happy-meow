@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import './layout.css';
 
@@ -9,11 +9,11 @@ import Sidebar from './Sidebar';
 
 export default () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="layout">
         <Sidebar></Sidebar>
         <Content></Content>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };

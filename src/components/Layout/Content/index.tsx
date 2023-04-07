@@ -9,9 +9,7 @@ export default () => {
   return (
     <div className="content">
       <div className="content-wrapper">
-        <Body>
-        </Body>
-
+        <Body></Body>
         <Footer></Footer>
       </div>
     </div>
