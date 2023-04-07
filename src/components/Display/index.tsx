@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useAppSelector } from '../../hooks';
 
 import './Display.css';
-import Grid from './grid';
+import Grid from './Grid';
 
 export default () => {
   const displayLayers = useAppSelector(state => state.keyboardDisplay);
@@ -12,7 +12,7 @@ export default () => {
   const height = 5;
   let tick = 0;
 
-  const [intervalRef, setIntervalRef] = useState<NodeJS.Timeout | null>(-1);
+  const [intervalRef, setIntervalRef] = useState<NodeJS.Timeout | null>(null);
   const [paused, setPaused] = useState(false);
   const [frames, setFrames] = useState(displayLayers.layers[0].frames[0].frame_RGB);
 
@@ -26,7 +26,7 @@ export default () => {
     setFrames(displayLayers.layers[0].frames[tick].frame_RGB);
   };
 
-  const playAnimation = (): number => {
+  const playAnimation = (): NodeJS.Timeout => {
     return setInterval(() => {
       nextTick();
     }, 250);
@@ -36,8 +36,11 @@ export default () => {
     setPaused(!paused);
 
     if (paused) {
-      clearInterval(intervalRef);
-      setIntervalRef(-1);
+      if (intervalRef !== null) {
+        clearInterval(intervalRef);
+      }
+
+      setIntervalRef(null);
     }
 
     if (!paused) {
@@ -52,7 +55,7 @@ export default () => {
   }, []);
 
   return (
-    <div className="display-editor">
+    <div className="display-editor" data-testid="display-editor">
       <Grid frames={frames} />
       <button onClick={() => setupAnimation()}>{paused ? 'Play' : 'Pause'}</button>
       <input type="range" name="play-speed" />

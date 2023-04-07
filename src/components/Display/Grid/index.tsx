@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Led from '../led';
+import Led from '../Led';
 
 type GridProps = {
   frames: string[];
