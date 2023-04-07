@@ -9,7 +9,7 @@ type GridProps = {
 export default (props: GridProps) => {
   return (
     <div className="led-display">
-      {props.frames.map((color, index) => (
+      {props.frames.map((color) => (
         Led({ color: color })
       ))}
     </div>

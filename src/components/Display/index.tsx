@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import * as CyberboardSchema from '../../keyboard/parser/schema/PageData';
 
-import './index.css';
+import './Display.css';
 import Grid from './grid';
-import Led from './led';
 
 let set = false;
 
@@ -67673,8 +67672,7 @@ export default () => {
       tick = 0;
     }
 
-   setFrames(pageData[5].frames.frame_data[tick].frame_RGB);
-   console.log(tick);
+    setFrames(pageData[5].frames.frame_data[tick].frame_RGB);
   };
 
   useEffect(() => {

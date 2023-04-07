@@ -11,8 +11,7 @@ export default () => {
   return (
     <BrowserRouter>
       <div className="layout">
-        <Sidebar>
-        </Sidebar>
+        <Sidebar></Sidebar>
         <Content></Content>
       </div>
     </BrowserRouter>

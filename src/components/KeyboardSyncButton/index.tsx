@@ -1,10 +1,6 @@
-import { useState } from 'react';
-
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import { useAppSelector } from '../../hooks';
 
 export default () => {
-  const [keyboardPort, _setKeyboardPort] = useState(1);
-  const dispatch = useAppDispatch();
   const selectedPort = useAppSelector(state => state.keyboardPorts.selectedPort);
 
   const sync = async () => {

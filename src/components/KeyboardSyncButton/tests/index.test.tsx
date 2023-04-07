@@ -1,6 +1,6 @@
 /** @jest-environment jsdom */
 
-import { waitFor, fireEvent } from '@testing-library/react';
+import { fireEvent } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
 import KeyboardSyncButton from '../index';
