@@ -23,7 +23,6 @@ beforeEach(() => {
   };
 });
 
-
 describe('connected Cyberboards', () => {
   it('renders all the Cyberboards in the dropdown', async () => {
     const selector = await act(async () => {

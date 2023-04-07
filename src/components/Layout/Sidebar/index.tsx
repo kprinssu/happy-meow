@@ -10,11 +10,11 @@ import './sidebar.css';
 
 export default () => {
   return (
-    <div className="sidebar">
+    <div className="sidebar text-white">
       <ul>
-        <li className="sidebar-item"><Link to="/display"><FontAwesomeIcon icon={faDisplay} /></Link></li>
-        <li className="sidebar-item"><Link to="/led"><FontAwesomeIcon icon={faLightbulb} /></Link></li>
-        <li className="sidebar-item"><Link to="/keyboard"><FontAwesomeIcon icon={faKeyboard} /></Link></li>
+        <li className="sidebar-item hover:text-gray-400 mt-3 mx-3"><Link to="/display"><FontAwesomeIcon icon={faDisplay} className="h-10" /></Link></li>
+        <li className="sidebar-item hover:text-gray-400 m-5"><Link to="/led"><FontAwesomeIcon icon={faLightbulb} className="h-10" /></Link></li>
+        <li className="sidebar-item hover:text-gray-400 m-5 mx-3"><Link to="/keyboard"><FontAwesomeIcon icon={faKeyboard} className="h-10" /></Link></li>
       </ul>
     </div>
   );
