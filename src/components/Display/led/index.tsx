@@ -1,4 +1,6 @@
 import React from 'react';
+import { v4 as uuid } from 'uuid';
+
 import './index.css';
 
 type LedProps = {
@@ -7,7 +9,7 @@ type LedProps = {
 
 export default (props: LedProps) => {
   return (
-    <div className="led" style={{backgroundColor: props.color}}>
+    <div key={uuid()} className="led" style={{backgroundColor: props.color}}>
 
     </div>
   );

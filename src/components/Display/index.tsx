@@ -55,6 +55,7 @@ export default () => {
     <div className="display-editor">
       <Grid frames={frames} />
       <button onClick={() => setupAnimation()}>{paused ? 'Play' : 'Pause'}</button>
+      <input type="range" name="play-speed" />
     </div>
   );
 };
