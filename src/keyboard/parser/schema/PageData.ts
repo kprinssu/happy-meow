@@ -47,3 +47,4 @@ export const PageData = z.object({
 
 export type PageData = z.infer<typeof PageData>;
 export type Color = z.infer<typeof Color>;
+export type FrameData = z.infer<typeof FrameData>;
