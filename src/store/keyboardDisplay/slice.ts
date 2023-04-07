@@ -1,7 +1,7 @@
 import {  KeyboardDisplayLayer, KeyboardDisplayState } from './types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const displayLayer1: KeyboardDisplayLayer1 = {
+const displayLayer1: KeyboardDisplayLayer = {
   layerIndex: 0,
   frames: [
     {
@@ -16202,7 +16202,7 @@ const displayLayer1: KeyboardDisplayLayer1 = {
   ],
 };
 
-const displayLayer2: KeyboardDisplayLayer2 = {
+const displayLayer2: KeyboardDisplayLayer = {
   layerIndex: 1,
   frames: [
     {
@@ -44718,8 +44718,8 @@ export default createSlice({
   initialState: initialState,
   reducers: {
     setLayers: (state, action: PayloadAction<KeyboardDisplayLayer>) => {
-      const layer = action.payload;;
-      state.layers.sice(layer.layerIndex, 1, layer);
+      const layer = action.payload;
+      state.layers.splice(layer.layerIndex, 1, layer);
     },
   },
 });

@@ -1,4 +1,3 @@
-import { FrameData } from '/src/keyboard/parser/schema/PageData';
 
 export interface KeyboardDisplayLayer {
   layerIndex: number;
