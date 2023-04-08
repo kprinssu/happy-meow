@@ -7,6 +7,7 @@ import Grid from './Grid';
 
 
 let frame = 0;
+let currentLayer = 0;
 
 export default () => {
   const displayLayers = useAppSelector(state => state.keyboardDisplay);
@@ -16,17 +17,17 @@ export default () => {
 
   const [intervalRef, setIntervalRef] = useState<NodeJS.Timeout | null>(null);
   const [paused, setPaused] = useState(true);
-  const [frames, setFrames] = useState(displayLayers.layers[0].frames[0].frame_RGB);
+  const [frames, setFrames] = useState(displayLayers.layers[currentLayer].frames[0].frame_RGB);
   const [speed, setSpeed] = useState(250);
 
   const nextFrame = () => {
     frame += 1;
 
-    if (frame >= displayLayers.layers[0].frames.length) {
+    if (frame >= displayLayers.layers[currentLayer].frames.length) {
       frame = 0;
     }
 
-    setFrames(displayLayers.layers[0].frames[frame].frame_RGB);
+    setFrames(displayLayers.layers[currentLayer].frames[frame].frame_RGB);
   };
 
   const playAnimation = (): NodeJS.Timeout => {
@@ -67,15 +68,28 @@ export default () => {
     startAnimation();
   };
 
+  const changeLayer = (layer: number) => {
+    currentLayer = layer;
+    clearAnimation();
+    startAnimation();
+  };
+
   useEffect(() => {
     handlePausePlay();
   }, []);
 
   return (
     <div className="display-editor my-0 mx-auto w-full" data-testid="display-editor">
+      <span data-testid="display-layer">Layer {currentLayer + 1}</span>
       <Grid frames={frames} frameNumber={frame} />
       <button onClick={() => handlePausePlay()} data-testid="display-pause-play">{paused ? 'Pause' : 'Play'}</button>
       <input type="range" name="play-speed" min="1" max="100" data-testid="display-speed-slider" onChange={handleSpeedChange} />
+
+      <ul>
+        <li onClick={() => changeLayer(0)} data-testid="display-layer-frame-1">Frame: 1</li>
+        <li onClick={() => changeLayer(1)} data-testid="display-layer-frame-2">Frame: 2</li>
+        <li onClick={() => changeLayer(2)} data-testid="display-layer-frame-3">Frame: 3</li>
+      </ul>
     </div>
   );
 };

@@ -65,4 +65,38 @@ describe('animation', () => {
   });
 });
 
+describe('layer selection', () => {
+  test('should change the layer when a layer 1 is clicked', async () => {
+    const display = renderWithProviders(<Display />);
+    const grid = await display.findByTestId('display-led-grid');
+    const layerText = await display.findByTestId('display-layer');
+
+    const layer1 = await display.findByTestId('display-layer-frame-1');
+    act(() => fireEvent.click(layer1));
+
+    expect(layerText.textContent).toEqual('Layer 1');
+  });
+
+  test('should change the layer when a layer 2 is clicked', async () => {
+    const display = renderWithProviders(<Display />);
+    const grid = await display.findByTestId('display-led-grid');
+    const layerText = await display.findByTestId('display-layer');
+
+    const layer2 = await display.findByTestId('display-layer-frame-2');
+    act(() => fireEvent.click(layer2));
+
+    expect(layerText.textContent).toEqual('Layer 2');
+  });
+
+  test('should change the layer when a layer 3 is clicked', async () => {
+    const display = renderWithProviders(<Display />);
+    const grid = await display.findByTestId('display-led-grid');
+    const layerText = await display.findByTestId('display-layer');
+
+    const layer3 = await display.findByTestId('display-layer-frame-3');
+    act(() => fireEvent.click(layer3));
+
+    expect(layerText.textContent).toEqual('Layer 3');
+  });
+});
 
