@@ -8,39 +8,62 @@ import Display from '../index';
 import { renderWithProviders } from '../../../utils/test-helpers';
 
 describe('animation', () => {
-  it('should start the animation when the component is loaded', () => {
+  it('should start the animation when the component is loaded', async () => {
+    jest.useFakeTimers();
+
     const display = renderWithProviders(<Display />);
-    /*const { getByTestId } = renderWithProviders(<Display value="0" />);
+    const grid = await display.findByTestId('display-led-grid');
 
-    act(() => {
-      fireEvent.click(getByTestId('button-1'));
-    });
+    const preAnimation = grid.getAttribute('data-test-frame-number');
+    act(() => jest.advanceTimersByTime(250));
+    const postAnimationFrame = grid.getAttribute('data-test-frame-number');
 
-    expect(getByTestId('display').classList).toContain('animate');*/
+    expect(preAnimation).not.toEqual(postAnimationFrame);
+
+    jest.useRealTimers();
   });
 
-  it('should pause animation when the pause/play button is pressed', () => {
-    /*const { getByTestId } = renderWithProviders(<Display value="0" />);
+  it('should pause animation when the pause/play button is pressed', async () => {
+    jest.useFakeTimers();
 
-    act(() => {
-      fireEvent.click(getByTestId('button-1'));
-    });
+    const display = renderWithProviders(<Display />);
+    const grid = await display.findByTestId('display-led-grid');
+    const pausePlayButton = await display.findByTestId('display-pause-play');
 
-    expect(getByTestId('display').classList).toContain('animate-pause');*/
+    const preAnimation = grid.getAttribute('data-test-frame-number');
+    act(() => fireEvent.click(pausePlayButton));
+    act(() => jest.advanceTimersByTime(250));
+    const postAnimationFrame = grid.getAttribute('data-test-frame-number');
+
+    expect(preAnimation).toEqual(postAnimationFrame);
+    expect(pausePlayButton.textContent).toEqual('Play');
+
+    jest.useRealTimers();
   });
 
-  it('should play animation when the pause/play button is pressed', () => {
-    /*const { getByTestId } = renderWithProviders(<Display value="0" />);
+  it('should play animation when the pause/play button is pressed', async () => {
+    jest.useFakeTimers();
 
-    act(() => {
-      fireEvent.click(getByTestId('button-1'));
-    });
+    const display = renderWithProviders(<Display />);
+    const grid = await display.findByTestId('display-led-grid');
+    const pausePlayButton = await display.findByTestId('display-pause-play');
 
-    act(() => {
-      fireEvent.click(getByTestId('button-1'));
-    });
+    const preAnimation = grid.getAttribute('data-test-frame-number');
+    // Pause
+    act(() => fireEvent.click(pausePlayButton));
+    // Play
+    act(() => fireEvent.click(pausePlayButton));
+    act(() => jest.advanceTimersByTime(250));
+    const postAnimationFrame = grid.getAttribute('data-test-frame-number');
 
-    expect(getByTestId('display').classList).toContain('animate');*/
+    expect(preAnimation).not.toEqual(postAnimationFrame);
+    expect(pausePlayButton.textContent).toEqual('Pause');
+
+    jest.useRealTimers();
+  });
+
+  it('changes the animation speed to the speed slider', async () => {
+
   });
 });
 
