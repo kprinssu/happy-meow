@@ -15,8 +15,9 @@ export default () => {
   const height = 5;
 
   const [intervalRef, setIntervalRef] = useState<NodeJS.Timeout | null>(null);
-  const [paused, setPaused] = useState(false);
+  const [paused, setPaused] = useState(true);
   const [frames, setFrames] = useState(displayLayers.layers[0].frames[0].frame_RGB);
+  const [speed, setSpeed] = useState(250);
 
   const nextFrame = () => {
     frame += 1;
@@ -31,36 +32,50 @@ export default () => {
   const playAnimation = (): NodeJS.Timeout => {
     return setInterval(() => {
       nextFrame();
-    }, 250);
+    }, speed);
   };
 
-  const setupAnimation = () => {
+  const startAnimation = () => {
+    const ref = playAnimation();
+    setIntervalRef(ref);
+  };
+
+  const clearAnimation = () => {
+    if (intervalRef !== null) {
+      clearInterval(intervalRef);
+    }
+    setIntervalRef(null);
+  };
+
+  const handlePausePlay = () => {
     setPaused(!paused);
 
     if (paused) {
-      if (intervalRef !== null) {
-        clearInterval(intervalRef);
-      }
-
-      setIntervalRef(null);
+      clearAnimation();
     }
 
     if (!paused) {
-      const ref = playAnimation();
-      setIntervalRef(ref);
+      startAnimation();
     }
+  };
 
+  const handleSpeedChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const speed = 100 - parseInt(event.target.value);
+
+    setSpeed(speed);
+    clearAnimation();
+    startAnimation();
   };
 
   useEffect(() => {
-    setupAnimation();
+    handlePausePlay();
   }, []);
 
   return (
     <div className="display-editor my-0 mx-auto w-full" data-testid="display-editor">
       <Grid frames={frames} frameNumber={frame} />
-      <button onClick={() => setupAnimation()} data-testid="display-pause-play">{paused ? 'Pause' : 'Play'}</button>
-      <input type="range" name="play-speed" />
+      <button onClick={() => handlePausePlay()} data-testid="display-pause-play">{paused ? 'Pause' : 'Play'}</button>
+      <input type="range" name="play-speed" min="1" max="100" data-testid="display-speed-slider" onChange={handleSpeedChange} />
     </div>
   );
 };
