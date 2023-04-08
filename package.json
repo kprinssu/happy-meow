@@ -68,6 +68,7 @@
     "zod": "^3.21.4"
   },
   "dependencies": {
+    "@hello-pangea/color-picker": "^3.2.2",
     "electron-squirrel-startup": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

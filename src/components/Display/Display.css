@@ -5,3 +5,16 @@
   row-gap: 1px;
   column-gap: 1px;
 }
+
+.display-editor {
+  width: 680px;
+}
+
+.display-editor-infobar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.color-picker {
+  width: 320px;
+}

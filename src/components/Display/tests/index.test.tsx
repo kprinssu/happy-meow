@@ -7,7 +7,7 @@ import Display from '../index';
 
 import { renderWithProviders } from '../../../utils/test-helpers';
 
-describe('animation', () => {
+describe('play/pause', () => {
   it('should play animation when the pause/play button is pressed', async () => {
     jest.useFakeTimers();
 
@@ -46,7 +46,9 @@ describe('animation', () => {
 
     jest.useRealTimers();
   });
+});
 
+describe('speed', () => {
   it('changes the animation speed to the speed slider', async () => {
     jest.useFakeTimers();
 
@@ -62,6 +64,19 @@ describe('animation', () => {
     expect(preAnimation).not.toEqual(postAnimationFrame);
 
     jest.useRealTimers();
+  });
+});
+
+describe('frame slider', () => {
+  it('changes the animation frame according to the frame slider value', async () => {
+    const display = renderWithProviders(<Display />);
+    const grid = await display.findByTestId('display-led-grid');
+    const frameSlider = await display.findByTestId('display-frame-slider');
+
+    const frame = 77;
+    act(() => fireEvent.change(frameSlider, { target: { value: frame } }));
+    const gridFrame = grid.getAttribute('data-test-frame-number');
+    expect(gridFrame).toEqual(frame.toString());
   });
 });
 
@@ -99,4 +114,3 @@ describe('layer selection', () => {
     expect(layerText.textContent).toEqual('Layer 3');
   });
 });
-
