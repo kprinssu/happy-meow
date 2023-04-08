@@ -1,5 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ColorResult, SliderPicker } from '@hello-pangea/color-picker'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ColorResult, SliderPicker } from '@hello-pangea/color-picker';
+import {
+  faPlay,
+  faPause,
+} from '@fortawesome/free-solid-svg-icons';
 
 import { useAppSelector } from '../../hooks';
 
@@ -22,7 +27,7 @@ export default () => {
   const [speed, setSpeed] = useState(250);
   const [color, setColor] = useState('#ffffff');
   const [frameNumber, setFrameNumber] = useState(0);
-  const [maxFrame, setMaxFrame] = useState(0);
+  const [maxFrame, setMaxFrame] = useState(displayLayers.layers[currentLayer].frames.length - 1);
 
   const frameSlider = useRef<HTMLInputElement>(null);
 
@@ -46,6 +51,7 @@ export default () => {
   const startAnimation = () => {
     const ref = playAnimation();
     setIntervalRef(ref);
+    setPaused(true);
   };
 
   const clearAnimation = () => {
@@ -53,6 +59,7 @@ export default () => {
       clearInterval(intervalRef);
     }
     setIntervalRef(null);
+    setPaused(false);
   };
 
   const handlePausePlay = () => {
@@ -68,8 +75,7 @@ export default () => {
   };
 
   const handleSpeedChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const speed = 100 - parseInt(event.target.value);
-
+    const speed = (100 - parseInt(event.target.value)) * 2;
     setSpeed(speed);
     clearAnimation();
     startAnimation();
@@ -95,6 +101,11 @@ export default () => {
 
     setFrameNumber(frame);
     clearAnimation();
+    setFrames(displayLayers.layers[currentLayer].frames[frame].frame_RGB);
+  };
+
+  const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setColor(event.target.value);
   };
 
   useEffect(() => {
@@ -110,21 +121,33 @@ export default () => {
       </ul>
 
       <div className="display-editor-view text-base mt-2">
-        <div className="display-editor-infobar">
+        <div className="display-editor-infobar mb-2">
           <span data-testid="display-layer">Layer {currentLayer + 1}</span>
-          <input type="range" name="play-speed" min="1" max={frames.length} data-testid="display-speed-slider" onChange={handleSpeedChange} />
+          <div className="display-editor-infobar-speed">
+            <span>Speed</span>
+            <input type="range" name="play-speed" min="1" max="100" data-testid="display-speed-slider" onChange={handleSpeedChange} />
+          </div>
           <span data-testid="display-frame" className="text-right">Frame {frameNumber + 1}</span>
         </div>
 
         <Grid frames={frames} frameNumber={frame} />
       </div>
-      <button onClick={() => handlePausePlay()} data-testid="display-pause-play">{paused ? 'Pause' : 'Play'}</button>
+      <div className="display-frame-infobar w-full">
+        <div></div>
+        <div className="display-frame-infobar-controls">
+          <button onClick={() => handlePausePlay()} data-testid="display-pause-play" className="my-0 mx-auto">{paused ?
+            <FontAwesomeIcon icon={faPause}/> :
+            <FontAwesomeIcon icon={faPlay} />}
+          </button>
+          <input type="range" name="frame-slider" min="1" max={maxFrame} ref={frameSlider} data-testid="display-frame-slider" onChange={handleFrameChange} />
+        </div>
+        <div></div>
+      </div>
 
-      <br />
-      <input type="range" name="frame-slider" min="1" max="100" ref={frameSlider} data-testid="display-frame-slider" onChange={handleFrameChange} />
-
-      <div className="color-picker my-0 mx-auto">
+      <div className="color-picker my-0 mt-4 mx-auto">
         <SliderPicker color={color} onChangeComplete={handleChange} />
+        <label htmlFor="color-picker-input">Hex Color</label>
+        <input type="text" id="color-picker-input" name="color-picker-input" value={color} onChange={handleColorChange} />
       </div>
     </div>
   );

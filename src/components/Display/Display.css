@@ -15,6 +15,20 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+.display-editor-infobar-speed {
+  display: grid;
+  text-align: center;
+}
+
+.display-frame-infobar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.display-frame-infobar-controls {
+  display: grid;
+}
+
 .color-picker {
   width: 320px;
 }
