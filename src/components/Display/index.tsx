@@ -162,14 +162,14 @@ export default () => {
       </div>
       <div className="display-frame-infobar w-full">
         <div></div>
-        <div className="display-frame-infobar-controls">
+        <div className="display-frame-infobar-controls mt-2">
           <button onClick={() => handlePausePlay()} data-testid="display-pause-play" className="my-0 mx-auto">{paused ?
-            <FontAwesomeIcon icon={faPause}/> :
-            <FontAwesomeIcon icon={faPlay} />}
+            <FontAwesomeIcon icon={faPause} className="h-4 w-4" /> :
+            <FontAwesomeIcon icon={faPlay} className="h-4 w-4" />}
           </button>
-          <div>
+          <div className="flex w-full">
             <button data-testid="display-remove-frame" onClick={removeFrame}><FontAwesomeIcon icon={faMinus} /></button>
-            <input type="range" name="frame-slider" min="1" max={maxFrame} ref={frameSlider} data-testid="display-frame-slider" onChange={handleFrameChange} />
+            <input type="range" name="frame-slider" min="1" max={maxFrame} ref={frameSlider} data-testid="display-frame-slider" className="w-full" onChange={handleFrameChange} />
              <button data-testid="display-insert-frame" onClick={addFrame}><FontAwesomeIcon icon={faPlus} /></button>
           </div>
         </div>
