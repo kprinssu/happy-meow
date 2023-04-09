@@ -24,6 +24,7 @@ export default () => {
 
   const width = 40;
   const height = 5;
+  const maxFrameCount = 100;
 
   const [intervalRef, setIntervalRef] = useState<NodeJS.Timeout | null>(null);
   const [paused, setPaused] = useState(true);
@@ -113,7 +114,7 @@ export default () => {
   };
 
   const addFrame = () => {
-    if (displayLayers.layers[currentLayer].frames.length > 100) {
+    if (displayLayers.layers[currentLayer].frames.length > maxFrameCount) {
       return;
     }
 
@@ -150,7 +151,7 @@ export default () => {
           <span data-testid="display-layer">Layer {currentLayer + 1}</span>
           <div className="display-editor-infobar-speed">
             <span>Speed</span>
-            <input type="range" name="play-speed" min="1" max="100" data-testid="display-speed-slider" onChange={handleSpeedChange} />
+            <input type="range" name="play-speed" min="1" max="100" data-testid="display-speed-slider"  onChange={handleSpeedChange} />
           </div>
           <span data-testid="display-frame" className="text-right">Frame {frameNumber + 1}</span>
         </div>
@@ -175,7 +176,7 @@ export default () => {
 
       <div className="color-picker my-0 mt-4 mx-auto">
         <SliderPicker color={color} onChangeComplete={handleChange} />
-        <label htmlFor="color-picker-input">Hex Color</label>
+        <label htmlFor="color-picker-input" className="mr-1">Hex Color</label>
         <input type="text" id="color-picker-input" name="color-picker-input" value={color} onChange={handleColorChange} />
       </div>
     </div>
