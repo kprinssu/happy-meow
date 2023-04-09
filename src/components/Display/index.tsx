@@ -126,12 +126,14 @@ export default () => {
 
     newDisplayLayer.frames = newFrames;
     dispatch(setLayer(newDisplayLayer));
+    setMaxFrame(displayLayers.layers[currentLayer].frames.length - 1);
   };
 
   const removeFrame = () => {
     const newDisplayLayer = JSON.parse(JSON.stringify(displayLayers.layers[currentLayer]));
     newDisplayLayer.frames.splice(frame, 1);
     dispatch(setLayer(newDisplayLayer));
+    setMaxFrame(displayLayers.layers[currentLayer].frames.length - 1);
   };
 
   useEffect(() => {
@@ -166,9 +168,9 @@ export default () => {
             <FontAwesomeIcon icon={faPlay} />}
           </button>
           <div>
-            <button><FontAwesomeIcon icon={faMinus} onClick={removeFrame} /></button>
+            <button data-testid="display-remove-frame" onClick={removeFrame}><FontAwesomeIcon icon={faMinus} /></button>
             <input type="range" name="frame-slider" min="1" max={maxFrame} ref={frameSlider} data-testid="display-frame-slider" onChange={handleFrameChange} />
-             <button><FontAwesomeIcon icon={faPlus} onClick={addFrame} /></button>
+             <button data-testid="display-insert-frame" onClick={addFrame}><FontAwesomeIcon icon={faPlus} /></button>
           </div>
         </div>
         <div></div>

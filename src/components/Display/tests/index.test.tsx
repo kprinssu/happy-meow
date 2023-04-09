@@ -5,6 +5,7 @@ import { act } from 'react-dom/test-utils';
 
 import Display from '../index';
 
+import store from '../../../store';
 import { renderWithProviders } from '../../../utils/test-helpers';
 
 describe('play/pause', () => {
@@ -80,8 +81,34 @@ describe('frame slider', () => {
   });
 });
 
+describe('frame inserts and removal', () => {
+  it('should insert a frame when the insert button is pressed', async () => {
+    const display = renderWithProviders(<Display />);
+    const insertButton = await display.findByTestId('display-insert-frame');
+    const frameSlider = await display.findByTestId('display-frame-slider');
+
+    const preInsertMaxFrame = store.getState().keyboardDisplay.layers[0].frames.length;
+    act(() => fireEvent.click(insertButton));
+    const postInsertMaxFrame = store.getState().keyboardDisplay.layers[0].frames.length;
+
+    expect(postInsertMaxFrame).toEqual(preInsertMaxFrame + 1);
+  });
+
+  it('should remove a frame when the remove button is pressed', async () => {
+    const display = renderWithProviders(<Display />);
+    const removeButton = await display.findByTestId('display-remove-frame');
+    const frameSlider = await display.findByTestId('display-frame-slider');
+
+    const preRemoveMaxFrame = store.getState().keyboardDisplay.layers[0].frames.length;
+    act(() => fireEvent.click(removeButton));
+    const postRemoveMaxFrame = store.getState().keyboardDisplay.layers[0].frames.length;
+
+    expect(postRemoveMaxFrame).toEqual(preRemoveMaxFrame - 1);
+  });
+});
+
 describe('layer selection', () => {
-  test('should change the layer when a layer 1 is clicked', async () => {
+  it('should change the layer when a layer 1 is clicked', async () => {
     const display = renderWithProviders(<Display />);
     const grid = await display.findByTestId('display-led-grid');
     const layerText = await display.findByTestId('display-layer');
@@ -92,7 +119,7 @@ describe('layer selection', () => {
     expect(layerText.textContent).toEqual('Layer 1');
   });
 
-  test('should change the layer when a layer 2 is clicked', async () => {
+  it('should change the layer when a layer 2 is clicked', async () => {
     const display = renderWithProviders(<Display />);
     const grid = await display.findByTestId('display-led-grid');
     const layerText = await display.findByTestId('display-layer');
@@ -103,7 +130,7 @@ describe('layer selection', () => {
     expect(layerText.textContent).toEqual('Layer 2');
   });
 
-  test('should change the layer when a layer 3 is clicked', async () => {
+  it('should change the layer when a layer 3 is clicked', async () => {
     const display = renderWithProviders(<Display />);
     const grid = await display.findByTestId('display-led-grid');
     const layerText = await display.findByTestId('display-layer');
