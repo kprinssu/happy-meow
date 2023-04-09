@@ -85,7 +85,6 @@ describe('frame inserts and removal', () => {
   it('should insert a frame when the insert button is pressed', async () => {
     const display = renderWithProviders(<Display />);
     const insertButton = await display.findByTestId('display-insert-frame');
-    const frameSlider = await display.findByTestId('display-frame-slider');
 
     const preInsertMaxFrame = store.getState().keyboardDisplay.layers[0].frames.length;
     act(() => fireEvent.click(insertButton));
@@ -97,7 +96,6 @@ describe('frame inserts and removal', () => {
   it('should remove a frame when the remove button is pressed', async () => {
     const display = renderWithProviders(<Display />);
     const removeButton = await display.findByTestId('display-remove-frame');
-    const frameSlider = await display.findByTestId('display-frame-slider');
 
     const preRemoveMaxFrame = store.getState().keyboardDisplay.layers[0].frames.length;
     act(() => fireEvent.click(removeButton));
@@ -110,7 +108,6 @@ describe('frame inserts and removal', () => {
 describe('layer selection', () => {
   it('should change the layer when a layer 1 is clicked', async () => {
     const display = renderWithProviders(<Display />);
-    const grid = await display.findByTestId('display-led-grid');
     const layerText = await display.findByTestId('display-layer');
 
     const layer1 = await display.findByTestId('display-layer-frame-1');
@@ -121,7 +118,6 @@ describe('layer selection', () => {
 
   it('should change the layer when a layer 2 is clicked', async () => {
     const display = renderWithProviders(<Display />);
-    const grid = await display.findByTestId('display-led-grid');
     const layerText = await display.findByTestId('display-layer');
 
     const layer2 = await display.findByTestId('display-layer-frame-2');
@@ -132,7 +128,6 @@ describe('layer selection', () => {
 
   it('should change the layer when a layer 3 is clicked', async () => {
     const display = renderWithProviders(<Display />);
-    const grid = await display.findByTestId('display-led-grid');
     const layerText = await display.findByTestId('display-layer');
 
     const layer3 = await display.findByTestId('display-layer-frame-3');

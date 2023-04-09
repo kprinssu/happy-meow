@@ -5,11 +5,13 @@ import './Led.css';
 
 type LedProps = {
   color: string;
+  index: number;
+  gridClick: (ledIndex: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => void;
 };
 
 export default (props: LedProps) => {
   return (
-    <div key={uuid()} className="led" style={{backgroundColor: props.color}}>
+    <div key={uuid()} className="led" style={{backgroundColor: props.color}} onClick={(e) => props.gridClick(e, props.index)}>
 
     </div>
   );

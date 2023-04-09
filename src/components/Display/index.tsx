@@ -22,9 +22,7 @@ export default () => {
   const dispatch = useAppDispatch();
   const displayLayers = useAppSelector(state => state.keyboardDisplay);
 
-  const width = 40;
-  const height = 5;
-  const maxFrameCount = 100;
+  const MAX_FRAME_COUNT = 100;
 
   const [intervalRef, setIntervalRef] = useState<NodeJS.Timeout | null>(null);
   const [paused, setPaused] = useState(true);
@@ -114,17 +112,14 @@ export default () => {
   };
 
   const addFrame = () => {
-    if (displayLayers.layers[currentLayer].frames.length > maxFrameCount) {
+    if (displayLayers.layers[currentLayer].frames.length > MAX_FRAME_COUNT) {
       return;
     }
 
     const newFrame = displayLayers.layers[currentLayer].frames[frame];
-    const newFrames = [...displayLayers.layers[currentLayer].frames];
-    newFrames.splice(frame + 1, 0, newFrame);
-
     const newDisplayLayer = JSON.parse(JSON.stringify(displayLayers.layers[currentLayer]));
 
-    newDisplayLayer.frames = newFrames;
+    newDisplayLayer.frames.splice(frame + 1, 0, newFrame);
     dispatch(setLayer(newDisplayLayer));
     setMaxFrame(displayLayers.layers[currentLayer].frames.length - 1);
   };
@@ -134,6 +129,13 @@ export default () => {
     newDisplayLayer.frames.splice(frame, 1);
     dispatch(setLayer(newDisplayLayer));
     setMaxFrame(displayLayers.layers[currentLayer].frames.length - 1);
+  };
+
+  const handleGridClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => {
+    const newDisplayLayer = JSON.parse(JSON.stringify(displayLayers.layers[currentLayer]));
+    newDisplayLayer.frames[frame].frame_RGB[index] = color;
+    dispatch(setLayer(newDisplayLayer));
+    setFrames(newDisplayLayer.frames[frame].frame_RGB);
   };
 
   useEffect(() => {
@@ -158,7 +160,7 @@ export default () => {
           <span data-testid="display-frame" className="text-right">Frame {frameNumber + 1}</span>
         </div>
 
-        <Grid frames={frames} frameNumber={frame} />
+        <Grid frames={frames} frameNumber={frame} gridClick={handleGridClick} />
       </div>
       <div className="display-frame-infobar w-full">
         <div></div>
