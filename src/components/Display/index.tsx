@@ -2,11 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ColorResult, SliderPicker } from '@hello-pangea/color-picker';
 import {
+  faPlus,
+  faMinus,
   faPlay,
   faPause,
 } from '@fortawesome/free-solid-svg-icons';
 
-import { useAppSelector } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { setLayer } from '../../store/keyboardDisplay/actions';
 
 import './Display.css';
 import Grid from './Grid';
@@ -16,6 +19,7 @@ let frame = 0;
 let currentLayer = 0;
 
 export default () => {
+  const dispatch = useAppDispatch();
   const displayLayers = useAppSelector(state => state.keyboardDisplay);
 
   const width = 40;
@@ -108,6 +112,27 @@ export default () => {
     setColor(event.target.value);
   };
 
+  const addFrame = () => {
+    if (displayLayers.layers[currentLayer].frames.length > 100) {
+      return;
+    }
+
+    const newFrame = displayLayers.layers[currentLayer].frames[frame];
+    const newFrames = [...displayLayers.layers[currentLayer].frames];
+    newFrames.splice(frame + 1, 0, newFrame);
+
+    const newDisplayLayer = JSON.parse(JSON.stringify(displayLayers.layers[currentLayer]));
+
+    newDisplayLayer.frames = newFrames;
+    dispatch(setLayer(newDisplayLayer));
+  };
+
+  const removeFrame = () => {
+    const newDisplayLayer = JSON.parse(JSON.stringify(displayLayers.layers[currentLayer]));
+    newDisplayLayer.frames.splice(frame, 1);
+    dispatch(setLayer(newDisplayLayer));
+  };
+
   useEffect(() => {
     handlePausePlay();
   }, []);
@@ -139,7 +164,11 @@ export default () => {
             <FontAwesomeIcon icon={faPause}/> :
             <FontAwesomeIcon icon={faPlay} />}
           </button>
-          <input type="range" name="frame-slider" min="1" max={maxFrame} ref={frameSlider} data-testid="display-frame-slider" onChange={handleFrameChange} />
+          <div>
+            <button><FontAwesomeIcon icon={faMinus} onClick={removeFrame} /></button>
+            <input type="range" name="frame-slider" min="1" max={maxFrame} ref={frameSlider} data-testid="display-frame-slider" onChange={handleFrameChange} />
+             <button><FontAwesomeIcon icon={faPlus} onClick={addFrame} /></button>
+          </div>
         </div>
         <div></div>
       </div>

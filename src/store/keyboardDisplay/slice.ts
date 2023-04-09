@@ -44922,7 +44922,7 @@ export default createSlice({
   name: 'keyboardDisplay',
   initialState: initialState,
   reducers: {
-    setLayers: (state, action: PayloadAction<KeyboardDisplayLayer>) => {
+    setLayer: (state, action: PayloadAction<KeyboardDisplayLayer>) => {
       const layer = action.payload;
       state.layers.splice(layer.layerIndex, 1, layer);
     },
