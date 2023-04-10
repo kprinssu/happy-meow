@@ -109,6 +109,8 @@ export default () => {
 
   const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setColor(event.target.value);
+
+    console.log(event.target.value, color);
   };
 
   const addFrame = () => {
@@ -131,7 +133,7 @@ export default () => {
     setMaxFrame(displayLayers.layers[currentLayer].frames.length - 1);
   };
 
-  const handleGridClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => {
+  const handleGridClick = (event: React.MouseEvent<HTMLElement, MouseEvent>, index: number) => {
     const newDisplayLayer = JSON.parse(JSON.stringify(displayLayers.layers[currentLayer]));
     newDisplayLayer.frames[frame].frame_RGB[index] = color;
     dispatch(setLayer(newDisplayLayer));
@@ -139,6 +141,8 @@ export default () => {
   };
 
   useEffect(() => {
+    // Reset state
+    frame = 0;
     handlePausePlay();
   }, []);
 
@@ -181,7 +185,7 @@ export default () => {
       <div className="color-picker my-0 mt-4 mx-auto">
         <SliderPicker color={color} onChangeComplete={handleChange} />
         <label htmlFor="color-picker-input" className="mr-1">Hex Color</label>
-        <input type="text" id="color-picker-input" name="color-picker-input" value={color} onChange={handleColorChange} />
+        <input type="text" id="color-picker-input" name="color-picker-input" data-testid="display-colour-input"  value={color} onChange={handleColorChange} />
       </div>
     </div>
   );

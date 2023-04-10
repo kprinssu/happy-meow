@@ -6,7 +6,7 @@ import Led from '../Led';
 type GridProps = {
   frames: string[];
   frameNumber: number;
-  gridClick: (ledIndex: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => void;
+  gridClick: (ledIndex: React.MouseEvent<HTMLElement, MouseEvent>, index: number) => void;
 };
 
 export default (props: GridProps) => {

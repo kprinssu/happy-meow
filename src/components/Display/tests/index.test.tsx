@@ -136,3 +136,20 @@ describe('layer selection', () => {
     expect(layerText.textContent).toEqual('Layer 3');
   });
 });
+
+describe('led colour', () => {
+  it('should change the led colour when a led is clicked', async () => {
+    const display = renderWithProviders(<Display />);
+    const preClickLed = await display.findByTestId('display-led-10');
+
+    const preClickColour = preClickLed.style.backgroundColor;
+    fireEvent.click(preClickLed);
+
+    const postClickLed = await display.findByTestId('display-led-10');
+    const postClickColour = postClickLed.style.backgroundColor;
+
+    // rgb(255, 255, 255) is the default colour (white)
+    expect(postClickColour).not.toEqual(preClickColour);
+    expect(postClickColour).toEqual('rgb(255, 255, 255)');
+  });
+});
