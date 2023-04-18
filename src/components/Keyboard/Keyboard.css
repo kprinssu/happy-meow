@@ -1,0 +1,9 @@
+.keyboard-row {
+  display: flex;
+  flex-direction: row;
+  margin: 0 0 0.5rem 0;
+}
+
+.keyboard {
+  font-size: 32px;
+}
