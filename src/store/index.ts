@@ -3,11 +3,13 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import keyboardPortSlice from './keyboardPort/slice';
 import keyboardDisplaySlice from './keyboardDisplay/slice';
+import keyboardKeySlice from './keyboardKey/slice';
 
 const store = configureStore({
   reducer: {
     keyboardPorts: keyboardPortSlice.reducer,
     keyboardDisplay: keyboardDisplaySlice.reducer,
+    keyboardKeySlice: keyboardKeySlice.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     if (process.env.NODE_ENV === 'development') {

@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils';
 
 import KeyboardSelector from '../index';
 
-import { renderWithProviders } from '../../../utils/test-helpers';
+import { renderWithProviders } from '../../../utils/testHelpers';
 import store from '../../../store';
 
 const mockKeyboard = {

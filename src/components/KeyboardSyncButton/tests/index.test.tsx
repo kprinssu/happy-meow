@@ -6,7 +6,7 @@ import { act } from 'react-dom/test-utils';
 import KeyboardSyncButton from '../index';
 
 import store from '../../../store';
-import { renderWithProviders } from '../../../utils/test-helpers';
+import { renderWithProviders } from '../../../utils/testHelpers';
 import { setSelectedPort } from '../../../store/keyboardPort/actions';
 
 describe('sync button', () => {
