@@ -1,4 +1,8 @@
-export const KEYBOARD_KEYS = {
+type KeyboardKeyConstants = {
+  [key: string]: string;
+};
+
+export const KEYBOARD_KEYS: KeyboardKeyConstants = {
   'Escape': '00070029',
   'F1': '0007003a',
   'F2': '0007003b',
@@ -75,4 +79,10 @@ export const KEYBOARD_KEYS = {
   'Down Arrow': '00070051',
   'Left Arrow': '00070050',
   'Right Arrow': '0007004f',
+};
+
+export const KEYBOARD_CODE_TO_KEY = (keyCode: string): string | null => {
+  return Object.keys(KEYBOARD_KEYS).find((k) => {
+    return KEYBOARD_KEYS[k] === keyCode;
+  }) || null;
 };
