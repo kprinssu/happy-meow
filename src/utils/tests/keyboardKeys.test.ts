@@ -1,7 +1,10 @@
 import { KEYBOARD_KEYS, KEYBOARD_CODE_TO_KEY } from '../keyboardKeys';
 
 describe('KEYBOARD_KEYS', () => {
-
+  // This test is just to make sure that the KEYBOARD_KEYS object is not empty
+  it('should have at least one key', () => {
+    expect(Object.keys(KEYBOARD_KEYS).length).toBeGreaterThan(0);
+  });
 });
 
 describe('KEYBOARD_CODE_TO_KEY', () => {
