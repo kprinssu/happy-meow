@@ -2,6 +2,8 @@ type KeyboardKeyConstants = {
   [key: string]: string;
 };
 
+// Constants are from: https://github.com/abend0c1/hidrdd/blob/master/rd.conf
+// The keycodes are in the format: 000700XX (and look to be USB HID codes)
 export const KEYBOARD_KEYS: KeyboardKeyConstants = {
   'Escape': '00070029',
   'F1': '0007003a',
