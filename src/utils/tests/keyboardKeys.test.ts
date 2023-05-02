@@ -9,8 +9,20 @@ describe('KEYBOARD_KEYS', () => {
 
 describe('KEYBOARD_CODE_TO_KEY', () => {
   it('should return the correct key name given the raw value', () => {
-    const expected = 'Escape';
-    const result = KEYBOARD_CODE_TO_KEY('00070029');
+    const expected = 'Esc';
+    const result = KEYBOARD_CODE_TO_KEY('#00070029');
+    expect(result).toEqual(expected);
+  });
+
+  it('should return the correct key name given the code is in lower case', () => {
+    const expected = 'F1';
+    const result = KEYBOARD_CODE_TO_KEY('#0007003a');
+    expect(result).toEqual(expected);
+  });
+
+  it('should return the correct key name given the code is in upper case', () => {
+    const expected = 'F1';
+    const result = KEYBOARD_CODE_TO_KEY('#0007003A');
     expect(result).toEqual(expected);
   });
 

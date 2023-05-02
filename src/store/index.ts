@@ -9,7 +9,7 @@ const store = configureStore({
   reducer: {
     keyboardPorts: keyboardPortSlice.reducer,
     keyboardDisplay: keyboardDisplaySlice.reducer,
-    keyboardKeySlice: keyboardKeySlice.reducer,
+    keyboardKeys: keyboardKeySlice.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     if (process.env.NODE_ENV === 'development') {

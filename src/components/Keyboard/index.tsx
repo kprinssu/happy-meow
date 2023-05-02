@@ -1,104 +1,129 @@
 import React from 'react';
 
 import './Keyboard.css';
-import Key from './Key';
+import Key, { KeyProps } from './Key';
 
-export default () => {
+import { KEYBOARD_CODE_TO_KEY } from '../../utils/keyboardKeys';
+
+export { KeyProps } from './Key';
+
+export interface keyboardProps {
+  keyProperties: KeyProps[];
+}
+
+export const setupKeyProperties: KeyProps[] = (keyLayer: string[]) => {
+  const keyProperties: KeyProps[] = [];
+
+  const keys = keyLayer.keys;
+  keys.forEach((key: string) => {
+    const label = KEYBOARD_CODE_TO_KEY(key);
+    const keyProp: KeyProps = {
+      label: label,
+      value: key,
+    };
+
+    keyProperties.push(keyProp);
+  });
+
+  return keyProperties;
+};
+
+export default (props: keyboardProps) => {
 
   return (
     <div className="keyboard mt-2">
       <div className="keyboard-fn-row keyboard-row">
-        <Key label="Esc" />
-        <Key label="F1" style={{'margin-left': '0.5em'}} />
-        <Key label="F2" />
-        <Key label="F3" />
-        <Key label="F4" />
-        <Key label="F5"  style={{'margin-left': '0.5em'}} />
-        <Key label="F6" />
-        <Key label="F7" />
-        <Key label="F8" />
-        <Key label="F9"  style={{'margin-left': '0.5em'}}  />
-        <Key label="F10" />
-        <Key label="F11" />
-        <Key label="F12" />
-        <Key label="PrtSc"  style={{'margin-left': '0.5em'}}  />
-        <Key label="Scroll Lock" />
+        <Key {...props.keyProperties[0]} />
+        <Key {...props.keyProperties[1]} style={{'marginLeft': '0.5em'}} />
+        <Key {...props.keyProperties[2]} />
+        <Key {...props.keyProperties[3]} />
+        <Key {...props.keyProperties[4]} />
+        <Key {...props.keyProperties[5]}  style={{'marginLeft': '0.5em'}} />
+        <Key {...props.keyProperties[6]} />
+        <Key {...props.keyProperties[7]} />
+        <Key {...props.keyProperties[8]} />
+        <Key {...props.keyProperties[9]}  style={{'marginLeft': '0.5em'}}  />
+        <Key {...props.keyProperties[10]} />
+        <Key {...props.keyProperties[11]} />
+        <Key {...props.keyProperties[12]} />
+        <Key {...props.keyProperties[13]}  style={{'marginLeft': '0.5em'}}  />
+        <Key {...props.keyProperties[14]} />
       </div>
       <div className="keyboard-num-row keyboard-row">
-        <Key label="~" />
-        <Key label="1" />
-        <Key label="2" />
-        <Key label="3" />
-        <Key label="4" />
-        <Key label="5" />
-        <Key label="6" />
-        <Key label="7" />
-        <Key label="8" />
-        <Key label="9" />
-        <Key label="0" />
-        <Key label="-" />
-        <Key label="=" />
-        <Key label="Backspace" size="2" />
-        <Key label="End" />
+        <Key {...props.keyProperties[25]} />
+        <Key {...props.keyProperties[26]} />
+        <Key {...props.keyProperties[27]} />
+        <Key {...props.keyProperties[28]} />
+        <Key {...props.keyProperties[29]} />
+        <Key {...props.keyProperties[30]} />
+        <Key {...props.keyProperties[31]} />
+        <Key {...props.keyProperties[32]} />
+        <Key {...props.keyProperties[33]} />
+        <Key {...props.keyProperties[34]} />
+        <Key {...props.keyProperties[35]} />
+        <Key {...props.keyProperties[36]} />
+        <Key {...props.keyProperties[37]} />
+        <Key {...props.keyProperties[38]} size="2" />
+        <Key {...props.keyProperties[39]} />
       </div>
       <div className="keyboard-qwerty-row keyboard-row">
-        <Key label="Tab" size="1.5" />
-        <Key label="Q" />
-        <Key label="W" />
-        <Key label="E" />
-        <Key label="R" />
-        <Key label="T" />
-        <Key label="Y" />
-        <Key label="U" />
-        <Key label="I" />
-        <Key label="O" />
-        <Key label="P" />
-        <Key label="[" />
-        <Key label="]" />
-        <Key label="\" size="1.5" />
-        <Key label="PgUp" />
+        <Key {...props.keyProperties[50]} size="1.5" />
+        <Key {...props.keyProperties[51]} />
+        <Key {...props.keyProperties[52]} />
+        <Key {...props.keyProperties[53]} />
+        <Key {...props.keyProperties[54]} />
+        <Key {...props.keyProperties[55]} />
+        <Key {...props.keyProperties[56]} />
+        <Key {...props.keyProperties[57]} />
+        <Key {...props.keyProperties[58]} />
+        <Key {...props.keyProperties[59]} />
+        <Key {...props.keyProperties[60]} />
+        <Key {...props.keyProperties[61]} />
+        <Key {...props.keyProperties[62]} />
+        <Key {...props.keyProperties[63]} size="1.5" />
+        <Key {...props.keyProperties[64]} />
       </div>
       <div className="keyboard-caps-row keyboard-row">
-        <Key label="Caps Lock" size="1.75" />
-        <Key label="A" />
-        <Key label="S" />
-        <Key label="D" />
-        <Key label="F" />
-        <Key label="G" />
-        <Key label="H" />
-        <Key label="J" />
-        <Key label="K" />
-        <Key label="L" />
-        <Key label=";" />
-        <Key label="'" />
-        <Key label="Enter" size="2.5" />
-        <Key label="PgDn" />
+        <Key {...props.keyProperties[75]} size="1.75" />
+        <Key {...props.keyProperties[76]} />
+        <Key {...props.keyProperties[77]} />
+        <Key {...props.keyProperties[78]} />
+        <Key {...props.keyProperties[79]} />
+        <Key {...props.keyProperties[80]} />
+        <Key {...props.keyProperties[81]} />
+        <Key {...props.keyProperties[82]} />
+        <Key {...props.keyProperties[83]} />
+        <Key {...props.keyProperties[84]} />
+        <Key {...props.keyProperties[85]} />
+        <Key {...props.keyProperties[86]} />
+        <Key {...props.keyProperties[88]} size="2.5" />
+        <Key {...props.keyProperties[89]} />
       </div>
       <div className="keyboard-shift-row keyboard-row">
-        <Key label="L Shift" size="2.5" />
-        <Key label="Z" />
-        <Key label="X" />
-        <Key label="C" />
-        <Key label="V" />
-        <Key label="B" />
-        <Key label="N" />
-        <Key label="M" />
-        <Key label="," />
-        <Key label="." />
-        <Key label="/" />
-        <Key label="R Shift" size="1.75" />
-        <Key label="Up" />
+        <Key {...props.keyProperties[100]} size="2.5" />
+        <Key {...props.keyProperties[102]} />
+        <Key {...props.keyProperties[103]} />
+        <Key {...props.keyProperties[104]}  />
+        <Key {...props.keyProperties[105]} />
+        <Key {...props.keyProperties[106]}  />
+        <Key {...props.keyProperties[107]} />
+        <Key {...props.keyProperties[108]} />
+        <Key {...props.keyProperties[109]}/>
+        <Key {...props.keyProperties[110]} />
+        <Key {...props.keyProperties[111]} />
+        <Key {...props.keyProperties[112]} size="1.75" />
+        <Key {...props.keyProperties[113]} />
       </div>
       <div className="keyboard-ctrl-row keyboard-row">
-        <Key label="L Ctrl" size="1.25" />
-        <Key label="L Win" size="1.25" />
-        <Key label="L Alt" size="1.25" />
-        <Key label="Space" size="6.25" />
-        <Key label="Fn" size="1.25" />
-        <Key label="R Ctrl" size="1.25" />
-        <Key label="Left" style={{'margin-left': '1em'}} />
-        <Key label="Down" />
-        <Key label="Right" />
+        <Key {...props.keyProperties[125]} size="1.25" />
+        <Key {...props.keyProperties[126]} size="1.25" />
+        <Key {...props.keyProperties[127]} size="1.25" />
+        <Key {...props.keyProperties[131]} size="6.25" />
+        <Key {...props.keyProperties[131]} size="1.25" />
+        <Key {...props.keyProperties[136]} size="1.25" />
+        <Key {...props.keyProperties[137]} style={{'marginLeft': '2.25em'}} />
+        <Key {...props.keyProperties[138]} />
+        <Key {...props.keyProperties[139]} />
       </div>
     </div>
   );

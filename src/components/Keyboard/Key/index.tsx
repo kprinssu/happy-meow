@@ -2,9 +2,12 @@ import React from 'react';
 
 import './Key.css';
 
-type KeyProps = {
+export interface KeyProps {
   label: string;
-  size?: number;
+  value: string;
+  led?: string;
+  clickFn?: () => void;
+  size?: string;
   style?: React.CSSProperties;
 };
 
@@ -18,6 +21,7 @@ export default (props: KeyProps) => {
 
   return (
     <div id={`key-${props.label}`} className="key" style={style}>
+      <div className="key-label">{props.label}</div>
     </div>
   );
 };
