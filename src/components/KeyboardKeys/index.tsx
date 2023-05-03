@@ -10,7 +10,6 @@ export default () => {
   const dispatch = useAppDispatch();
   const keyboardKeys = useAppSelector(state => state.keyboardKeys);
 
-
   const [currentLayer, setCurrentLayer] = useState(0);
 
   const keyLayer = keyboardKeys.layers[currentLayer];

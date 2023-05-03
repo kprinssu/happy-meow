@@ -1,4 +1,4 @@
-import { KEYBOARD_KEYS, KEYBOARD_CODE_TO_KEY } from '../keyboardKeys';
+ import { KEYBOARD_KEYS, KEYBOARD_CODE_TO_KEY } from '../keyboardKeys';
 
 describe('KEYBOARD_KEYS', () => {
   // This test is just to make sure that the KEYBOARD_KEYS object is not empty

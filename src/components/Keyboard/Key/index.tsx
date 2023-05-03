@@ -20,7 +20,7 @@ export default (props: KeyProps) => {
   };
 
   return (
-    <div id={`key-${props.label}`} className="key" style={style}>
+    <div id={`key-${props.label}`} className="key" style={style} data-key-value={props.value}>
       <div className="key-label">{props.label}</div>
     </div>
   );

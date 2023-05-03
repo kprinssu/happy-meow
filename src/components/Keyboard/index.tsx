@@ -116,7 +116,7 @@ export default (props: KeyboardProps) => {
         <Key {...props.keyProperties[126]} size="1.25" />
         <Key {...props.keyProperties[127]} size="1.25" />
         <Key {...props.keyProperties[131]} size="6.25" />
-        <Key {...props.keyProperties[131]} size="1.25" />
+        <Key {...props.keyProperties[135]} size="1.25" />
         <Key {...props.keyProperties[136]} size="1.25" />
         <Key {...props.keyProperties[137]} style={{'marginLeft': '2.25em'}} />
         <Key {...props.keyProperties[138]} />

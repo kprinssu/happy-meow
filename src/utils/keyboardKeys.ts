@@ -2,6 +2,10 @@ type KeyboardKeyConstants = {
   [key: string]: string;
 };
 
+type KeyboardCodeConstants = {
+  [code: string]: string;
+};
+
 // Constants are from: https://github.com/abend0c1/hidrdd/blob/master/rd.conf
 // The keycodes are in the format: 000700XX (and look to be USB HID codes)
 export const KEYBOARD_KEYS: KeyboardKeyConstants = {
@@ -88,10 +92,41 @@ export const KEYBOARD_KEYS: KeyboardKeyConstants = {
   'Down Arrow': '#00070051',
   'Left Arrow': '#00070050',
   'Right Arrow': '#0007004f',
+
+  'Mute': '#000c00e2',
+  'Vol. Up': '#000c00e9',
+  'Vol. Down': '#000c00ea',
+  'Prev. Track': '#000c00b6',
+  'Next Track': '#000c00b5',
+  'Play/Pause': '#000c00cd',
+
+  // Special keys (only found on Angry Miao Keyboards)
+  'KB On/Off': '#00920a01',
+  'KBL Toggle': '#00920903',
+  'Grid Toggle': '#00920101',
+  'KBL Fx': '#00920900',
+  'Grid Fx': '#00920100',
+  'BT 1': '#00920106',
+  'BT 2': '#00920107',
+  'BT 3': '#00920108',
+  'Reset': '#00920a02',
+  'KBL Up': '#00920902',
+  'KBL Down': '#00920901',
+  'Grid Up': '#00920102',
+  'Grid Down': '#00920103',
+  'Grid Spd. Up': '#00920104',
+  'Grid Spd. Down': '#00920105',
 };
 
+export const KEYBOARD_CODES: KeyboardCodeConstants = {};
+
 export const KEYBOARD_CODE_TO_KEY = (keyCode: string): string | null => {
-  return Object.keys(KEYBOARD_KEYS).find((k) => {
-    return KEYBOARD_KEYS[k] === keyCode.toLowerCase();
-  }) || null;
+  if (Object.keys(KEYBOARD_CODES).length === 0) {
+    Object.keys(KEYBOARD_KEYS).forEach((k) => {
+      KEYBOARD_CODES[KEYBOARD_KEYS[k].toLowerCase()] = k;
+    });
+  }
+
+  keyCode = keyCode.toLowerCase();
+  return KEYBOARD_CODES[keyCode] || null;
 };

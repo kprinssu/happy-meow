@@ -5,6 +5,10 @@
   margin-left: 0.25em;
 }
 
+.key:hover {
+  border: 1px solid red;
+}
+
 .key-label {
   font-size: 0.3em;
   text-align: center;
