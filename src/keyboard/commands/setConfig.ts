@@ -290,8 +290,8 @@ const generateFunctionKeyCommands = (config: Cyberboard): Buffer[] => {
     let index = 4;
     for (let j = 0; j < functionKey.functionKeys.length; j++) {
       const key = functionKey.functionKeys[j];
-      const inKeyBuffer = Buffer.from(key.input_key.substring(1), 'hex')
-      const outKeyBuffer = Buffer.from(key.out_key.substring(1), 'hex')
+      const inKeyBuffer = Buffer.from(key.input_key.substring(1), 'hex');
+      const outKeyBuffer = Buffer.from(key.out_key.substring(1), 'hex');
 
       buffer[index] = key.Fn_key_index;
       index += 1;
@@ -360,8 +360,8 @@ const generateSwapKeyCommands = (config: Cyberboard): Buffer[] => {
     for (let j = 0; j < swapKey.swapKeys.length; j++) {
       const key = swapKey.swapKeys[j];
 
-      const inKeyBuffer = Buffer.from(key.input_key.substring(1), 'hex')
-      const outKeyBuffer = Buffer.from(key.out_key.substring(1), 'hex')
+      const inKeyBuffer = Buffer.from(key.input_key.substring(1), 'hex');
+      const outKeyBuffer = Buffer.from(key.out_key.substring(1), 'hex');
 
       buffer[index] = key.swap_key_index;
       index += 1;

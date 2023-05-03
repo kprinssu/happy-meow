@@ -27,7 +27,7 @@ const KeyboardPortSelection = () => {
       <select name="keyboard-port" data-testid="keyboard-port-selector" onChange={selectKeyboard}>
         <option>Select a Keyboard</option>
         { keyboardPorts.map((keyboardPort, i) => {
-            return <option value={i} key={uuid()}>{keyboardPort.pnpId}</option>
+            return <option value={i} key={uuid()}>{keyboardPort.pnpId}</option>;
         }) }
       </select>
     </div>

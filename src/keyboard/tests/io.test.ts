@@ -1,6 +1,6 @@
 import { MockBinding, MockPortBinding } from '@serialport/binding-mock';
 import { SerialPortMock } from 'serialport';
-import { randomBytes } from 'crypto'
+import { randomBytes } from 'crypto';
 
 import { createPort,
   openPort,

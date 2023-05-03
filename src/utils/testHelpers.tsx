@@ -9,8 +9,8 @@ export const renderWithProviders = (
   options?: Omit<RenderOptions, 'wrapper'>
 ) => {
   const Wrapper = ({ children }: { children: React.ReactNode }) => {
-    return <Provider store={store}>{children}</Provider>
-  }
+    return <Provider store={store}>{children}</Provider>;
+  };
 
   return render(ui, { wrapper: Wrapper, ...options });
 };

@@ -9,4 +9,4 @@ export const setKeyLayer = (layer: KeyboardKeyLayer): ThunkAction<void, RootStat
   return async (dispatch) => {
     dispatch(keyboardKeyActions.setKeyLayer(layer));
   };
-}
+};
