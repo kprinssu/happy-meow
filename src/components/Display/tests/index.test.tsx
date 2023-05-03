@@ -57,10 +57,16 @@ describe('speed', () => {
     const grid = await display.findByTestId('display-led-grid');
     const speedSlider = await display.findByTestId('display-speed-slider');
 
+    const pausePlayButton = await display.findByTestId('display-pause-play');
+    act(() => fireEvent.click(pausePlayButton));
+
+
     const preAnimation = grid.getAttribute('data-test-frame-number');
-    act(() => fireEvent.change(speedSlider, { target: { value: 3 } }));
-    act(() => jest.advanceTimersByTime(10000));
+    act(() => fireEvent.change(speedSlider, { target: { value: 50 } }));
+    act(() => jest.advanceTimersByTime(1000));
+
     const postAnimationFrame = grid.getAttribute('data-test-frame-number');
+
 
     expect(preAnimation).not.toEqual(postAnimationFrame);
 
