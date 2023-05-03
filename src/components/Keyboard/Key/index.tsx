@@ -9,7 +9,7 @@ export interface KeyProps {
   clickFn?: () => void;
   size?: string;
   style?: React.CSSProperties;
-};
+}
 
 export default (props: KeyProps) => {
   const size = props.size || 1;

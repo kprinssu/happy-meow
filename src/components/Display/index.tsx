@@ -14,10 +14,6 @@ import { setLayer } from '../../store/keyboardDisplay/actions';
 import './Display.css';
 import Grid from './Grid';
 
-
-let frame = 0;
-let currentLayer = 0;
-
 export default () => {
   const dispatch = useAppDispatch();
   const displayLayers = useAppSelector(state => state.keyboardDisplay);
@@ -25,6 +21,8 @@ export default () => {
   const MAX_FRAME_COUNT = 100;
 
   const [intervalRef, setIntervalRef] = useState<NodeJS.Timeout | null>(null);
+  const [currentLayer, setCurrentLayer] = useState(0);
+  const [frame, setFrame] = useState(0);
   const [paused, setPaused] = useState(true);
   const [frames, setFrames] = useState(displayLayers.layers[currentLayer].frames[0].frame_RGB);
   const [speed, setSpeed] = useState(250);
@@ -35,10 +33,10 @@ export default () => {
   const frameSlider = useRef<HTMLInputElement>(null);
 
   const nextFrame = () => {
-    frame += 1;
+    setFrame(frame + 1);
 
     if (frame >= displayLayers.layers[currentLayer].frames.length) {
-      frame = 0;
+      setFrame(0);
     }
 
     setFrameNumber(frame);
@@ -85,7 +83,7 @@ export default () => {
   };
 
   const changeLayer = (layer: number) => {
-    currentLayer = layer;
+    setCurrentLayer(layer);
     setMaxFrame(displayLayers.layers[currentLayer].frames.length - 1);
     clearAnimation();
     startAnimation();
@@ -96,10 +94,10 @@ export default () => {
   };
 
   const handleFrameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    frame = event.target.valueAsNumber;
+    setFrame(event.target.valueAsNumber);
 
     if (frame >= displayLayers.layers[currentLayer].frames.length) {
-      frame = displayLayers.layers[currentLayer].frames.length - 1;
+      setFrame(displayLayers.layers[currentLayer].frames.length - 1);
     }
 
     setFrameNumber(frame);
@@ -142,9 +140,10 @@ export default () => {
 
   useEffect(() => {
     // Reset state
-    frame = 0;
-    handlePausePlay();
-  }, []);
+
+    //setFrame(0);
+    //handlePausePlay();
+  }, [frame]);
 
   return (
     <div className="display-editor ml-1 mt-2 text-sm" data-testid="display-editor">

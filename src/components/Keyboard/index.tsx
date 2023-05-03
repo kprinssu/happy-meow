@@ -5,20 +5,17 @@ import Key, { KeyProps } from './Key';
 
 import { KEYBOARD_CODE_TO_KEY } from '../../utils/keyboardKeys';
 
-export { KeyProps } from './Key';
-
-export interface keyboardProps {
+export interface KeyboardProps {
   keyProperties: KeyProps[];
 }
 
-export const setupKeyProperties: KeyProps[] = (keyLayer: string[]) => {
+export const setupKeyProperties = (keys: string[]): KeyProps[] => {
   const keyProperties: KeyProps[] = [];
 
-  const keys = keyLayer.keys;
   keys.forEach((key: string) => {
     const label = KEYBOARD_CODE_TO_KEY(key);
     const keyProp: KeyProps = {
-      label: label,
+      label: label || 'Unkn. Key',
       value: key,
     };
 
@@ -28,7 +25,7 @@ export const setupKeyProperties: KeyProps[] = (keyLayer: string[]) => {
   return keyProperties;
 };
 
-export default (props: keyboardProps) => {
+export default (props: KeyboardProps) => {
 
   return (
     <div className="keyboard mt-2">

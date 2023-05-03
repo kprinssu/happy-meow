@@ -5,8 +5,8 @@ import keyboardKeySlice from './slice';
 
 export const keyboardKeyActions = keyboardKeySlice.actions;
 
-export const setLayer = (layer: KeyboardKeyLayer): ThunkAction<void, RootState, unknown, AnyAction> => {
+export const setKeyLayer = (layer: KeyboardKeyLayer): ThunkAction<void, RootState, unknown, AnyAction> => {
   return async (dispatch) => {
-    dispatch(keyboardKeyActions.setLayer(layer));
+    dispatch(keyboardKeyActions.setKeyLayer(layer));
   };
 }

@@ -1,14 +1,16 @@
 import React from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import Keyboard,  { setupKeyProperties, KeyProps, KeyProperties, KeyboardProps } from '../Keyboard';
+
+import { KeyProps } from '../Keyboard/Key';
+import Keyboard,  { setupKeyProperties, KeyboardProps } from '../Keyboard';
 
 
 export default () => {
   const keyboardKeys = useAppSelector(state => state.keyboardKeys);
 
   const keyLayer = keyboardKeys.layers[0];
-  const keyProperties = setupKeyProperties(keyLayer);
+  const keyProperties = setupKeyProperties(keyLayer.keys);
 
   const keyboardProps: KeyboardProps = {
     keyProperties: keyProperties,
