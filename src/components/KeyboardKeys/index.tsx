@@ -1,25 +1,48 @@
 import React, { useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
+import { KeyboardKeyLayer } from '../../store/keyboardKey/types';
 import { setKeyLayer } from '../../store/keyboardKey/actions';
 
 import { KeyProps } from '../Keyboard/Key';
 import Keyboard, { setupKeyProperties, KeyboardProps } from '../Keyboard';
+import { KEYBOARD_KEYS } from '../../utils/keyboardKeys';
 
 export default () => {
   const dispatch = useAppDispatch();
   const keyboardKeys = useAppSelector(state => state.keyboardKeys);
 
-  const [currentLayer, setCurrentLayer] = useState(0);
+  const [currentLayer, setCurrentLayer] = useState<number>(0);
+  const [selectedKey, setSelectedKey] = useState<string>('#000000');
+
+  const handleClick = (index: number) => {
+    const keyLayer = keyboardKeys.layers[currentLayer];
+    const key = keyLayer.keys[index];
+
+    const newKeys = [...keyboardKeys.layers[currentLayer].keys];
+    newKeys[index] = selectedKey;
+
+    const newKeyLayer: KeyboardKeyLayer = {
+      layerNumber: currentLayer,
+      keys: newKeys,
+    };
+
+    dispatch(setKeyLayer(newKeyLayer));
+  };
 
   const keyLayer = keyboardKeys.layers[currentLayer];
-  const keyProperties = setupKeyProperties(keyLayer.keys);
+  const keyProperties = setupKeyProperties(keyLayer.keys, handleClick);
 
   const keyboardProps: KeyboardProps = {
     keyProperties: keyProperties,
   };
+
   const changeLayer = (layer: number) => {
     setCurrentLayer(layer);
+  };
+
+  const changeSelectedKey = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedKey(event.target.value);
   };
 
   return (
@@ -30,6 +53,21 @@ export default () => {
       </ul>
 
       <Keyboard {...keyboardProps} />
+
+      <div className="keyboard-key-selector">
+        <label htmlFor="key-selector">Key:</label>
+        <select id="key-selector" name="key-selector" onChange={changeSelectedKey}>
+          <option value="#000000">None</option>
+          {
+            Object.entries(KEYBOARD_KEYS).map((entry: [string, string], index: number) => {
+              return (
+                <option key={index} value={entry[1]}>{entry[0]}</option>
+              );
+            })
+          }
+        </select>
+
+      </div>
     </div>
   );
 };

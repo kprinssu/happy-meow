@@ -9,14 +9,27 @@ export interface KeyboardProps {
   keyProperties: KeyProps[];
 }
 
-export const setupKeyProperties = (keys: string[]): KeyProps[] => {
+export const setupKeyProperties = (keys: string[], clickCallback: (index: number) => void): KeyProps[] => {
   const keyProperties: KeyProps[] = [];
 
-  keys.forEach((key: string) => {
+  const clickFunctionBootstrap = (index: number) => {
+    return () => clickCallback(index);
+  };
+
+  const noneKey = (key: string) => {
+    if (key === '#000000') {
+      return 'None';
+    }
+
+    return 'Unkn. Key';
+  };
+
+  keys.forEach((key: string, index: number) => {
     const label = KEYBOARD_CODE_TO_KEY(key);
     const keyProp: KeyProps = {
-      label: label || 'Unkn. Key',
+      label: label || noneKey(key),
       value: key,
+      clickFn: clickFunctionBootstrap(index),
     };
 
     keyProperties.push(keyProp);
