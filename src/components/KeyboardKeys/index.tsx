@@ -42,6 +42,7 @@ export default () => {
   };
 
   const changeSelectedKey = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    console.log('changeSelectedKey', event.target.value);
     setSelectedKey(event.target.value);
   };
 
@@ -56,7 +57,7 @@ export default () => {
 
       <div className="keyboard-key-selector">
         <label htmlFor="key-selector">Key:</label>
-        <select id="key-selector" name="key-selector" onChange={changeSelectedKey}>
+        <select id="key-selector" name="key-selector" onChange={changeSelectedKey} data-testid='key-selector'>
           <option value="#000000">None</option>
           {
             Object.entries(KEYBOARD_KEYS).map((entry: [string, string], index: number) => {
