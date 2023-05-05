@@ -1,7 +1,7 @@
 import { FrameData } from '../../keyboard/parser/schema/PageData';
 
 export interface KeyboardLedLayer {
-  layerNumber: number;
+  layerIndex: number;
   frames: FrameData[];
 }
 

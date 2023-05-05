@@ -1,5 +1,5 @@
 export interface KeyboardKeyLayer {
-  layerNumber: number;
+  layerIndex: number;
   keys: string[];
 }
 

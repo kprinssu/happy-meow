@@ -2,7 +2,7 @@ import { KeyboardLedLayer, KeyboardLedState } from './types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const keyboardLedLayer1: KeyboardLedLayer = {
-  layerNumber: 1,
+  layerIndex: 0,
   frames: [
     {
       frame_RGB: [
@@ -11693,7 +11693,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
 };
 
 const keyboardLedLayer2: KeyboardLedLayer = {
-  layerNumber: 2,
+  layerIndex: 1,
   frames: [
     {
       frame_RGB: [
@@ -15689,7 +15689,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
 };
 
 const keyboardLedLayer3: KeyboardLedLayer = {
-  layerNumber: 3,
+  layerIndex: 2,
   frames: [
     {
       frame_RGB: [
@@ -22449,7 +22449,7 @@ export default createSlice({
   reducers: {
     setLayer: (state, action: PayloadAction<KeyboardLedLayer>) => {
       const layer = action.payload;
-      state.layers.splice(layer.layerNumber, 1, layer);
+      state.layers.splice(layer.layerIndex, 1, layer);
     },
   },
 });

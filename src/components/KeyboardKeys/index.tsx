@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 import { KeyboardKeyLayer } from '../../store/keyboardKey/types';
 import { setKeyLayer } from '../../store/keyboardKey/actions';
 
-import { KeyProps } from '../Keyboard/Key';
 import Keyboard, { setupKeyProperties, KeyboardProps } from '../Keyboard';
 import { KEYBOARD_KEYS } from '../../utils/keyboardKeys';
 
@@ -16,14 +15,11 @@ export default () => {
   const [selectedKey, setSelectedKey] = useState<string>('#000000');
 
   const handleKeyClick = (index: number) => {
-    const keyLayer = keyboardKeys.layers[currentLayer];
-    const key = keyLayer.keys[index];
-
     const newKeys = [...keyboardKeys.layers[currentLayer].keys];
     newKeys[index] = selectedKey;
 
     const newKeyLayer: KeyboardKeyLayer = {
-      layerNumber: currentLayer,
+      layerIndex: currentLayer,
       keys: newKeys,
     };
 

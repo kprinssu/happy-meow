@@ -2,7 +2,7 @@ import { KeyboardKeyState, KeyboardKeyLayer } from './types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const layer0: KeyboardKeyLayer = {
-  layerNumber: 0,
+  layerIndex: 0,
   keys: [
     '#00070029',
     '#0007003A',
@@ -208,7 +208,7 @@ const layer0: KeyboardKeyLayer = {
 };
 
 const layer1: KeyboardKeyLayer = {
-  layerNumber: 1,
+  layerIndex: 1,
   keys: [
     '#00920A01',
     '#000C00E2',
@@ -423,7 +423,7 @@ export default createSlice({
   reducers: {
     setKeyLayer: (state, action: PayloadAction<KeyboardKeyLayer>) => {
       const layer = action.payload;
-      state.layers.splice(layer.layerNumber, 1, layer);
+      state.layers.splice(layer.layerIndex, 1, layer);
     },
   },
 });

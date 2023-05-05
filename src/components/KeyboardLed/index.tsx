@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
+import { setLayer } from '../../store/keyboardLed/actions';
 
 import Keyboard, { setupLedProperties, KeyboardProps } from '../Keyboard';
 
@@ -18,7 +19,7 @@ export default () => {
   const keyboardLeds = useAppSelector(state => state.keyboardLeds);
 
   const MAX_FRAMES = 100;
-``;
+
   const frame = useRef<number>(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const frameSlider = useRef<HTMLInputElement>(null);
@@ -32,12 +33,11 @@ export default () => {
   const [maxFrame, setMaxFrame] = useState(Math.min(keyboardLeds.layers[currentLayer].frames.length - 1, MAX_FRAMES));
 
   const handleKeyClick = (index: number) => {
-    console.log(`Key ${index} clicked`);
+    const newLedLayer = JSON.parse(JSON.stringify(keyboardLeds.layers[currentLayer]));
+    newLedLayer.frames[frame.current].frame_RGB[index] = color;
 
-    const newFrames = [...frames];
-    newFrames[index] = color;
-    setFrames(newFrames);
-    // TODO: Update the redux store with the new frames
+    dispatch(setLayer(newLedLayer));
+    setFrames(newLedLayer.frames[frame.current].frame_RGB);
   };
 
   const keyProperties = setupLedProperties(frames, handleKeyClick);
