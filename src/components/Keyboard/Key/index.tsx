@@ -13,14 +13,23 @@ export interface KeyProps {
 
 export default (props: KeyProps) => {
   const size = props.size || 1;
-  const style = {
-    ...props.style,
-    height: `${size} em`,
-    width: `${size}em`,
+
+  const ledStyle = (): React.CSSProperties => {
+    const newStyle = {
+      ...props.style,
+      height: `${size} em`,
+      width: `${size}em`,
+    };
+
+    if (props.led) {
+      newStyle.backgroundColor = props.led;
+    }
+
+    return newStyle;
   };
 
   return (
-    <div id={`key-${props.label}`} className="key" style={style} data-key-value={props.value} onClick={props?.clickFn} data-testid={`key-${props.label}`}>
+    <div id={`key-${props.label}`} className="key" style={ledStyle()} data-key-value={props.value} onClick={props?.clickFn} data-testid={`key-${props.label || props.value}`}>
       <div className="key-label">{props.label}</div>
     </div>
   );

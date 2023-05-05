@@ -71,7 +71,7 @@ export default () => {
     setMaxFrame(displayLayers.layers[currentLayer].frames.length - 1);
   };
 
-  const handleChange = (colorResult: ColorResult) => {
+  const changeSelectedColor = (colorResult: ColorResult) => {
     setColor(colorResult.hex);
   };
 
@@ -155,8 +155,8 @@ export default () => {
         <div></div>
         <div className="display-frame-infobar-controls mt-2">
           <button onClick={() => handlePausePlayClick()} data-testid="display-pause-play" className="my-0 mx-auto">{paused ?
-            <FontAwesomeIcon icon={faPause} className="h-4 w-4" /> :
-            <FontAwesomeIcon icon={faPlay} className="h-4 w-4" />}
+            <FontAwesomeIcon icon={faPlay} className="h-4 w-4" /> :
+            <FontAwesomeIcon icon={faPause} className="h-4 w-4" />}
           </button>
           <div className="flex w-full">
             <button data-testid="display-remove-frame" onClick={removeFrame}><FontAwesomeIcon icon={faMinus} /></button>
@@ -168,7 +168,7 @@ export default () => {
       </div>
 
       <div className="color-picker my-0 mt-4 mx-auto">
-        <SliderPicker color={color} onChangeComplete={handleChange} />
+        <SliderPicker color={color} onChangeComplete={changeSelectedColor} />
         <label htmlFor="color-picker-input" className="mr-1">Hex Color</label>
         <input type="text" id="color-picker-input" name="color-picker-input" data-testid="display-colour-input"  value={color} onChange={handleColorChange} />
       </div>

@@ -15,7 +15,7 @@ export default () => {
   const [currentLayer, setCurrentLayer] = useState<number>(0);
   const [selectedKey, setSelectedKey] = useState<string>('#000000');
 
-  const handleClick = (index: number) => {
+  const handleKeyClick = (index: number) => {
     const keyLayer = keyboardKeys.layers[currentLayer];
     const key = keyLayer.keys[index];
 
@@ -31,7 +31,7 @@ export default () => {
   };
 
   const keyLayer = keyboardKeys.layers[currentLayer];
-  const keyProperties = setupKeyProperties(keyLayer.keys, handleClick);
+  const keyProperties = setupKeyProperties(keyLayer.keys, handleKeyClick);
 
   const keyboardProps: KeyboardProps = {
     keyProperties: keyProperties,
@@ -42,7 +42,6 @@ export default () => {
   };
 
   const changeSelectedKey = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log('changeSelectedKey', event.target.value);
     setSelectedKey(event.target.value);
   };
 

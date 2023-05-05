@@ -9,12 +9,29 @@ export interface KeyboardProps {
   keyProperties: KeyProps[];
 }
 
-export const setupKeyProperties = (keys: string[], clickCallback: (index: number) => void): KeyProps[] => {
+const clickBootstrapHelper = (index: number, clickCallback: (index: number) => void) => {
+  return () => clickCallback(index);
+};
+
+export const setupLedProperties = (leds: string[], clickCallback: (index: number) => void): KeyProps[] => {
   const keyProperties: KeyProps[] = [];
 
-  const clickFunctionBootstrap = (index: number) => {
-    return () => clickCallback(index);
-  };
+  leds.forEach((led: string, index: number) => {
+    const keyProp: KeyProps = {
+      label: '',
+      value: index.toString(),
+      led: led,
+      clickFn: clickBootstrapHelper(index, clickCallback),
+    };
+
+    keyProperties.push(keyProp);
+  });
+
+  return keyProperties;
+};
+
+export const setupKeyProperties = (keys: string[], clickCallback: (index: number) => void): KeyProps[] => {
+  const keyProperties: KeyProps[] = [];
 
   const noneKey = (key: string) => {
     if (key === '#000000') {
@@ -29,7 +46,7 @@ export const setupKeyProperties = (keys: string[], clickCallback: (index: number
     const keyProp: KeyProps = {
       label: label || noneKey(key),
       value: key,
-      clickFn: clickFunctionBootstrap(index),
+      clickFn: clickBootstrapHelper(index, clickCallback),
     };
 
     keyProperties.push(keyProp);
