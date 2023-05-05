@@ -57,6 +57,8 @@ export const setupKeyProperties = (keys: string[], clickCallback: (index: number
 
 export default (props: KeyboardProps) => {
 
+  const isLed = props.keyProperties[0].led !== undefined;
+
   return (
     <div className="keyboard mt-2">
       <div className="keyboard-fn-row keyboard-row">
@@ -77,80 +79,94 @@ export default (props: KeyboardProps) => {
         <Key {...props.keyProperties[14]} />
       </div>
       <div className="keyboard-num-row keyboard-row">
-        <Key {...props.keyProperties[25]} />
-        <Key {...props.keyProperties[26]} />
-        <Key {...props.keyProperties[27]} />
-        <Key {...props.keyProperties[28]} />
-        <Key {...props.keyProperties[29]} />
-        <Key {...props.keyProperties[30]} />
-        <Key {...props.keyProperties[31]} />
-        <Key {...props.keyProperties[32]} />
-        <Key {...props.keyProperties[33]} />
-        <Key {...props.keyProperties[34]} />
-        <Key {...props.keyProperties[35]} />
-        <Key {...props.keyProperties[36]} />
-        <Key {...props.keyProperties[37]} />
-        <Key {...props.keyProperties[38]} size="2" />
-        <Key {...props.keyProperties[39]} />
+        <Key {...(isLed ? props.keyProperties[15] : props.keyProperties[25]) } />
+        <Key {...(isLed ? props.keyProperties[16] : props.keyProperties[26]) } />
+        <Key {...(isLed ? props.keyProperties[17] : props.keyProperties[27]) } />
+        <Key {...(isLed ? props.keyProperties[18] : props.keyProperties[28]) } />
+        <Key {...(isLed ? props.keyProperties[19] : props.keyProperties[29]) } />
+        <Key {...(isLed ? props.keyProperties[20] : props.keyProperties[30]) } />
+        <Key {...(isLed ? props.keyProperties[21] : props.keyProperties[31]) } />
+        <Key {...(isLed ? props.keyProperties[22] : props.keyProperties[32]) } />
+        <Key {...(isLed ? props.keyProperties[23] : props.keyProperties[33]) } />
+        <Key {...(isLed ? props.keyProperties[24] : props.keyProperties[34]) } />
+        <Key {...(isLed ? props.keyProperties[25] : props.keyProperties[35]) } />
+        <Key {...(isLed ? props.keyProperties[26] : props.keyProperties[36]) } />
+        <Key {...(isLed ? props.keyProperties[27] : props.keyProperties[37]) } />
+        <Key {...(isLed ? props.keyProperties[28] : props.keyProperties[38]) } size="2" />
+        <Key {...(isLed ? props.keyProperties[29] : props.keyProperties[39]) } />
       </div>
       <div className="keyboard-qwerty-row keyboard-row">
-        <Key {...props.keyProperties[50]} size="1.5" />
-        <Key {...props.keyProperties[51]} />
-        <Key {...props.keyProperties[52]} />
-        <Key {...props.keyProperties[53]} />
-        <Key {...props.keyProperties[54]} />
-        <Key {...props.keyProperties[55]} />
-        <Key {...props.keyProperties[56]} />
-        <Key {...props.keyProperties[57]} />
-        <Key {...props.keyProperties[58]} />
-        <Key {...props.keyProperties[59]} />
-        <Key {...props.keyProperties[60]} />
-        <Key {...props.keyProperties[61]} />
-        <Key {...props.keyProperties[62]} />
-        <Key {...props.keyProperties[63]} size="1.5" />
-        <Key {...props.keyProperties[64]} />
+        <Key {...(isLed ? props.keyProperties[30] : props.keyProperties[50]) } size="1.5" />
+        <Key {...(isLed ? props.keyProperties[31] : props.keyProperties[51]) } />
+        <Key {...(isLed ? props.keyProperties[32] : props.keyProperties[52]) } />
+        <Key {...(isLed ? props.keyProperties[33] : props.keyProperties[53]) } />
+        <Key {...(isLed ? props.keyProperties[34] : props.keyProperties[54]) } />
+        <Key {...(isLed ? props.keyProperties[35] : props.keyProperties[55]) } />
+        <Key {...(isLed ? props.keyProperties[36] : props.keyProperties[56]) } />
+        <Key {...(isLed ? props.keyProperties[37] : props.keyProperties[57]) } />
+        <Key {...(isLed ? props.keyProperties[38] : props.keyProperties[58]) } />
+        <Key {...(isLed ? props.keyProperties[39] : props.keyProperties[59]) } />
+        <Key {...(isLed ? props.keyProperties[40] : props.keyProperties[60]) } />
+        <Key {...(isLed ? props.keyProperties[41] : props.keyProperties[61]) } />
+        <Key {...(isLed ? props.keyProperties[42] : props.keyProperties[62]) } />
+        <Key {...(isLed ? props.keyProperties[43] : props.keyProperties[63]) } size="1.5" />
+        <Key {...(isLed ? props.keyProperties[44] : props.keyProperties[64]) } />
       </div>
       <div className="keyboard-caps-row keyboard-row">
-        <Key {...props.keyProperties[75]} size="1.75" />
-        <Key {...props.keyProperties[76]} />
-        <Key {...props.keyProperties[77]} />
-        <Key {...props.keyProperties[78]} />
-        <Key {...props.keyProperties[79]} />
-        <Key {...props.keyProperties[80]} />
-        <Key {...props.keyProperties[81]} />
-        <Key {...props.keyProperties[82]} />
-        <Key {...props.keyProperties[83]} />
-        <Key {...props.keyProperties[84]} />
-        <Key {...props.keyProperties[85]} />
-        <Key {...props.keyProperties[86]} />
-        <Key {...props.keyProperties[88]} size="2.5" />
-        <Key {...props.keyProperties[89]} />
+        <Key {...(isLed ? props.keyProperties[45] : props.keyProperties[75]) } size="1.75" />
+        <Key {...(isLed ? props.keyProperties[46] : props.keyProperties[76]) } />
+        <Key {...(isLed ? props.keyProperties[47] : props.keyProperties[77]) } />
+        <Key {...(isLed ? props.keyProperties[48] : props.keyProperties[78]) } />
+        <Key {...(isLed ? props.keyProperties[49] : props.keyProperties[79]) } />
+        <Key {...(isLed ? props.keyProperties[50] : props.keyProperties[80]) } />
+        <Key {...(isLed ? props.keyProperties[51] : props.keyProperties[81]) } />
+        <Key {...(isLed ? props.keyProperties[52] : props.keyProperties[82]) } />
+        <Key {...(isLed ? props.keyProperties[53] : props.keyProperties[83]) } />
+        <Key {...(isLed ? props.keyProperties[54] : props.keyProperties[84]) } />
+        <Key {...(isLed ? props.keyProperties[55] : props.keyProperties[85]) } />
+        <Key {...(isLed ? props.keyProperties[56] : props.keyProperties[86]) } />
+        <Key {...(isLed ? props.keyProperties[58] : props.keyProperties[88]) } size="2.5" />
+        <Key {...(isLed ? props.keyProperties[59] : props.keyProperties[89]) } />
       </div>
       <div className="keyboard-shift-row keyboard-row">
-        <Key {...props.keyProperties[100]} size="2.5" />
-        <Key {...props.keyProperties[102]} />
-        <Key {...props.keyProperties[103]} />
-        <Key {...props.keyProperties[104]}  />
-        <Key {...props.keyProperties[105]} />
-        <Key {...props.keyProperties[106]}  />
-        <Key {...props.keyProperties[107]} />
-        <Key {...props.keyProperties[108]} />
-        <Key {...props.keyProperties[109]}/>
-        <Key {...props.keyProperties[110]} />
-        <Key {...props.keyProperties[111]} />
-        <Key {...props.keyProperties[112]} size="1.75" />
-        <Key {...props.keyProperties[113]} />
+        <Key {...(isLed ? props.keyProperties[60] : props.keyProperties[100]) } size="2.5" />
+        <Key {...(isLed ? props.keyProperties[62] : props.keyProperties[102]) } />
+        <Key {...(isLed ? props.keyProperties[63] : props.keyProperties[103]) } />
+        <Key {...(isLed ? props.keyProperties[64] : props.keyProperties[104]) }  />
+        <Key {...(isLed ? props.keyProperties[65] : props.keyProperties[105]) } />
+        <Key {...(isLed ? props.keyProperties[66] : props.keyProperties[106]) }  />
+        <Key {...(isLed ? props.keyProperties[67] : props.keyProperties[107]) } />
+        <Key {...(isLed ? props.keyProperties[68] : props.keyProperties[108]) } />
+        <Key {...(isLed ? props.keyProperties[69] : props.keyProperties[109]) }/>
+        <Key {...(isLed ? props.keyProperties[70] : props.keyProperties[110]) } />
+        <Key {...(isLed ? props.keyProperties[71] : props.keyProperties[111]) } />
+        <Key {...(isLed ? props.keyProperties[72] : props.keyProperties[112]) } size="1.75" />
+        <Key {...(isLed ? props.keyProperties[73] : props.keyProperties[113]) } />
       </div>
       <div className="keyboard-ctrl-row keyboard-row">
-        <Key {...props.keyProperties[125]} size="1.25" />
-        <Key {...props.keyProperties[126]} size="1.25" />
-        <Key {...props.keyProperties[127]} size="1.25" />
-        <Key {...props.keyProperties[131]} size="6.25" />
-        <Key {...props.keyProperties[135]} size="1.25" />
-        <Key {...props.keyProperties[136]} size="1.25" />
-        <Key {...props.keyProperties[137]} style={{'marginLeft': '2.25em'}} />
-        <Key {...props.keyProperties[138]} />
-        <Key {...props.keyProperties[139]} />
+        <Key {...(isLed ? props.keyProperties[75] : props.keyProperties[125]) } size="1.25" />
+        <Key {...(isLed ? props.keyProperties[76] : props.keyProperties[126]) } size="1.25" />
+        <Key {...(isLed ? props.keyProperties[77] : props.keyProperties[127]) } size="1.25" />
+
+        {
+          // There are 3 LEDs under the spacebar
+          isLed ? (
+            <div className="flex">
+              <Key {...props.keyProperties[79]} size="0.25" />
+              <Key {...props.keyProperties[80]} size="5.75" />
+              <Key {...props.keyProperties[81]} size="0.25" />
+            </div>
+          ) :
+          (
+            <Key {...props.keyProperties[131]} size="6.25" />
+          )
+        }
+
+        <Key {...(isLed ? props.keyProperties[85] : props.keyProperties[135]) } size="1.25" />
+        <Key {...(isLed ? props.keyProperties[86] : props.keyProperties[136]) } size="1.25" />
+        <Key {...(isLed ? props.keyProperties[87] : props.keyProperties[137]) } style={{'marginLeft': '2.25em'}} />
+        <Key {...(isLed ? props.keyProperties[88] : props.keyProperties[138]) } />
+        <Key {...(isLed ? props.keyProperties[89] : props.keyProperties[139]) } />
       </div>
     </div>
   );
