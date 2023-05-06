@@ -1,0 +1,12 @@
+.keyboard-led {
+  width: 680px;
+}
+
+.keyboard-frame-infobar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.keyboard-frame-infobar-controls {
+  display: grid;
+}

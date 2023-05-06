@@ -13,6 +13,8 @@ import { setLayer } from '../../store/keyboardLed/actions';
 
 import Keyboard, { setupLedProperties, KeyboardProps } from '../Keyboard';
 
+import './KeyboardLed.css';
+
 
 export default () => {
   const dispatch = useAppDispatch();
@@ -63,7 +65,6 @@ export default () => {
   const handleFrameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const sliderFrame = parseInt(event.target.value);
     frame.current = sliderFrame;
-    console.log(frame.current);
     setFrames(keyboardLeds.layers[currentLayer].frames[sliderFrame].frame_RGB);
   };
 
@@ -85,23 +86,24 @@ export default () => {
 
       <Keyboard {...keyboardProps} />
 
-      <div className="keyboard-led-controls">
-
-        <div className='keyboard-frame-infobar'>
+      <div className="keyboard-frame-infobar w-full">
+        <div></div>
+        <div className='keyboard-frame-infobar-controls'>
           <button onClick={() => handlePausePlayClick()} data-testid="display-pause-play" className="my-0 mx-auto">{paused ?
             <FontAwesomeIcon icon={faPlay} className="h-4 w-4" /> :
             <FontAwesomeIcon icon={faPause} className="h-4 w-4" />}
           </button>
 
           <input type="range" name="frame-slider" min="1" max={maxFrame} ref={frameSlider} value={frame.current} data-testid="display-frame-slider" className="w-full" onChange={handleFrameChange} />
-
         </div>
 
-        <div className="color-picker my-0 mt-4 mx-auto">
-          <SliderPicker color={color} onChangeComplete={changeSelectedColor} />
-          <label htmlFor="color-picker-input" className="mr-1">Hex Color</label>
-          <input type="text" id="color-picker-input" name="color-picker-input" data-testid="display-colour-input" value={color} onChange={handleColorChange} />
-        </div>
+        <div></div>
+      </div>
+
+      <div className="color-picker my-0 mt-4 mx-auto">
+        <SliderPicker color={color} onChangeComplete={changeSelectedColor} />
+        <label htmlFor="color-picker-input" className="mr-1">Hex Color</label>
+        <input type="text" id="color-picker-input" name="color-picker-input" data-testid="display-colour-input" value={color} onChange={handleColorChange} />
       </div>
     </div>
   );
