@@ -1,5 +1,14 @@
 .keyboard-led {
-  width: 680px;
+  width: 610px;
+}
+
+.keyboard-top-infobar {
+  margin-left: 0.5em;
+}
+
+.keyboard-frame-infobar-speed {
+  display: grid;
+  text-align: center;
 }
 
 .keyboard-frame-infobar {

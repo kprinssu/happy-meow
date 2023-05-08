@@ -161,7 +161,7 @@ export default () => {
           <div className="flex w-full">
             <button data-testid="display-remove-frame" onClick={removeFrame}><FontAwesomeIcon icon={faMinus} /></button>
             <input type="range" name="frame-slider" min="1" max={maxFrame} ref={frameSlider} value={frame.current} data-testid="display-frame-slider" className="w-full" onChange={handleFrameChange} />
-             <button data-testid="display-insert-frame" onClick={addFrame}><FontAwesomeIcon icon={faPlus} /></button>
+            <button data-testid="display-insert-frame" onClick={addFrame}><FontAwesomeIcon icon={faPlus} /></button>
           </div>
         </div>
         <div></div>
