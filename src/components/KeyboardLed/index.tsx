@@ -14,6 +14,7 @@ import { setLayer } from '../../store/keyboardLed/actions';
 import Keyboard, { setupLedProperties, KeyboardProps } from '../Keyboard';
 
 import './KeyboardLed.css';
+import { layer } from '@fortawesome/fontawesome-svg-core';
 
 
 export default () => {
@@ -72,9 +73,43 @@ export default () => {
     setPaused(!paused);
   };
 
+  const clearAnimation = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+
+    intervalRef.current = null;
+  };
+
+  const startAnimation = () => {
+    const ref = setInterval(() => {
+      nextFrame();
+    }, speed);
+
+    intervalRef.current = ref;
+  };
+
+  const nextFrame = () => {
+    let currentFrame = frame.current + 1;
+
+    if (currentFrame >= keyboardLeds.layers[currentLayer].frames.length) {
+      currentFrame = 0;
+    }
+
+    frame.current = currentFrame;
+    //setFrameNumber(currentFrame);
+    setFrames(keyboardLeds.layers[currentLayer].frames[frame.current].frame_RGB);
+  };
+
   useEffect(() => {
     // TODO: Set up the animation clear and start functions
-  }, [paused, speed]);
+    clearAnimation();
+
+    if (!paused) {
+      startAnimation();
+    }
+  }, [paused, speed, currentLayer]);
 
   return (
     <div className="keyboard-led">
@@ -94,7 +129,7 @@ export default () => {
             <FontAwesomeIcon icon={faPause} className="h-4 w-4" />}
           </button>
 
-          <input type="range" name="frame-slider" min="1" max={maxFrame} ref={frameSlider} value={frame.current} data-testid="display-frame-slider" className="w-full" onChange={handleFrameChange} />
+          <input type="range" name="frame-slider" min="1" max={maxFrame} ref={frameSlider} value={frame.current} data-testid="keyboard-led-frame-slider" className="w-full" onChange={handleFrameChange} />
         </div>
 
         <div></div>

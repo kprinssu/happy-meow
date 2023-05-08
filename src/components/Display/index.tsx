@@ -129,7 +129,7 @@ export default () => {
       startAnimation();
     }
 
-  }, [paused, speed]);
+  }, [paused, speed, currentLayer]);
 
   return (
     <div className="display-editor ml-1 mt-2 text-sm" data-testid="display-editor">

@@ -17,5 +17,10 @@ describe('speed', () => {
 });
 
 describe('frame', () => {
+  it('changes the frame to the frame slider', async () => {
+    const display = renderWithProviders(<KeyboardLed />);
+    const frameSlider = await display.findByTestId('keyboard-led-frame-slider');
 
+
+  });
 });
