@@ -17,3 +17,5 @@ jobs:
         run: yarn install
       - name: Run ESlint
         run: yarn run lint
+      - name: Run TypeScript Check
+        run: yarn run tsc
