@@ -1,0 +1,21 @@
+.keyboard-led {
+  width: 610px;
+}
+
+.keyboard-top-infobar {
+  margin-left: 0.5em;
+}
+
+.keyboard-frame-infobar-speed {
+  display: grid;
+  text-align: center;
+}
+
+.keyboard-frame-infobar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.keyboard-frame-infobar-controls {
+  display: grid;
+}

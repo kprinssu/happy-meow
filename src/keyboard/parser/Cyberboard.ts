@@ -168,12 +168,12 @@ export class Cyberboard {
         pageNum = this.config.page_num % 4;
         const pageDataSet = this.config.page_data.slice(4 * i, this.config.page_num);
 
-        createPageControlCommands(pageControlInfoItems, pageDataSet)
+        createPageControlCommands(pageControlInfoItems, pageDataSet);
       } else {
         pageNum = 4;
         const pageDataSet = this.config.page_data.slice(4 * i, 4 * i + 4);
 
-        createPageControlCommands(pageControlInfoItems, pageDataSet)
+        createPageControlCommands(pageControlInfoItems, pageDataSet);
       }
 
       this.commandCount += 1;
@@ -369,7 +369,7 @@ export class Cyberboard {
 
   processSwapKeys() {
     // Process the Swap Keys
-    const swapKeyCount = Math.ceil(this.config.swap_key_num/ 11)
+    const swapKeyCount = Math.ceil(this.config.swap_key_num/ 11);
     for (let i = 0; i < swapKeyCount; i++) {
       const swapKeyInfo: SwapKeyInfoCommand = {
         swapKeyCount: this.config.swap_key_num,
@@ -420,7 +420,7 @@ export class Cyberboard {
       if ((i + 1) < keyLayerCount) {
         keyframeInfo.layerBytes = layerBytes.subarray(i * 60, (i + 1) * 60);
       } else {
-        keyframeInfo.layerBytes = layerBytes.subarray(i * 60, lastWritten)
+        keyframeInfo.layerBytes = layerBytes.subarray(i * 60, lastWritten);
       }
 
       this.keyLayerInfos.push(keyframeInfo);

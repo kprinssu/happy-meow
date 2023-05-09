@@ -1,6 +1,9 @@
 import React from 'react';
-import Keyboard from './Keyboard';
+
+import './Main.css';
+
+import Layout from './Layout';
 
 export const Main = () => (
-  <Keyboard />
+  <Layout />
 );

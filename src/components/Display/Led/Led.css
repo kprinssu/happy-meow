@@ -1,0 +1,9 @@
+.led {
+  display: block;
+  height: 1em;
+  width: 1em;
+}
+
+.led:hover {
+  outline: 1px solid red;
+}

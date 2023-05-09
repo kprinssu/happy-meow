@@ -1,0 +1,8 @@
+.sidebar {
+  grid-area: sidebar;
+  background-color: #2e86de;
+}
+
+.sidebar-icon {
+  height: 20px;
+}

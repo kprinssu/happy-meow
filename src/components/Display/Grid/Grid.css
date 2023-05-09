@@ -1,0 +1,12 @@
+.led-display {
+  display: grid;
+  background-color: white;
+  grid-template-columns: repeat(40, 1em);
+  width: 100%;
+  row-gap: 1px;
+  column-gap: 1px;
+}
+
+.led-display .led:nth-child(10n) {
+  border-right: 0px;
+}

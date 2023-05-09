@@ -1,0 +1,34 @@
+.led-display {
+  display: grid;
+  grid-template-columns: repeat(40, 1em);
+  width: 100%;
+  row-gap: 1px;
+  column-gap: 1px;
+}
+
+.display-editor {
+  width: 680px;
+}
+
+.display-editor-infobar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.display-editor-infobar-speed {
+  display: grid;
+  text-align: center;
+}
+
+.display-frame-infobar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.display-frame-infobar-controls {
+  display: grid;
+}
+
+.color-picker {
+  width: 320px;
+}
