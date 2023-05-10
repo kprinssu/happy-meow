@@ -56,9 +56,7 @@ describe('frame insertion', () => {
     act(() => fireEvent.click(insertButton));
     const postClickFrameCount = parseInt(keyboardLED.getAttribute('data-test-frame-count') || '0');
 
-
-    // Frame length starts at 0 (array indices)
-    expect(preClickFrameCount).toEqual(99);
+    expect(preClickFrameCount).toEqual(100);
     expect(preClickFrameCount).toEqual(postClickFrameCount);
   });
 });
@@ -83,15 +81,13 @@ describe('frame removal', () => {
 
     const preClickFrameCount = parseInt(keyboardLED.getAttribute('data-test-frame-count') || '0');
 
-    // Attempt to remove all frames
+    // Attempt to remove all frames (by clicking the remove button 100 times)
     for (let i = 0; i < preClickFrameCount; i++) {
-      //act(() => fireEvent.click(removeButton));
-      //console.log(i, keyboardLED.getAttribute('data-test-frame-count'));
+      act(() => fireEvent.click(removeButton));
     }
 
     const postClickFrameCount = parseInt(keyboardLED.getAttribute('data-test-frame-count') || '0');
 
-    //console.log(preClickFrameCount, postClickFrameCount);
-    //expect(postClickFrameCount).toEqual(1);
+    expect(postClickFrameCount).toEqual(1);
   });
 });

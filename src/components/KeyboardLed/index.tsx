@@ -33,7 +33,7 @@ export default () => {
   const [frames, setFrames] = useState(keyboardLeds.layers[currentLayer].frames[0].frame_RGB);
   const [speed, setSpeed] = useState(250);
   const [color, setColor] = useState('#ffffff');
-  const [maxFrame, setMaxFrame] = useState(Math.min(keyboardLeds.layers[currentLayer].frames.length - 1, MAX_FRAMES));
+  const [maxFrame, setMaxFrame] = useState(keyboardLeds.layers[currentLayer].frames.length);
 
   const handleKeyClick = (index: number) => {
     const newLedLayer = JSON.parse(JSON.stringify(keyboardLeds.layers[currentLayer]));
@@ -115,14 +115,13 @@ export default () => {
   };
 
   const removeFrame = () => {
-    console.log(keyboardLeds.layers[currentLayer].frames.length);
     if (keyboardLeds.layers[currentLayer].frames.length < 2) {
       return;
     }
 
     const newLedLayer = JSON.parse(JSON.stringify(keyboardLeds.layers[currentLayer]));
-    newLedLayer.frames.splice(frame.current, 1);
 
+    newLedLayer.frames.splice(frame.current, 1);
     frame.current = Math.max(frame.current - 1, 0);
 
     dispatch(setLayer(newLedLayer));
