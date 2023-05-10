@@ -18,6 +18,13 @@ const store = configureStore({
       return getDefaultMiddleware().concat(logger);
     }
 
+    if (process.env.NODE_ENV === 'test') {
+      // Disable warnings on size of state in tests
+      return getDefaultMiddleware({
+        serializableCheck: false,
+      });
+    }
+
     return getDefaultMiddleware();
   },
 });

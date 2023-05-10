@@ -101,14 +101,14 @@ export default () => {
 
     newDisplayLayer.frames.splice(frame.current + 1, 0, newFrame);
     dispatch(setLayer(newDisplayLayer));
-    setMaxFrame(displayLayers.layers[currentLayer].frames.length - 1);
+    setMaxFrame(Math.min(displayLayers.layers[currentLayer].frames.length - 1, MAX_FRAME_COUNT));
   };
 
   const removeFrame = () => {
     const newDisplayLayer = JSON.parse(JSON.stringify(displayLayers.layers[currentLayer]));
     newDisplayLayer.frames.splice(frame, 1);
     dispatch(setLayer(newDisplayLayer));
-    setMaxFrame(displayLayers.layers[currentLayer].frames.length - 1);
+    setMaxFrame(displayLayers.layers[currentLayer].frames.length);
   };
 
   const handlePausePlayClick = () => {

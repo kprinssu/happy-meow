@@ -33,7 +33,6 @@ export default () => {
   const [frames, setFrames] = useState(keyboardLeds.layers[currentLayer].frames[0].frame_RGB);
   const [speed, setSpeed] = useState(250);
   const [color, setColor] = useState('#ffffff');
-  const [frameNumber, setFrameNumber] = useState(0);
   const [maxFrame, setMaxFrame] = useState(Math.min(keyboardLeds.layers[currentLayer].frames.length - 1, MAX_FRAMES));
 
   const handleKeyClick = (index: number) => {
@@ -53,7 +52,7 @@ export default () => {
   const changeLayer = (layer: number) => {
     setCurrentLayer(layer);
     setFrames(keyboardLeds.layers[layer].frames[frame.current].frame_RGB);
-    setMaxFrame(Math.min(keyboardLeds.layers[layer].frames.length - 1, MAX_FRAMES));
+    setMaxFrame(keyboardLeds.layers[layer].frames.length);
   };
 
   const changeSelectedColor = (colorResult: ColorResult) => {
@@ -99,12 +98,11 @@ export default () => {
     }
 
     frame.current = currentFrame;
-    setFrameNumber(currentFrame);
     setFrames(keyboardLeds.layers[currentLayer].frames[frame.current].frame_RGB);
   };
 
   const addFrame = () => {
-    if (keyboardLeds.layers[currentLayer].frames.length > MAX_FRAMES) {
+    if (keyboardLeds.layers[currentLayer].frames.length >= MAX_FRAMES) {
       return;
     }
 
@@ -113,19 +111,22 @@ export default () => {
     newLedLayer.frames.splice(frame.current + 1, 0, { frame_RGB: newFrame });
     dispatch(setLayer(newLedLayer));
     setFrames(newFrame);
-    setMaxFrame(Math.min(newLedLayer.frames.length - 1, MAX_FRAMES));
+    setMaxFrame(newLedLayer.frames.length)
   };
 
   const removeFrame = () => {
+    console.log(keyboardLeds.layers[currentLayer].frames.length);
     if (keyboardLeds.layers[currentLayer].frames.length < 2) {
       return;
     }
 
     const newLedLayer = JSON.parse(JSON.stringify(keyboardLeds.layers[currentLayer]));
+    newLedLayer.frames.splice(frame.current, 1);
+
     frame.current = Math.max(frame.current - 1, 0);
-    newLedLayer.frames.splice(frame, 1);
+
     dispatch(setLayer(newLedLayer));
-    setMaxFrame(newLedLayer.frames.length - 1);
+    setMaxFrame(newLedLayer.frames.length);
   };
 
   const handleSpeedChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -142,11 +143,11 @@ export default () => {
   }, [paused, speed, currentLayer, frame]);
 
   return (
-    <div className="keyboard-led">
+    <div className="keyboard-led" data-testid="keyboard-led" data-test-frame-number={frame.current} data-test-frame-count={maxFrame}>
       <ul className='inline-block'>
-        <li onClick={() => changeLayer(0)} data-testid="display-layer-frame-1" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Frame: 1</li>
-        <li onClick={() => changeLayer(1)} data-testid="display-layer-frame-2" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Frame: 2</li>
-        <li onClick={() => changeLayer(2)} data-testid="display-layer-frame-3" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Frame: 3</li>
+        <li onClick={() => changeLayer(0)} data-testid="keyboard-led-layer-frame-1" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Frame: 1</li>
+        <li onClick={() => changeLayer(1)} data-testid="keyboard-led-layer-frame-2" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Frame: 2</li>
+        <li onClick={() => changeLayer(2)} data-testid="keyboard-led-layer-frame-3" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Frame: 3</li>
       </ul>
 
       <div className="keyboard-frame-infobar keyboard-top-infobar mb-2">
@@ -155,7 +156,7 @@ export default () => {
           <span>Speed</span>
           <input type="range" name="play-speed" min="1" max="100" data-testid="display-speed-slider" ref={speedSlider}  onChange={handleSpeedChange} />
         </div>
-        <span data-testid="display-frame" className="text-right">Frame {frameNumber + 1}</span>
+        <span data-testid="display-frame" className="text-right">Frame {frame.current + 1}</span>
       </div>
 
       <Keyboard {...keyboardProps} />
@@ -169,9 +170,9 @@ export default () => {
           </button>
 
           <div className='flex w-full'>
-            <button data-testid="display-remove-frame" onClick={removeFrame}><FontAwesomeIcon icon={faMinus} /></button>
-            <input type="range" name="frame-slider" min="1" max={maxFrame} ref={frameSlider} value={frame.current} data-testid="keyboard-led-frame-slider" className="w-full" onChange={handleFrameChange} />
-            <button data-testid="display-insert-frame" onClick={addFrame}><FontAwesomeIcon icon={faPlus} /></button>
+            <button onClick={removeFrame}><FontAwesomeIcon icon={faMinus} data-testid="keyboard-remove-frame" /></button>
+            <input type="range" name="frame-slider" min="1" max={maxFrame - 1} ref={frameSlider} value={frame.current} data-testid="keyboard-led-frame-slider" className="w-full" onChange={handleFrameChange} />
+            <button onClick={addFrame}><FontAwesomeIcon icon={faPlus} data-testid="keyboard-insert-frame" /></button>
           </div>
         </div>
 
