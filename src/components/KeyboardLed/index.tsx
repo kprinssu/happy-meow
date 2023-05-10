@@ -150,12 +150,12 @@ export default () => {
       </ul>
 
       <div className="keyboard-frame-infobar keyboard-top-infobar mb-2">
-        <span data-testid="display-layer">Layer {currentLayer + 1}</span>
+        <span data-testid="keyboard-layer">Layer {currentLayer + 1}</span>
         <div className="keyboard-frame-infobar-speed">
           <span>Speed</span>
-          <input type="range" name="play-speed" min="1" max="100" data-testid="display-speed-slider" ref={speedSlider}  onChange={handleSpeedChange} />
+          <input type="range" name="play-speed" min="1" max="100" data-testid="keyboard-speed-slider" ref={speedSlider}  onChange={handleSpeedChange} />
         </div>
-        <span data-testid="display-frame" className="text-right">Frame {frame.current + 1}</span>
+        <span data-testid="keyboard-frame" className="text-right">Frame {frame.current + 1}</span>
       </div>
 
       <Keyboard {...keyboardProps} />
@@ -163,7 +163,7 @@ export default () => {
       <div className="keyboard-frame-infobar w-full">
         <div></div>
         <div className='keyboard-frame-infobar-controls'>
-          <button onClick={() => handlePausePlayClick()} data-testid="display-pause-play" className="my-0 mx-auto">{paused ?
+          <button onClick={() => handlePausePlayClick()} data-testid="keyboard-pause-play" className="my-0 mx-auto">{paused ?
             <FontAwesomeIcon icon={faPlay} className="h-4 w-4" /> :
             <FontAwesomeIcon icon={faPause} className="h-4 w-4" />}
           </button>
@@ -181,7 +181,7 @@ export default () => {
       <div className="color-picker my-0 mt-4 mx-auto">
         <SliderPicker color={color} onChangeComplete={changeSelectedColor} />
         <label htmlFor="color-picker-input" className="mr-1">Hex Color</label>
-        <input type="text" id="color-picker-input" name="color-picker-input" data-testid="display-colour-input" value={color} onChange={handleColorChange} />
+        <input type="text" id="color-picker-input" name="color-picker-input" data-testid="keyboard-colour-input" value={color} onChange={handleColorChange} />
       </div>
     </div>
   );

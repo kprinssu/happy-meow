@@ -9,11 +9,72 @@ import store from '../../../store';
 import { renderWithProviders } from '../../../utils/testHelpers';
 
 describe('play/pause', () => {
-  //
+  it('should play animation when the pause/play button is pressed', async () => {
+    // Default state is paused
+    jest.useFakeTimers();
+
+    const display = renderWithProviders(<KeyboardLed />);
+    const keyboardLED = await display.findByTestId('keyboard-led');
+    const pausePlayButton = await display.findByTestId('keyboard-pause-play');
+
+    const preAnimation = keyboardLED.getAttribute('data-test-frame-number');
+    act(() => fireEvent.click(pausePlayButton));
+    act(() => jest.advanceTimersByTime(250));
+
+    const postAnimationFrame = keyboardLED.getAttribute('data-test-frame-number');
+    expect(preAnimation).not.toEqual(postAnimationFrame);
+
+    jest.useRealTimers();
+  });
+
+  it('should pause animation when the pause/play button is pressed', async () => {
+    // Default state is paused
+    jest.useFakeTimers();
+
+    const display = renderWithProviders(<KeyboardLed />);
+    const keyboardLED = await display.findByTestId('keyboard-led');
+    const pausePlayButton = await display.findByTestId('keyboard-pause-play');
+
+    const preAnimation = keyboardLED.getAttribute('data-test-frame-number');
+    // Play
+    act(() => fireEvent.click(pausePlayButton));
+
+    // Pause
+    act(() => fireEvent.click(pausePlayButton));
+
+    act(() => jest.advanceTimersByTime(250));
+
+    const postAnimationFrame = keyboardLED.getAttribute('data-test-frame-number');
+
+    expect(preAnimation).toEqual(postAnimationFrame);
+
+    jest.useRealTimers();
+  });
 });
 
 describe('speed', () => {
-  //
+  it('changes the animation speed to the speed slider', async () => {
+    jest.useFakeTimers();
+
+    const display = renderWithProviders(<KeyboardLed />);
+    const keyboard = await display.findByTestId('keyboard-led');
+    const speedSlider = await display.findByTestId('keyboard-speed-slider');
+
+    const pausePlayButton = await display.findByTestId('keyboard-pause-play');
+    act(() => fireEvent.click(pausePlayButton));
+
+
+    const preAnimation = keyboard.getAttribute('data-test-frame-number');
+    act(() => fireEvent.change(speedSlider, { target: { value: 50 } }));
+    act(() => jest.advanceTimersByTime(1000));
+
+    const postAnimationFrame = keyboard.getAttribute('data-test-frame-number');
+
+
+    expect(preAnimation).not.toEqual(postAnimationFrame);
+
+    jest.useRealTimers();
+  });
 });
 
 describe('frame slider', () => {
@@ -89,5 +150,22 @@ describe('frame removal', () => {
     const postClickFrameCount = parseInt(keyboardLED.getAttribute('data-test-frame-count') || '0');
 
     expect(postClickFrameCount).toEqual(1);
+  });
+});
+
+describe('led colour', () => {
+  it('should change the led colour when a led is clicked', async () => {
+    const display = renderWithProviders(<KeyboardLed />);
+    const preClickLed = await display.findByTestId('key-10');
+
+    const preClickColour = preClickLed.style.backgroundColor;
+    fireEvent.click(preClickLed);
+
+    const postClickLed = await display.findByTestId('key-10');
+    const postClickColour = postClickLed.style.backgroundColor;
+
+    // rgb(255, 255, 255) is the default colour (white)
+    expect(postClickColour).not.toEqual(preClickColour);
+    expect(postClickColour).toEqual('rgb(255, 255, 255)');
   });
 });
