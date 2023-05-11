@@ -12,6 +12,7 @@ describe('readJOSN', () => {
   test('throws a file error for an invalid path', async () => {
     try {
      await readJSON('./doesNotExist.json');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
       expect(e.code).toEqual('ENOENT');
     }
