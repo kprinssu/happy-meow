@@ -4,11 +4,7 @@ import { Buffer } from 'buffer';
 import { Cyberboard } from './Cyberboard';
 import { CyberboardConfig } from './schema';
 
-export interface ParsedConfig {
-  config: Cyberboard;
-  processedValid: boolean[];
-  customInterfaceFramesCount: number;
-}
+import { ParsedConfig } from './ParsedConfig';
 
 const countValidTypes = (json: any, config: Cyberboard): ParsedConfig => {
   const processedValid: boolean[] = [];

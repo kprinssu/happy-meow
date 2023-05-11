@@ -1,5 +1,6 @@
 import { Cyberboard } from './Cyberboard';
-import { readJSON, ParsedConfig } from './reader';
+import { ParsedConfig } from './ParsedConfig';
+import { readJSON } from './reader';
 
 
 export { readJSON, Cyberboard, ParsedConfig };

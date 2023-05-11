@@ -57,6 +57,7 @@ app.on('activate', () => {
 app.whenReady().then(() => {
   ipcMain.handle('keyboard:list', KeyboardApi.listKeyboards);
   ipcMain.handle('keyboard:setTime', (_, portPath) => KeyboardApi.setTime(portPath));
+  ipcMain.handle('keyboard:syncKeyboard', (_, portPath, config) => KeyboardApi.syncKeyboard(portPath, config));
   ipcMain.handle('keyboard:writeConfig', (_, portPath, jsonPath) => KeyboardApi.writeConfig(portPath, jsonPath));
   ipcMain.handle('keyboard:loadConfig', (_, path) => KeyboardApi.loadConfig(path));
 });
