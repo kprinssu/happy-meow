@@ -7,20 +7,25 @@ import KeyboardSyncButton from '../index';
 
 import store from '../../../store';
 import { renderWithProviders } from '../../../utils/testHelpers';
+import { PortInfo } from '../../../store/keyboardPort/types';
 import { setSelectedPort } from '../../../store/keyboardPort/actions';
-import { CyberboardConfig } from '../../../keyboard/parser/schema';
 
 describe('sync button', () => {
   it('starts the sync to the currently selected keyboard', async () => {
-    const mockKeyboard = {
+    const mockKeyboard: PortInfo = {
       vendorId: '05ac',
       productId: '0256',
       path: '/dev/AM00',
-      pnpId: 'Happy Meow'
+      pnpId: 'Happy Meow',
+      manufacturer: 'kprinssu mock',
+      serialNumber: '1234567890',
+      locationId: 'Happy Meow Test',
     };
+
     await store.dispatch(setSelectedPort(mockKeyboard));
 
     window.keyboardAPI = {
+      ...window.keyboardAPI,
       setTime: jest.fn(),
       syncKeyboard: jest.fn(),
     };

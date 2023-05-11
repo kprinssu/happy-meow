@@ -3,22 +3,30 @@
 import { fireEvent } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
+import { PortInfo } from '@serialport/bindings-cpp';
+
 import KeyboardSelector from '../index';
 
 import { renderWithProviders } from '../../../utils/testHelpers';
 import store from '../../../store';
 
-const mockKeyboard = {
+const mockKeyboard: PortInfo = {
   vendorId: '05ac',
   productId: '0256',
   path: '/dev/AM00',
   pnpId: 'Happy Meow',
+  manufacturer: 'kprinssu mock',
+  serialNumber: '1234567890',
+  locationId: 'Happy Meow Test',
 };
 
 beforeEach(() => {
   window.keyboardAPI = {
+    ...window.keyboardAPI,
     listKeyboards: () => {
-      return [mockKeyboard];
+      return new Promise<PortInfo[]>((resolve) => {
+        resolve([mockKeyboard]);
+      });
     },
   };
 });
