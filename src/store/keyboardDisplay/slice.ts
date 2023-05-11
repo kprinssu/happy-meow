@@ -44923,7 +44923,13 @@ export default createSlice({
   initialState: initialState,
   reducers: {
     setLayer: (state, action: PayloadAction<KeyboardDisplayLayer>) => {
-      const layer = action.payload;
+      const layer = JSON.parse(JSON.stringify(action.payload));
+
+      // Update each frame index
+      for (let i = 0; i < layer.frames.length; i++) {
+        layer.frames[i].frame_index = i;
+      }
+
       state.layers.splice(layer.layerIndex, 1, layer);
     },
   },

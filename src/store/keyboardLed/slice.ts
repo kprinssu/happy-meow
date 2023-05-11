@@ -20263,7 +20263,13 @@ export default createSlice({
   initialState,
   reducers: {
     setLayer: (state, action: PayloadAction<KeyboardLedLayer>) => {
-      const layer = action.payload;
+      const layer = JSON.parse(JSON.stringify(action.payload));
+
+      // Ensure all frames in the layer have the correct index
+      for(let i = 0; i < layer.frames.length; i++) {
+        layer.frames[i].frame_index = i;
+      }
+
       state.layers.splice(layer.layerIndex, 1, layer);
     },
   },
