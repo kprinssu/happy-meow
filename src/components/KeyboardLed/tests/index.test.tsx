@@ -5,7 +5,6 @@ import { act } from 'react-dom/test-utils';
 
 import KeyboardLed from '..';
 
-import store from '../../../store';
 import { renderWithProviders } from '../../../utils/testHelpers';
 
 describe('play/pause', () => {

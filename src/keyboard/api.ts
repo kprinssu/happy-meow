@@ -1,6 +1,6 @@
 import { PortInfo } from '@serialport/bindings-cpp';
 
-import { readJSON, ParsedConfig } from './parser';
+import { Cyberboard, readJSON } from './parser';
 import { listKeyboards } from './list';
 import { createPort,
   openPort,
@@ -16,7 +16,7 @@ export class KeyboardApi {
     return listKeyboards();
   }
 
-  static async loadConfig(path: string): Promise<ParsedConfig> {
+  static async loadConfig(path: string): Promise<Cyberboard> {
     return await readJSON(path);
   }
 
@@ -44,16 +44,16 @@ export class KeyboardApi {
     return true;
   }
 
-  static async syncKeyboard(portPath: string, parsedConfig: ParsedConfig): Promise<boolean> {
+  static async syncKeyboard(portPath: string, config: Cyberboard): Promise<boolean> {
     try {
-      const config = parsedConfig.config;
       const port = createPort(portPath);
 
       await openPort(port);
 
       const startCommand = SetConfig.generateStartCommand();
       await writeToKeyboard(port, startCommand);
-      const startData = await readFromKeyboard(port);
+      // const startData = await readFromKeyboard(port);
+      await readFromKeyboard(port);
 
       let totalFrameSent = 0;
       const unknownInfo = SetConfig.generateUnknownInfoCommand(config);
@@ -127,7 +127,8 @@ export class KeyboardApi {
 
       const stopCommand = SetConfig.generateStopCommand(totalFrameSent);
       await writeToKeyboard(port, stopCommand);
-      const endData = await readFromKeyboard(port);
+      //const endData = await readFromKeyboard(port);
+      await readFromKeyboard(port);
 
       await closePort(port);
     } catch (e) {

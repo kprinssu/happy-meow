@@ -7,9 +7,6 @@ import { KeyboardDisplayState } from '../keyboardDisplay/types';
 import { KeyboardKeyState } from '../keyboardKey/types';
 import { KeyboardLedState } from '../keyboardLed/types';
 
-import { Cyberboard } from '../../keyboard/parser/Cyberboard';
-import { ParsedConfig } from '../../keyboard/parser/ParsedConfig';
-
 import { CyberboardConfig, PageData, KeyLayerData, KeyLayer } from '../../keyboard/parser/schema';
 
 

@@ -14,7 +14,6 @@ import { setLayer } from '../../store/keyboardLed/actions';
 import Keyboard, { setupLedProperties, KeyboardProps } from '../Keyboard';
 
 import './KeyboardLed.css';
-import { layer } from '@fortawesome/fontawesome-svg-core';
 
 
 export default () => {
@@ -111,7 +110,7 @@ export default () => {
     newLedLayer.frames.splice(frame.current + 1, 0, { frame_RGB: newFrame });
     dispatch(setLayer(newLedLayer));
     setFrames(newFrame);
-    setMaxFrame(newLedLayer.frames.length)
+    setMaxFrame(newLedLayer.frames.length);
   };
 
   const removeFrame = () => {

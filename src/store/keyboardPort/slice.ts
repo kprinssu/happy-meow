@@ -1,7 +1,5 @@
 import { KeyboardPortState, PortInfo } from './types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { syncKeyboard } from './actions';
-import { ParsedConfig } from '../../keyboard/parser/ParsedConfig';
 
 const initialState: KeyboardPortState = {
   selectedPort: null,
