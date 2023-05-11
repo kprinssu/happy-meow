@@ -10,4 +10,5 @@ export const KeyLayer = z.object({
   layer_data: Layer.array(),
 });
 
+export type KeyLayerData = z.infer<typeof Layer>;
 export type KeyLayer = z.infer<typeof KeyLayer>;

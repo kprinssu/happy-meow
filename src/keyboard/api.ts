@@ -34,6 +34,18 @@ export class KeyboardApi {
   static async writeConfig(portPath: string, jsonPath: string): Promise<boolean> {
     try {
       const parsedConfig = await this.loadConfig(jsonPath);
+      await this.syncKeyboard(portPath, parsedConfig);
+    } catch (e) {
+      console.log('Failed to write config.');
+      console.log(e);
+      return false;
+    }
+
+    return true;
+  }
+
+  static async syncKeyboard(portPath: string, parsedConfig: ParsedConfig): Promise<boolean> {
+    try {
       const config = parsedConfig.config;
       const port = createPort(portPath);
 
@@ -119,11 +131,12 @@ export class KeyboardApi {
 
       await closePort(port);
     } catch (e) {
-      console.log('Failed to write config.');
+      console.log('Failed to sync keyboard.');
       console.log(e);
       return false;
     }
 
     return true;
   }
+
 }
