@@ -5,7 +5,7 @@ import { TabKey } from './TabKey';
 import { FunctionKey } from './FunctionKey';
 import { MacroKey } from './MacroKey';
 import { SwapKey } from './SwapKey';
-import { KeyLayer } from './KeyLayer';
+import { KeyLayerData, KeyLayer } from './KeyLayer';
 
 import { CyberboardConfig } from './CyberboardConfig';
 
@@ -18,6 +18,7 @@ export {
   FunctionKey,
   MacroKey,
   SwapKey,
+  KeyLayerData,
   KeyLayer,
   Color,
 };

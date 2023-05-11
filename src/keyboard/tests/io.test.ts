@@ -78,7 +78,8 @@ describe('writeToKeyboard', () => {
 
   test('logs an error and returns false on failure', (done) => {
     const port = createPort(path);
-    const data: any = null;
+    // hack to disable type check to cause an error
+    const data: Buffer = (null as unknown as Buffer);
     port.open(async () => {
       const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { return {}; });
 

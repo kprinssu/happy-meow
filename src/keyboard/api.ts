@@ -1,6 +1,6 @@
 import { PortInfo } from '@serialport/bindings-cpp';
 
-import { readJSON, ParsedConfig } from './parser';
+import { Cyberboard, readJSON } from './parser';
 import { listKeyboards } from './list';
 import { createPort,
   openPort,
@@ -16,7 +16,7 @@ export class KeyboardApi {
     return listKeyboards();
   }
 
-  static async loadConfig(path: string): Promise<ParsedConfig> {
+  static async loadConfig(path: string): Promise<Cyberboard> {
     return await readJSON(path);
   }
 
@@ -34,14 +34,26 @@ export class KeyboardApi {
   static async writeConfig(portPath: string, jsonPath: string): Promise<boolean> {
     try {
       const parsedConfig = await this.loadConfig(jsonPath);
-      const config = parsedConfig.config;
+      await this.syncKeyboard(portPath, parsedConfig);
+    } catch (e) {
+      console.log('Failed to write config.');
+      console.log(e);
+      return false;
+    }
+
+    return true;
+  }
+
+  static async syncKeyboard(portPath: string, config: Cyberboard): Promise<boolean> {
+    try {
       const port = createPort(portPath);
 
       await openPort(port);
 
       const startCommand = SetConfig.generateStartCommand();
       await writeToKeyboard(port, startCommand);
-      const startData = await readFromKeyboard(port);
+      // const startData = await readFromKeyboard(port);
+      await readFromKeyboard(port);
 
       let totalFrameSent = 0;
       const unknownInfo = SetConfig.generateUnknownInfoCommand(config);
@@ -115,15 +127,17 @@ export class KeyboardApi {
 
       const stopCommand = SetConfig.generateStopCommand(totalFrameSent);
       await writeToKeyboard(port, stopCommand);
-      const endData = await readFromKeyboard(port);
+      //const endData = await readFromKeyboard(port);
+      await readFromKeyboard(port);
 
       await closePort(port);
     } catch (e) {
-      console.log('Failed to write config.');
+      console.log('Failed to sync keyboard.');
       console.log(e);
       return false;
     }
 
     return true;
   }
+
 }

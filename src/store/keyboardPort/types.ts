@@ -1,11 +1,11 @@
-export interface PortInfo {
-  vendorId: string;
-  productId: string;
-  path: string;
-  pnpId: string;
-}
+import { PortInfo } from '@serialport/bindings-cpp';
 
-export interface KeyboardPortState {
+interface KeyboardPortState {
   selectedPort: PortInfo | null;
   allPorts: PortInfo[];
 }
+
+export {
+  PortInfo,
+  KeyboardPortState,
+};

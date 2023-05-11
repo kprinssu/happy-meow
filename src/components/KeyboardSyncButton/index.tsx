@@ -1,10 +1,19 @@
 import { useAppSelector } from '../../hooks';
+import { syncKeyboard } from '../../store/keyboardPort/actions';
 
 export default () => {
   const selectedPort = useAppSelector(state => state.keyboardPorts.selectedPort);
+  const displayLayers = useAppSelector(state => state.keyboardDisplay);
+  const keyboardLeds = useAppSelector(state => state.keyboardLeds);
+  const keyboardKeys = useAppSelector(state => state.keyboardKeys);
 
   const sync = async () => {
-    await window.keyboardAPI.setTime(selectedPort?.path);
+    await syncKeyboard(
+      selectedPort,
+      displayLayers,
+      keyboardLeds,
+      keyboardKeys
+    );
   };
 
   return (

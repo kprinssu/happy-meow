@@ -15,7 +15,7 @@ export default createSlice({
     },
     setPorts(state: KeyboardPortState, action: PayloadAction<PortInfo[]>) {
       state.allPorts = action.payload;
-    }
+    },
   },
 });
 

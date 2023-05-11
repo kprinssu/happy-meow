@@ -5,17 +5,14 @@ describe('readJOSN', () => {
   test('successfully parses a valid Cyberboard JSON file', async () => {
     await expect(readJSON('./src/keyboard/tests/_files_/valid.json')).resolves.not.toThrowError();
 
-    const parsedConfig = await readJSON('./src/keyboard/tests/_files_/valid.json');
-    expect(parsedConfig.config instanceof Cyberboard).toEqual(true);
-    expect(parsedConfig.processedValid).toEqual([true, false, false, false, true, false, false, false, true,
-      false, false, false, false, true, false, false, false, false, false, false, true,
-      false, true, true, true, false, true, true, true, false, true, true, true]);
-    expect(parsedConfig.customInterfaceFramesCount).toEqual(6);
+    const config = await readJSON('./src/keyboard/tests/_files_/valid.json');
+    expect(config instanceof Cyberboard).toEqual(true);
   });
 
   test('throws a file error for an invalid path', async () => {
     try {
      await readJSON('./doesNotExist.json');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (e: any) {
       expect(e.code).toEqual('ENOENT');
     }

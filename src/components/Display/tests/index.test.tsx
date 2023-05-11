@@ -87,7 +87,7 @@ describe('frame slider', () => {
   });
 });
 
-describe('frame inserts and removal', () => {
+describe('frame insert', () => {
   it('should insert a frame when the insert button is pressed', async () => {
     const display = renderWithProviders(<Display />);
     const insertButton = await display.findByTestId('display-insert-frame');
@@ -99,6 +99,23 @@ describe('frame inserts and removal', () => {
     expect(postInsertMaxFrame).toEqual(preInsertMaxFrame + 1);
   });
 
+  it('should not insert a frame when the insert button is pressed and the max frames is reached', async () => {
+    const display = renderWithProviders(<Display />);
+    const insertButton = await display.findByTestId('display-insert-frame');
+
+    const preInsertMaxFrame = store.getState().keyboardDisplay.layers[0].frames.length;
+
+    // Add frames so there are 100 frames
+    for (let i = 0; i < (100 - preInsertMaxFrame); i++) {
+      act(() => fireEvent.click(insertButton));
+    }
+
+    const postInsertMaxFrame = store.getState().keyboardDisplay.layers[0].frames.length;
+    expect(postInsertMaxFrame).toEqual(100);
+  });
+});
+
+describe('frame removal', () => {
   it('should remove a frame when the remove button is pressed', async () => {
     const display = renderWithProviders(<Display />);
     const removeButton = await display.findByTestId('display-remove-frame');
@@ -108,6 +125,22 @@ describe('frame inserts and removal', () => {
     const postRemoveMaxFrame = store.getState().keyboardDisplay.layers[0].frames.length;
 
     expect(postRemoveMaxFrame).toEqual(preRemoveMaxFrame - 1);
+  });
+
+  it('should not remove a frame when the remove button is pressed and the min frames is reached', async () => {
+    const display = renderWithProviders(<Display />);
+    const removeButton = await display.findByTestId('display-remove-frame');
+
+    const preRemoveMaxFrame = store.getState().keyboardDisplay.layers[0].frames.length;
+
+    // Attempt to remove all frames
+    for (let i = 0; i < preRemoveMaxFrame; i++) {
+      act(() => fireEvent.click(removeButton));
+    }
+
+    const postRemoveMaxFrame = store.getState().keyboardDisplay.layers[0].frames.length;
+
+    expect(postRemoveMaxFrame).toEqual(1);
   });
 });
 
