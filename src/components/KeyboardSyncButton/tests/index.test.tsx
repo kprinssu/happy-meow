@@ -7,7 +7,8 @@ import KeyboardSyncButton from '../index';
 
 import store from '../../../store';
 import { renderWithProviders } from '../../../utils/testHelpers';
-import { setSelectedPort, syncKeyboard } from '../../../store/keyboardPort/actions';
+import { setSelectedPort } from '../../../store/keyboardPort/actions';
+import { CyberboardConfig } from '../../../keyboard/parser/schema';
 
 describe('sync button', () => {
   it('starts the sync to the currently selected keyboard', async () => {
@@ -28,7 +29,8 @@ describe('sync button', () => {
     const button = syncButton.getByTestId('sync-button');
 
     await act(async () => fireEvent.click(button));
-    expect(window.keyboardAPI.setTime).toHaveBeenCalledWith(mockKeyboard.path);
-    //expect(window.keyboardAPI.syncKeyboard).toHaveBeenCalledWith(mockKeyboard.path);
+
+    expect(window.keyboardAPI.setTime).toHaveBeenCalled();
+    expect(window.keyboardAPI.syncKeyboard).toHaveBeenCalled();
   });
 });
