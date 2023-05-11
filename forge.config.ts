@@ -9,7 +9,9 @@ import { mainConfig } from './webpack.main.config';
 import { rendererConfig } from './webpack.renderer.config';
 
 const config: ForgeConfig = {
-  packagerConfig: {},
+  packagerConfig: {
+    icon: 'assets/icon.png',
+  },
   rebuildConfig: {},
   makers: [new MakerSquirrel({}), new MakerZIP({}, ['darwin']), new MakerRpm({}), new MakerDeb({})],
   plugins: [
@@ -29,6 +31,18 @@ const config: ForgeConfig = {
         ],
       },
     }),
+    {
+      name: '@electron-forge/plugin-electronegativity',
+      config: {
+        isSarif: true
+      }
+    },
+    {
+      name: '@electron-forge/plugin-electronegativity',
+      config: {
+        isSarif: true
+      }
+    },
   ],
 };
 
