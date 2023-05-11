@@ -7,7 +7,7 @@ import KeyboardSyncButton from '../index';
 
 import store from '../../../store';
 import { renderWithProviders } from '../../../utils/testHelpers';
-import { setSelectedPort } from '../../../store/keyboardPort/actions';
+import { setSelectedPort, syncKeyboard } from '../../../store/keyboardPort/actions';
 
 describe('sync button', () => {
   it('starts the sync to the currently selected keyboard', async () => {
@@ -21,12 +21,14 @@ describe('sync button', () => {
 
     window.keyboardAPI = {
       setTime: jest.fn(),
+      syncKeyboard: jest.fn(),
     };
 
     const syncButton = renderWithProviders(<KeyboardSyncButton />);
-    const button = await syncButton.getByTestId('sync-button');
+    const button = syncButton.getByTestId('sync-button');
 
     await act(async () => fireEvent.click(button));
-    //expect(window.keyboardAPI.setTime).toHaveBeenCalledWith(mockKeyboard.path);
+    expect(window.keyboardAPI.setTime).toHaveBeenCalledWith(mockKeyboard.path);
+    //expect(window.keyboardAPI.syncKeyboard).toHaveBeenCalledWith(mockKeyboard.path);
   });
 });
