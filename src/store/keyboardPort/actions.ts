@@ -29,8 +29,12 @@ export const setSelectedPort = (selectedPort: PortInfo): ThunkAction<void, RootS
 };
 
 export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers: KeyboardDisplayState, keyboardLedLayers: KeyboardLedState, keyboardKeyLayers: KeyboardKeyState) => {
+  if (selectedPort === null) {
+    return;
+  }
+
   // Set the time
-  await window.keyboardAPI.setTime(selectedPort?.path);
+  await window.keyboardAPI.setTime(selectedPort.path);
 
   // Transform state to match the API
 
@@ -540,13 +544,5 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
     key_layer: keyLayer,
   };
 
-  const keyboardState: ParsedConfig = {
-    config: new Cyberboard(rawConfig),
-    processedValid: [],
-    customInterfaceFramesCount: 0,
-  };
-
-  console.log(keyboardState);
-
-  await window.keyboardAPI.syncKeyboard(selectedPort);
+  await window.keyboardAPI.syncKeyboard(selectedPort.path, rawConfig);
 };
