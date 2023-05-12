@@ -62,7 +62,7 @@ export default (props: KeyboardProps) => {
   return (
     <div className="keyboard mt-2">
       <div className="keyboard-fn-row keyboard-row">
-        <Key {...props.keyProperties[0]} />
+        <Key {...props.keyProperties[0]} style={{ 'marginLeft': '0' }} />
         <Key {...props.keyProperties[1]} style={{'marginLeft': '0.5em'}} />
         <Key {...props.keyProperties[2]} />
         <Key {...props.keyProperties[3]} />
@@ -79,7 +79,7 @@ export default (props: KeyboardProps) => {
         <Key {...props.keyProperties[14]} />
       </div>
       <div className="keyboard-num-row keyboard-row">
-        <Key {...(isLed ? props.keyProperties[15] : props.keyProperties[25]) } />
+        <Key {...(isLed ? props.keyProperties[15] : props.keyProperties[25])} style={{ 'marginLeft': '0' }} />
         <Key {...(isLed ? props.keyProperties[16] : props.keyProperties[26]) } />
         <Key {...(isLed ? props.keyProperties[17] : props.keyProperties[27]) } />
         <Key {...(isLed ? props.keyProperties[18] : props.keyProperties[28]) } />
@@ -96,7 +96,7 @@ export default (props: KeyboardProps) => {
         <Key {...(isLed ? props.keyProperties[29] : props.keyProperties[39]) } />
       </div>
       <div className="keyboard-qwerty-row keyboard-row">
-        <Key {...(isLed ? props.keyProperties[30] : props.keyProperties[50]) } size="1.5" />
+        <Key {...(isLed ? props.keyProperties[30] : props.keyProperties[50])} style={{ 'marginLeft': '0' }} size="1.5" />
         <Key {...(isLed ? props.keyProperties[31] : props.keyProperties[51]) } />
         <Key {...(isLed ? props.keyProperties[32] : props.keyProperties[52]) } />
         <Key {...(isLed ? props.keyProperties[33] : props.keyProperties[53]) } />
@@ -113,7 +113,7 @@ export default (props: KeyboardProps) => {
         <Key {...(isLed ? props.keyProperties[44] : props.keyProperties[64]) } />
       </div>
       <div className="keyboard-caps-row keyboard-row">
-        <Key {...(isLed ? props.keyProperties[45] : props.keyProperties[75]) } size="1.75" />
+        <Key {...(isLed ? props.keyProperties[45] : props.keyProperties[75])} style={{ 'marginLeft': '0' }} size="1.75" />
         <Key {...(isLed ? props.keyProperties[46] : props.keyProperties[76]) } />
         <Key {...(isLed ? props.keyProperties[47] : props.keyProperties[77]) } />
         <Key {...(isLed ? props.keyProperties[48] : props.keyProperties[78]) } />
@@ -129,7 +129,7 @@ export default (props: KeyboardProps) => {
         <Key {...(isLed ? props.keyProperties[59] : props.keyProperties[89]) } />
       </div>
       <div className="keyboard-shift-row keyboard-row">
-        <Key {...(isLed ? props.keyProperties[60] : props.keyProperties[100]) } size="2.5" />
+        <Key {...(isLed ? props.keyProperties[60] : props.keyProperties[100])} style={{ 'marginLeft': '0' }} size="2.5" />
         <Key {...(isLed ? props.keyProperties[62] : props.keyProperties[102]) } />
         <Key {...(isLed ? props.keyProperties[63] : props.keyProperties[103]) } />
         <Key {...(isLed ? props.keyProperties[64] : props.keyProperties[104]) }  />
@@ -144,7 +144,7 @@ export default (props: KeyboardProps) => {
         <Key {...(isLed ? props.keyProperties[73] : props.keyProperties[113]) } />
       </div>
       <div className="keyboard-ctrl-row keyboard-row">
-        <Key {...(isLed ? props.keyProperties[75] : props.keyProperties[125]) } size="1.25" />
+        <Key {...(isLed ? props.keyProperties[75] : props.keyProperties[125])} style={{ 'marginLeft': '0' }}  size="1.25" />
         <Key {...(isLed ? props.keyProperties[76] : props.keyProperties[126]) } size="1.25" />
         <Key {...(isLed ? props.keyProperties[77] : props.keyProperties[127]) } size="1.25" />
 
