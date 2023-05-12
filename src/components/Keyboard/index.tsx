@@ -60,7 +60,7 @@ export default (props: KeyboardProps) => {
   const isLed = props.keyProperties[0].led !== undefined;
 
   return (
-    <div className="keyboard mt-2">
+    <div className="keyboard mt-2 text-base">
       <div className="keyboard-fn-row keyboard-row">
         <Key {...props.keyProperties[0]} style={{ 'marginLeft': '0' }} />
         <Key {...props.keyProperties[1]} style={{'marginLeft': '0.5em'}} />

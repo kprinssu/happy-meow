@@ -143,9 +143,9 @@ export default () => {
   return (
     <div className="keyboard-led mt-2 ml-1 text-sm" data-testid="keyboard-led" data-test-frame-number={frame.current} data-test-frame-count={maxFrame}>
       <ul className='inline-block'>
-        <li onClick={() => changeLayer(0)} data-testid="keyboard-led-layer-frame-1" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Frame: 1</li>
-        <li onClick={() => changeLayer(1)} data-testid="keyboard-led-layer-frame-2" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Frame: 2</li>
-        <li onClick={() => changeLayer(2)} data-testid="keyboard-led-layer-frame-3" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Frame: 3</li>
+        <li onClick={() => changeLayer(0)} data-testid="keyboard-led-layer-frame-1" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Layer 1</li>
+        <li onClick={() => changeLayer(1)} data-testid="keyboard-led-layer-frame-2" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Layer 2</li>
+        <li onClick={() => changeLayer(2)} data-testid="keyboard-led-layer-frame-3" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Layer 3</li>
       </ul>
 
       <div className="keyboard-frame-infobar keyboard-top-infobar mb-2 mt-2 text-base">
