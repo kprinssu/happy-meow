@@ -16,7 +16,7 @@ export default () => {
   return (
     <div className="content-body">
       <Routes>
-        <Route path="/" element={<Navigate to='/display' />} replace />
+        <Route path="/" element={<Navigate to='/display' replace />} />
         <Route path="/display" element={<Display />} />
         <Route path="/led" element={<KeyboardLed />} />
         <Route path="/keyboard" element={<KeyboardKeys />} />
