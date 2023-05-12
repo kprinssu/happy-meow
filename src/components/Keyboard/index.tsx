@@ -153,18 +153,18 @@ export default (props: KeyboardProps) => {
           isLed ? (
             <div className="flex">
               <Key {...props.keyProperties[79]} size="0.25" />
-              <Key {...props.keyProperties[80]} size="5.75" />
+              <Key {...props.keyProperties[80]} size="6.75" />
               <Key {...props.keyProperties[81]} size="0.25" />
             </div>
           ) :
           (
-            <Key {...props.keyProperties[131]} size="6.25" />
+            <Key {...props.keyProperties[131]} size="7.75" />
           )
         }
 
         <Key {...(isLed ? props.keyProperties[85] : props.keyProperties[135]) } size="1.25" />
         <Key {...(isLed ? props.keyProperties[86] : props.keyProperties[136]) } size="1.25" />
-        <Key {...(isLed ? props.keyProperties[87] : props.keyProperties[137]) } style={{'marginLeft': '2.25em'}} />
+        <Key {...(isLed ? props.keyProperties[87] : props.keyProperties[137]) } style={{'marginLeft': '0.75em'}} />
         <Key {...(isLed ? props.keyProperties[88] : props.keyProperties[138]) } />
         <Key {...(isLed ? props.keyProperties[89] : props.keyProperties[139]) } />
       </div>
