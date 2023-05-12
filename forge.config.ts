@@ -13,7 +13,24 @@ const config: ForgeConfig = {
     icon: 'assets/icon.png',
   },
   rebuildConfig: {},
-  makers: [new MakerSquirrel({}), new MakerZIP({}, ['darwin']), new MakerRpm({}), new MakerDeb({})],
+  makers: [
+    new MakerSquirrel({}),
+    new MakerZIP({}, ['darwin']),
+    new MakerRpm({}),
+    new MakerDeb({}),
+    {
+      name: '@electron-forge/maker-flatpak',
+      config: {
+        options: {
+          id: 'me.kishorprins.happymeow',
+          productName: 'Happy Meow',
+          genericName: 'Happy Meow',
+          description: 'Keyboard utility for Cyberboard owners',
+          categories: ['Utility'],
+        }
+      }
+    },
+  ],
   plugins: [
     new WebpackPlugin({
       mainConfig,
