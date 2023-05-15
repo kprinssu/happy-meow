@@ -14,7 +14,8 @@ import { rendererConfig } from './webpack.renderer.config';
 
 const config: ForgeConfig = {
   packagerConfig: {
-    icon: './assets/icon.png',
+    name: 'Happy Meow',
+    icon: './assets/icon',
   },
   rebuildConfig: {},
   makers: [
@@ -66,13 +67,13 @@ const config: ForgeConfig = {
     packageAfterPrune: async (_forgeConfig, buildPath) => {
       console.log(buildPath);
       return new Promise((resolve, reject) => {
-        const yarnInstall = spawn('yarn', ['install'], {
+        const npmInstall = spawn('npm', ['install'], {
           cwd: buildPath,
           stdio: 'inherit',
           shell: true
         });
 
-        yarnInstall.on('close', (code) => {
+        npmInstall.on('close', (code) => {
           if (code === 0) {
             resolve();
           } else {
@@ -80,7 +81,7 @@ const config: ForgeConfig = {
           }
         });
 
-        yarnInstall.on('error', (error: unknown) => {
+        npmInstall.on('error', (error: unknown) => {
           reject(error);
         });
       });
