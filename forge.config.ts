@@ -52,6 +52,8 @@ const config: ForgeConfig = {
       // only copy deps if there isn't any
       if (Object.keys(packageJson.dependencies).length === 0) {
         const originalPackageJson = await fs.readJson(path.resolve(__dirname, 'package.json'));
+
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
         const webpackConfigJs = require('./webpack.renderer.config.js');
 
         Object.keys(webpackConfigJs.externals).forEach(jsPkg => {
