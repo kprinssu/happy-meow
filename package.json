@@ -2,7 +2,7 @@
   "name": "happy-meow",
   "productName": "happy-meow",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Keyboard utility for Cyberboard owners",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
