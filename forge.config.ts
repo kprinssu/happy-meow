@@ -22,26 +22,6 @@ const config: ForgeConfig = {
     new MakerZIP({}, ['darwin']),
     new MakerRpm({}),
     new MakerDeb({}),
-    {
-      name: '@electron-forge/maker-flatpak',
-      config: {
-        options: {
-          id: 'me.kishorprins.happymeow',
-          productName: 'Happy Meow',
-          genericName: 'Happy Meow',
-          description: 'Keyboard utility for Cyberboard owners',
-          categories: ['Utility'],
-        },
-        modules: [{
-          name: 'zypak',
-          sources: [{
-            type: 'git',
-            url: 'https://github.com/refi64/zypak',
-            tag: 'v2022.04',
-          }],
-        }],
-      },
-    },
   ],
   plugins: [
     new WebpackPlugin({
