@@ -15,6 +15,7 @@ import { rendererConfig } from './webpack.renderer.config';
 const config: ForgeConfig = {
   packagerConfig: {
     name: 'Happy Meow',
+    executableName: 'happy-meow',
     icon: './assets/icon',
   },
   rebuildConfig: {},
@@ -41,12 +42,6 @@ const config: ForgeConfig = {
         ],
       },
     }),
-    {
-      name: '@electron-forge/plugin-electronegativity',
-      config: {
-        isSarif: true,
-      },
-    },
   ],
   hooks: {
     readPackageJson: async (forgeConfig, packageJson) => {

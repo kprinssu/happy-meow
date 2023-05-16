@@ -1,6 +1,6 @@
 {
   "name": "happy-meow",
-  "productName": "happy-meow",
+  "productName": "Happy Meow",
   "version": "1.0.0",
   "description": "Keyboard utility for Cyberboard owners",
   "main": ".webpack/main",
