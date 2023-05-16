@@ -12,4 +12,5 @@ jobs:
         run: yarn install
       - name: Build the app
         run: yarn make
+        timeout-minutes: 5
 
