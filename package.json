@@ -51,7 +51,7 @@
     "compression-webpack-plugin": "^10.0.0",
     "css-loader": "^6.0.0",
     "easy-crc": "^1.1.0",
-    "electron": "23.1.4",
+    "electron": "24.3.0",
     "eslint": "^8.0.1",
     "eslint-plugin-import": "^2.25.0",
     "fork-ts-checker-webpack-plugin": "^7.2.13",

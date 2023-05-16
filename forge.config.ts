@@ -42,6 +42,12 @@ const config: ForgeConfig = {
         ],
       },
     }),
+    {
+      name: '@electron-forge/plugin-electronegativity',
+      config: {
+        isSarif: true,
+      },
+    },
   ],
   hooks: {
     readPackageJson: async (forgeConfig, packageJson) => {
