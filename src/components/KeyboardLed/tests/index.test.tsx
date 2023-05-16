@@ -64,7 +64,7 @@ describe('speed', () => {
 
 
     const preAnimation = keyboard.getAttribute('data-test-frame-number');
-    act(() => fireEvent.change(speedSlider, { target: { value: 50 } }));
+    act(() => fireEvent.change(speedSlider, { target: { value: 50, }, }));
     act(() => jest.advanceTimersByTime(1000));
 
     const postAnimationFrame = keyboard.getAttribute('data-test-frame-number');
@@ -83,7 +83,7 @@ describe('frame slider', () => {
     const frameSlider = await display.findByTestId('keyboard-led-frame-slider');
 
     const frame = 77;
-    act(() => fireEvent.change(frameSlider, { target: { value: frame } }));
+    act(() => fireEvent.change(frameSlider, { target: { value: frame, }, }));
     const keyboardFrame = keyboardLED.getAttribute('data-test-frame-number');
     expect(keyboardFrame).toEqual(frame.toString());
   });

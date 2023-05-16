@@ -207,7 +207,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      "frame_index": 0
+      "frame_index": 0,
     },
     {
       "frame_RGB": [
@@ -412,7 +412,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      "frame_index": 1
+      "frame_index": 1,
     },
     {
       "frame_RGB": [
@@ -617,7 +617,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      "frame_index": 2
+      "frame_index": 2,
     },
     {
       "frame_RGB": [
@@ -822,7 +822,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      "frame_index": 3
+      "frame_index": 3,
     },
     {
       "frame_RGB": [
@@ -1027,7 +1027,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      "frame_index": 4
+      "frame_index": 4,
     },
     {
       "frame_RGB": [
@@ -1232,7 +1232,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      "frame_index": 5
+      "frame_index": 5,
     },
     {
       "frame_RGB": [
@@ -1437,7 +1437,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#000000"
       ],
-      "frame_index": 6
+      "frame_index": 6,
     },
     {
       "frame_RGB": [
@@ -1642,7 +1642,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 7
+      "frame_index": 7,
     },
     {
       "frame_RGB": [
@@ -1847,7 +1847,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 8
+      "frame_index": 8,
     },
     {
       "frame_RGB": [
@@ -2052,7 +2052,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 9
+      "frame_index": 9,
     },
     {
       "frame_RGB": [
@@ -2257,7 +2257,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 10
+      "frame_index": 10,
     },
     {
       "frame_RGB": [
@@ -2462,7 +2462,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 11
+      "frame_index": 11,
     },
     {
       "frame_RGB": [
@@ -2667,7 +2667,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 12
+      "frame_index": 12,
     },
     {
       "frame_RGB": [
@@ -2872,7 +2872,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 13
+      "frame_index": 13,
     },
     {
       "frame_RGB": [
@@ -3077,7 +3077,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 14
+      "frame_index": 14,
     },
     {
       "frame_RGB": [
@@ -3282,7 +3282,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 15
+      "frame_index": 15,
     },
     {
       "frame_RGB": [
@@ -3487,7 +3487,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 16
+      "frame_index": 16,
     },
     {
       "frame_RGB": [
@@ -3692,7 +3692,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 17
+      "frame_index": 17,
     },
     {
       "frame_RGB": [
@@ -3897,7 +3897,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 18
+      "frame_index": 18,
     },
     {
       "frame_RGB": [
@@ -4102,7 +4102,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 19
+      "frame_index": 19,
     },
     {
       "frame_RGB": [
@@ -4307,7 +4307,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 20
+      "frame_index": 20,
     },
     {
       "frame_RGB": [
@@ -4512,7 +4512,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 21
+      "frame_index": 21,
     },
     {
       "frame_RGB": [
@@ -4717,7 +4717,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 22
+      "frame_index": 22,
     },
     {
       "frame_RGB": [
@@ -4922,7 +4922,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 23
+      "frame_index": 23,
     },
     {
       "frame_RGB": [
@@ -5127,7 +5127,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 24
+      "frame_index": 24,
     },
     {
       "frame_RGB": [
@@ -5332,7 +5332,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 25
+      "frame_index": 25,
     },
     {
       "frame_RGB": [
@@ -5537,7 +5537,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 26
+      "frame_index": 26,
     },
     {
       "frame_RGB": [
@@ -5742,7 +5742,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 27
+      "frame_index": 27,
     },
     {
       "frame_RGB": [
@@ -5947,7 +5947,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 28
+      "frame_index": 28,
     },
     {
       "frame_RGB": [
@@ -6152,7 +6152,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 29
+      "frame_index": 29,
     },
     {
       "frame_RGB": [
@@ -6357,7 +6357,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 30
+      "frame_index": 30,
     },
     {
       "frame_RGB": [
@@ -6562,7 +6562,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 31
+      "frame_index": 31,
     },
     {
       "frame_RGB": [
@@ -6767,7 +6767,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 32
+      "frame_index": 32,
     },
     {
       "frame_RGB": [
@@ -6972,7 +6972,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 33
+      "frame_index": 33,
     },
     {
       "frame_RGB": [
@@ -7177,7 +7177,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 34
+      "frame_index": 34,
     },
     {
       "frame_RGB": [
@@ -7382,7 +7382,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 35
+      "frame_index": 35,
     },
     {
       "frame_RGB": [
@@ -7587,7 +7587,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 36
+      "frame_index": 36,
     },
     {
       "frame_RGB": [
@@ -7792,7 +7792,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 37
+      "frame_index": 37,
     },
     {
       "frame_RGB": [
@@ -7997,7 +7997,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 38
+      "frame_index": 38,
     },
     {
       "frame_RGB": [
@@ -8202,7 +8202,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 39
+      "frame_index": 39,
     },
     {
       "frame_RGB": [
@@ -8407,7 +8407,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 40
+      "frame_index": 40,
     },
     {
       "frame_RGB": [
@@ -8612,7 +8612,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 41
+      "frame_index": 41,
     },
     {
       "frame_RGB": [
@@ -8817,7 +8817,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 42
+      "frame_index": 42,
     },
     {
       "frame_RGB": [
@@ -9022,7 +9022,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#00EAFF",
         "#1400FF"
       ],
-      "frame_index": 43
+      "frame_index": 43,
     },
     {
       "frame_RGB": [
@@ -9227,7 +9227,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#99F6FF",
         "#A199FF"
       ],
-      "frame_index": 44
+      "frame_index": 44,
     },
     {
       "frame_RGB": [
@@ -9432,7 +9432,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#008C99",
         "#0C0099"
       ],
-      "frame_index": 45
+      "frame_index": 45,
     },
     {
       "frame_RGB": [
@@ -9637,7 +9637,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#008C99",
         "#0C0099"
       ],
-      "frame_index": 46
+      "frame_index": 46,
     },
     {
       "frame_RGB": [
@@ -9842,7 +9842,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 47
+      "frame_index": 47,
     },
     {
       "frame_RGB": [
@@ -10047,7 +10047,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 48
+      "frame_index": 48,
     },
     {
       "frame_RGB": [
@@ -10252,7 +10252,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 49
+      "frame_index": 49,
     },
     {
       "frame_RGB": [
@@ -10457,7 +10457,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 50
+      "frame_index": 50,
     },
     {
       "frame_RGB": [
@@ -10662,7 +10662,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 51
+      "frame_index": 51,
     },
     {
       "frame_RGB": [
@@ -10867,7 +10867,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 52
+      "frame_index": 52,
     },
     {
       "frame_RGB": [
@@ -11072,7 +11072,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 53
+      "frame_index": 53,
     },
     {
       "frame_RGB": [
@@ -11277,7 +11277,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 54
+      "frame_index": 54,
     },
     {
       "frame_RGB": [
@@ -11482,7 +11482,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 55
+      "frame_index": 55,
     },
     {
       "frame_RGB": [
@@ -11687,7 +11687,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 56
+      "frame_index": 56,
     },
     {
       "frame_RGB": [
@@ -11892,7 +11892,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 57
+      "frame_index": 57,
     },
     {
       "frame_RGB": [
@@ -12097,7 +12097,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 58
+      "frame_index": 58,
     },
     {
       "frame_RGB": [
@@ -12302,7 +12302,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 59
+      "frame_index": 59,
     },
     {
       "frame_RGB": [
@@ -12507,7 +12507,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 60
+      "frame_index": 60,
     },
     {
       "frame_RGB": [
@@ -12712,7 +12712,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 61
+      "frame_index": 61,
     },
     {
       "frame_RGB": [
@@ -12917,7 +12917,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 62
+      "frame_index": 62,
     },
     {
       "frame_RGB": [
@@ -13122,7 +13122,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 63
+      "frame_index": 63,
     },
     {
       "frame_RGB": [
@@ -13327,7 +13327,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 64
+      "frame_index": 64,
     },
     {
       "frame_RGB": [
@@ -13532,7 +13532,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 65
+      "frame_index": 65,
     },
     {
       "frame_RGB": [
@@ -13737,7 +13737,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 66
+      "frame_index": 66,
     },
     {
       "frame_RGB": [
@@ -13942,7 +13942,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 67
+      "frame_index": 67,
     },
     {
       "frame_RGB": [
@@ -14147,7 +14147,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#002F33",
         "#040033"
       ],
-      "frame_index": 68
+      "frame_index": 68,
     },
     {
       "frame_RGB": [
@@ -14352,7 +14352,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#FFFFFF",
         "#040033"
       ],
-      "frame_index": 69
+      "frame_index": 69,
     },
     {
       "frame_RGB": [
@@ -14557,7 +14557,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#FF0000",
         "#FFFFFF"
       ],
-      "frame_index": 70
+      "frame_index": 70,
     },
     {
       "frame_RGB": [
@@ -14762,7 +14762,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#FFFFFF",
         "#FF0000"
       ],
-      "frame_index": 71
+      "frame_index": 71,
     },
     {
       "frame_RGB": [
@@ -14967,7 +14967,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#FF0000",
         "#FFFFFF"
       ],
-      "frame_index": 72
+      "frame_index": 72,
     },
     {
       "frame_RGB": [
@@ -15172,7 +15172,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#000000",
         "#FF0000"
       ],
-      "frame_index": 73
+      "frame_index": 73,
     },
     {
       "frame_RGB": [
@@ -15377,7 +15377,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#2C0066",
         "#000000"
       ],
-      "frame_index": 74
+      "frame_index": 74,
     },
     {
       "frame_RGB": [
@@ -15582,7 +15582,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#2C0066",
         "#99F7FF"
       ],
-      "frame_index": 75
+      "frame_index": 75,
     },
     {
       "frame_RGB": [
@@ -15787,7 +15787,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#2C0066",
         "#99F7FF"
       ],
-      "frame_index": 76
+      "frame_index": 76,
     },
     {
       "frame_RGB": [
@@ -15992,7 +15992,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#160033",
         "#002F33"
       ],
-      "frame_index": 77
+      "frame_index": 77,
     },
     {
       "frame_RGB": [
@@ -16197,7 +16197,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#000000",
         "#001E20"
       ],
-      "frame_index": 78
+      "frame_index": 78,
     },
     {
       "frame_RGB": [
@@ -16402,7 +16402,7 @@ const displayLayer1: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      "frame_index": 79
+      "frame_index": 79,
     }
   ],
 };
@@ -16613,7 +16613,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00F8FF",
         "#00F8FF"
       ],
-      frame_index: 0
+      frame_index: 0,
     },
     {
       frame_RGB: [
@@ -16818,7 +16818,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 1
+      frame_index: 1,
     },
     {
       frame_RGB: [
@@ -17023,7 +17023,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00FFFC"
       ],
-      frame_index: 2
+      frame_index: 2,
     },
     {
       frame_RGB: [
@@ -17228,7 +17228,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00F8FF"
       ],
-      frame_index: 3
+      frame_index: 3,
     },
     {
       frame_RGB: [
@@ -17433,7 +17433,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 4
+      frame_index: 4,
     },
     {
       frame_RGB: [
@@ -17638,7 +17638,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00FFFC"
       ],
-      frame_index: 5
+      frame_index: 5,
     },
     {
       frame_RGB: [
@@ -17843,7 +17843,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00FFFC"
       ],
-      frame_index: 6
+      frame_index: 6,
     },
     {
       frame_RGB: [
@@ -18048,7 +18048,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 7
+      frame_index: 7,
     },
     {
       frame_RGB: [
@@ -18253,7 +18253,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00F8FF"
       ],
-      frame_index: 8
+      frame_index: 8,
     },
     {
       frame_RGB: [
@@ -18458,7 +18458,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00FFFC"
       ],
-      frame_index: 9
+      frame_index: 9,
     },
     {
       frame_RGB: [
@@ -18663,7 +18663,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00FFFC"
       ],
-      frame_index: 10
+      frame_index: 10,
     },
     {
       frame_RGB: [
@@ -18868,7 +18868,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 11
+      frame_index: 11,
     },
     {
       frame_RGB: [
@@ -19073,7 +19073,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00F8FF"
       ],
-      frame_index: 12
+      frame_index: 12,
     },
     {
       frame_RGB: [
@@ -19278,7 +19278,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00F8FF"
       ],
-      frame_index: 13
+      frame_index: 13,
     },
     {
       frame_RGB: [
@@ -19483,7 +19483,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 14
+      frame_index: 14,
     },
     {
       frame_RGB: [
@@ -19688,7 +19688,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 15
+      frame_index: 15,
     },
     {
       frame_RGB: [
@@ -19893,7 +19893,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00F8FF"
       ],
-      frame_index: 16
+      frame_index: 16,
     },
     {
       frame_RGB: [
@@ -20098,7 +20098,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00F8FF"
       ],
-      frame_index: 17
+      frame_index: 17,
     },
     {
       frame_RGB: [
@@ -20303,7 +20303,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 18
+      frame_index: 18,
     },
     {
       frame_RGB: [
@@ -20508,7 +20508,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00F8FF"
       ],
-      frame_index: 19
+      frame_index: 19,
     },
     {
       frame_RGB: [
@@ -20713,7 +20713,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00F8FF",
         "#00F8FF"
       ],
-      frame_index: 20
+      frame_index: 20,
     },
     {
       frame_RGB: [
@@ -20918,7 +20918,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 21
+      frame_index: 21,
     },
     {
       frame_RGB: [
@@ -21123,7 +21123,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 22
+      frame_index: 22,
     },
     {
       frame_RGB: [
@@ -21328,7 +21328,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00F8FF"
       ],
-      frame_index: 23
+      frame_index: 23,
     },
     {
       frame_RGB: [
@@ -21533,7 +21533,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00F8FF",
         "#00F8FF"
       ],
-      frame_index: 24
+      frame_index: 24,
     },
     {
       frame_RGB: [
@@ -21738,7 +21738,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 25
+      frame_index: 25,
     },
     {
       frame_RGB: [
@@ -21943,7 +21943,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00F8FF"
       ],
-      frame_index: 26
+      frame_index: 26,
     },
     {
       frame_RGB: [
@@ -22148,7 +22148,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00F8FF",
         "#00F8FF"
       ],
-      frame_index: 27
+      frame_index: 27,
     },
     {
       frame_RGB: [
@@ -22353,7 +22353,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 28
+      frame_index: 28,
     },
     {
       frame_RGB: [
@@ -22558,7 +22558,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00F8FF"
       ],
-      frame_index: 29
+      frame_index: 29,
     },
     {
       frame_RGB: [
@@ -22763,7 +22763,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00F8FF"
       ],
-      frame_index: 30
+      frame_index: 30,
     },
     {
       frame_RGB: [
@@ -22968,7 +22968,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00F8FF"
       ],
-      frame_index: 31
+      frame_index: 31,
     },
     {
       frame_RGB: [
@@ -23173,7 +23173,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00FFFC"
       ],
-      frame_index: 32
+      frame_index: 32,
     },
     {
       frame_RGB: [
@@ -23378,7 +23378,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 33
+      frame_index: 33,
     },
     {
       frame_RGB: [
@@ -23583,7 +23583,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00FFFC"
       ],
-      frame_index: 34
+      frame_index: 34,
     },
     {
       frame_RGB: [
@@ -23788,7 +23788,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00FFFC"
       ],
-      frame_index: 35
+      frame_index: 35,
     },
     {
       frame_RGB: [
@@ -23993,7 +23993,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 36
+      frame_index: 36,
     },
     {
       frame_RGB: [
@@ -24198,7 +24198,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 37
+      frame_index: 37,
     },
     {
       frame_RGB: [
@@ -24403,7 +24403,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00F8FF",
         "#FF0000"
       ],
-      frame_index: 38
+      frame_index: 38,
     },
     {
       frame_RGB: [
@@ -24608,7 +24608,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00FFFC"
       ],
-      frame_index: 39
+      frame_index: 39,
     },
     {
       frame_RGB: [
@@ -24813,7 +24813,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00FFFC"
       ],
-      frame_index: 40
+      frame_index: 40,
     },
     {
       frame_RGB: [
@@ -25018,7 +25018,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00F8FF"
       ],
-      frame_index: 41
+      frame_index: 41,
     },
     {
       frame_RGB: [
@@ -25223,7 +25223,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00F8FF",
         "#FF0000"
       ],
-      frame_index: 42
+      frame_index: 42,
     },
     {
       frame_RGB: [
@@ -25428,7 +25428,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00FFFC"
       ],
-      frame_index: 43
+      frame_index: 43,
     },
     {
       frame_RGB: [
@@ -25633,7 +25633,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00F8FF"
       ],
-      frame_index: 44
+      frame_index: 44,
     },
     {
       frame_RGB: [
@@ -25838,7 +25838,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 45
+      frame_index: 45,
     },
     {
       frame_RGB: [
@@ -26043,7 +26043,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 46
+      frame_index: 46,
     },
     {
       frame_RGB: [
@@ -26248,7 +26248,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00F8FF"
       ],
-      frame_index: 47
+      frame_index: 47,
     },
     {
       frame_RGB: [
@@ -26453,7 +26453,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00FFFC"
       ],
-      frame_index: 48
+      frame_index: 48,
     },
     {
       frame_RGB: [
@@ -26658,7 +26658,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00F8FF"
       ],
-      frame_index: 49
+      frame_index: 49,
     },
     {
       frame_RGB: [
@@ -26863,7 +26863,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 50
+      frame_index: 50,
     },
     {
       frame_RGB: [
@@ -27068,7 +27068,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00FFFC"
       ],
-      frame_index: 51
+      frame_index: 51,
     },
     {
       frame_RGB: [
@@ -27273,7 +27273,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00F8FF"
       ],
-      frame_index: 52
+      frame_index: 52,
     },
     {
       frame_RGB: [
@@ -27478,7 +27478,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 53
+      frame_index: 53,
     },
     {
       frame_RGB: [
@@ -27683,7 +27683,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 54
+      frame_index: 54,
     },
     {
       frame_RGB: [
@@ -27888,7 +27888,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00F8FF",
         "#FF0000"
       ],
-      frame_index: 55
+      frame_index: 55,
     },
     {
       frame_RGB: [
@@ -28093,7 +28093,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00FFFC"
       ],
-      frame_index: 56
+      frame_index: 56,
     },
     {
       frame_RGB: [
@@ -28298,7 +28298,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00FFFC"
       ],
-      frame_index: 57
+      frame_index: 57,
     },
     {
       frame_RGB: [
@@ -28503,7 +28503,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 58
+      frame_index: 58,
     },
     {
       frame_RGB: [
@@ -28708,7 +28708,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00FFFC"
       ],
-      frame_index: 59
+      frame_index: 59,
     },
     {
       frame_RGB: [
@@ -28913,7 +28913,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00FFFC"
       ],
-      frame_index: 60
+      frame_index: 60,
     },
     {
       frame_RGB: [
@@ -29118,7 +29118,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00FFFC"
       ],
-      frame_index: 61
+      frame_index: 61,
     },
     {
       frame_RGB: [
@@ -29323,7 +29323,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00FFFC"
       ],
-      frame_index: 62
+      frame_index: 62,
     },
     {
       frame_RGB: [
@@ -29528,7 +29528,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 63
+      frame_index: 63,
     },
     {
       frame_RGB: [
@@ -29733,7 +29733,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00FFFC"
       ],
-      frame_index: 64
+      frame_index: 64,
     },
     {
       frame_RGB: [
@@ -29938,7 +29938,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00F7FF"
       ],
-      frame_index: 65
+      frame_index: 65,
     },
     {
       frame_RGB: [
@@ -30143,7 +30143,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 66
+      frame_index: 66,
     },
     {
       frame_RGB: [
@@ -30348,7 +30348,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00FFFC"
       ],
-      frame_index: 67
+      frame_index: 67,
     },
     {
       frame_RGB: [
@@ -30553,7 +30553,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00FFFC"
       ],
-      frame_index: 68
+      frame_index: 68,
     },
     {
       frame_RGB: [
@@ -30758,7 +30758,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00F7FF"
       ],
-      frame_index: 69
+      frame_index: 69,
     },
     {
       frame_RGB: [
@@ -30963,7 +30963,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00F7FF"
       ],
-      frame_index: 70
+      frame_index: 70,
     },
     {
       frame_RGB: [
@@ -31168,7 +31168,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 71
+      frame_index: 71,
     },
     {
       frame_RGB: [
@@ -31373,7 +31373,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00FFFC"
       ],
-      frame_index: 72
+      frame_index: 72,
     },
     {
       frame_RGB: [
@@ -31578,7 +31578,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00FFFC"
       ],
-      frame_index: 73
+      frame_index: 73,
     },
     {
       frame_RGB: [
@@ -31783,7 +31783,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 74
+      frame_index: 74,
     },
     {
       frame_RGB: [
@@ -31988,7 +31988,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#FF0000",
         "#00FFFC"
       ],
-      frame_index: 75
+      frame_index: 75,
     },
     {
       frame_RGB: [
@@ -32193,7 +32193,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#00FFFC"
       ],
-      frame_index: 76
+      frame_index: 76,
     },
     {
       frame_RGB: [
@@ -32398,7 +32398,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 77
+      frame_index: 77,
     },
     {
       frame_RGB: [
@@ -32603,7 +32603,7 @@ const displayLayer2: KeyboardDisplayLayer = {
         "#00FFFC",
         "#FF0000"
       ],
-      frame_index: 78
+      frame_index: 78,
     }
   ],
 };
@@ -32814,7 +32814,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 0
+      frame_index: 0,
     },
     {
       frame_RGB: [
@@ -33019,7 +33019,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 1
+      frame_index: 1,
     },
     {
       frame_RGB: [
@@ -33224,7 +33224,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 2
+      frame_index: 2,
     },
     {
       frame_RGB: [
@@ -33429,7 +33429,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 3
+      frame_index: 3,
     },
     {
       frame_RGB: [
@@ -33634,7 +33634,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 4
+      frame_index: 4,
     },
     {
       frame_RGB: [
@@ -33839,7 +33839,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 5
+      frame_index: 5,
     },
     {
       frame_RGB: [
@@ -34044,7 +34044,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 6
+      frame_index: 6,
     },
     {
       frame_RGB: [
@@ -34249,7 +34249,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 7
+      frame_index: 7,
     },
     {
       frame_RGB: [
@@ -34454,7 +34454,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 8
+      frame_index: 8,
     },
     {
       frame_RGB: [
@@ -34659,7 +34659,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 9
+      frame_index: 9,
     },
     {
       frame_RGB: [
@@ -34864,7 +34864,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 10
+      frame_index: 10,
     },
     {
       frame_RGB: [
@@ -35069,7 +35069,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 11
+      frame_index: 11,
     },
     {
       frame_RGB: [
@@ -35274,7 +35274,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 12
+      frame_index: 12,
     },
     {
       frame_RGB: [
@@ -35479,7 +35479,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 13
+      frame_index: 13,
     },
     {
       frame_RGB: [
@@ -35684,7 +35684,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 14
+      frame_index: 14,
     },
     {
       frame_RGB: [
@@ -35889,7 +35889,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 15
+      frame_index: 15,
     },
     {
       frame_RGB: [
@@ -36094,7 +36094,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 16
+      frame_index: 16,
     },
     {
       frame_RGB: [
@@ -36299,7 +36299,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 17
+      frame_index: 17,
     },
     {
       frame_RGB: [
@@ -36504,7 +36504,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 18
+      frame_index: 18,
     },
     {
       frame_RGB: [
@@ -36709,7 +36709,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 19
+      frame_index: 19,
     },
     {
       frame_RGB: [
@@ -36914,7 +36914,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 20
+      frame_index: 20,
     },
     {
       frame_RGB: [
@@ -37119,7 +37119,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 21
+      frame_index: 21,
     },
     {
       frame_RGB: [
@@ -37324,7 +37324,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 22
+      frame_index: 22,
     },
     {
       frame_RGB: [
@@ -37529,7 +37529,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 23
+      frame_index: 23,
     },
     {
       frame_RGB: [
@@ -37734,7 +37734,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 24
+      frame_index: 24,
     },
     {
       frame_RGB: [
@@ -37939,7 +37939,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#00FFE6"
       ],
-      frame_index: 25
+      frame_index: 25,
     },
     {
       frame_RGB: [
@@ -38144,7 +38144,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#00FFE6"
       ],
-      frame_index: 26
+      frame_index: 26,
     },
     {
       frame_RGB: [
@@ -38349,7 +38349,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#00FFE6"
       ],
-      frame_index: 27
+      frame_index: 27,
     },
     {
       frame_RGB: [
@@ -38554,7 +38554,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#00FFE6"
       ],
-      frame_index: 28
+      frame_index: 28,
     },
     {
       frame_RGB: [
@@ -38759,7 +38759,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#00FFE6"
       ],
-      frame_index: 29
+      frame_index: 29,
     },
     {
       frame_RGB: [
@@ -38964,7 +38964,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#00FFE6"
       ],
-      frame_index: 30
+      frame_index: 30,
     },
     {
       frame_RGB: [
@@ -39169,7 +39169,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#00FFE6"
       ],
-      frame_index: 31
+      frame_index: 31,
     },
     {
       frame_RGB: [
@@ -39374,7 +39374,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#00FFE6"
       ],
-      frame_index: 32
+      frame_index: 32,
     },
     {
       frame_RGB: [
@@ -39579,7 +39579,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#00FFE6"
       ],
-      frame_index: 33
+      frame_index: 33,
     },
     {
       frame_RGB: [
@@ -39784,7 +39784,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#00FFE6"
       ],
-      frame_index: 34
+      frame_index: 34,
     },
     {
       frame_RGB: [
@@ -39989,7 +39989,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 35
+      frame_index: 35,
     },
     {
       frame_RGB: [
@@ -40194,7 +40194,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 36
+      frame_index: 36,
     },
     {
       frame_RGB: [
@@ -40399,7 +40399,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 37
+      frame_index: 37,
     },
     {
       frame_RGB: [
@@ -40604,7 +40604,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 38
+      frame_index: 38,
     },
     {
       frame_RGB: [
@@ -40809,7 +40809,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 39
+      frame_index: 39,
     },
     {
       frame_RGB: [
@@ -41014,7 +41014,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 40
+      frame_index: 40,
     },
     {
       frame_RGB: [
@@ -41219,7 +41219,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 41
+      frame_index: 41,
     },
     {
       frame_RGB: [
@@ -41424,7 +41424,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 42
+      frame_index: 42,
     },
     {
       frame_RGB: [
@@ -41629,7 +41629,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 43
+      frame_index: 43,
     },
     {
       frame_RGB: [
@@ -41834,7 +41834,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 44
+      frame_index: 44,
     },
     {
       frame_RGB: [
@@ -42039,7 +42039,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 45
+      frame_index: 45,
     },
     {
       frame_RGB: [
@@ -42244,7 +42244,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 46
+      frame_index: 46,
     },
     {
       frame_RGB: [
@@ -42449,7 +42449,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 47
+      frame_index: 47,
     },
     {
       frame_RGB: [
@@ -42654,7 +42654,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 48
+      frame_index: 48,
     },
     {
       frame_RGB: [
@@ -42859,7 +42859,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 49
+      frame_index: 49,
     },
     {
       frame_RGB: [
@@ -43064,7 +43064,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 50
+      frame_index: 50,
     },
     {
       frame_RGB: [
@@ -43269,7 +43269,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 51
+      frame_index: 51,
     },
     {
       frame_RGB: [
@@ -43474,7 +43474,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 52
+      frame_index: 52,
     },
     {
       frame_RGB: [
@@ -43679,7 +43679,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#FF5900",
         "#FF5900"
       ],
-      frame_index: 53
+      frame_index: 53,
     },
     {
       frame_RGB: [
@@ -43884,7 +43884,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#FF5900",
         "#FF5900"
       ],
-      frame_index: 54
+      frame_index: 54,
     },
     {
       frame_RGB: [
@@ -44089,7 +44089,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#FF5900",
         "#FF5900"
       ],
-      frame_index: 55
+      frame_index: 55,
     },
     {
       frame_RGB: [
@@ -44294,7 +44294,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#FF5900",
         "#FF5900"
       ],
-      frame_index: 56
+      frame_index: 56,
     },
     {
       frame_RGB: [
@@ -44499,7 +44499,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 57
+      frame_index: 57,
     },
     {
       frame_RGB: [
@@ -44704,7 +44704,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 58
+      frame_index: 58,
     },
     {
       frame_RGB: [
@@ -44909,7 +44909,7 @@ const displayLayer3: KeyboardDisplayLayer = {
         "#000000",
         "#000000"
       ],
-      frame_index: 59
+      frame_index: 59,
     }
   ],
 };

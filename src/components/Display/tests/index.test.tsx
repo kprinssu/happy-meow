@@ -62,7 +62,7 @@ describe('speed', () => {
 
 
     const preAnimation = grid.getAttribute('data-test-frame-number');
-    act(() => fireEvent.change(speedSlider, { target: { value: 50 } }));
+    act(() => fireEvent.change(speedSlider, { target: { value: 50, }, }));
     act(() => jest.advanceTimersByTime(1000));
 
     const postAnimationFrame = grid.getAttribute('data-test-frame-number');
@@ -81,7 +81,7 @@ describe('frame slider', () => {
     const frameSlider = await display.findByTestId('display-frame-slider');
 
     const frame = 77;
-    act(() => fireEvent.change(frameSlider, { target: { value: frame } }));
+    act(() => fireEvent.change(frameSlider, { target: { value: frame, }, }));
     const gridFrame = grid.getAttribute('data-test-frame-number');
     expect(gridFrame).toEqual(frame.toString());
   });

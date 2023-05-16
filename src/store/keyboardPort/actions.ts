@@ -45,14 +45,14 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
     color: {
       default: false,
       back_rgb: '#000000',
-      rgb: '#000000'
+      rgb: '#000000',
     },
     word_page: {
       valid: false,
       word_len: 0,
       unicode: [
         '#0000'
-      ]
+      ],
     },
     frames: {
       valid: false,
@@ -62,9 +62,9 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
           frame_index: 0,
           'frame_RGB': [
             '#000000'
-          ]
+          ],
         }
-      ]
+      ],
     },
     keyframes: {
       valid: false,
@@ -74,10 +74,10 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
           frame_index: 0,
           'frame_RGB': [
             '#000000'
-          ]
+          ],
         }
-      ]
-    }
+      ],
+    },
   };
 
   // Mosaic page
@@ -90,14 +90,14 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
     color: {
       default: false,
       back_rgb: '#000000',
-      rgb: '#000000'
+      rgb: '#000000',
     },
     word_page: {
       valid: false,
       word_len: 0,
       unicode: [
         '#0000'
-      ]
+      ],
     },
     frames: {
       valid: false,
@@ -107,9 +107,9 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
           frame_index: 0,
           'frame_RGB': [
             '#000000'
-          ]
+          ],
         }
-      ]
+      ],
     },
     keyframes: {
       valid: false,
@@ -119,10 +119,10 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
           frame_index: 0,
           'frame_RGB': [
             '#000000'
-          ]
+          ],
         }
-      ]
-    }
+      ],
+    },
   };
 
   // Time page
@@ -135,14 +135,14 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
     color: {
       default: false,
       back_rgb: '#000000',
-      rgb: '#ffffff'
+      rgb: '#ffffff',
     },
     word_page: {
       valid: false,
       word_len: 0,
       unicode: [
         '#0000'
-      ]
+      ],
     },
     frames: {
       valid: false,
@@ -152,9 +152,9 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
           frame_index: 0,
           'frame_RGB': [
             '#000000'
-          ]
+          ],
         }
-      ]
+      ],
     },
     keyframes: {
       valid: false,
@@ -164,10 +164,10 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
           frame_index: 0,
           'frame_RGB': [
             '#000000'
-          ]
+          ],
         }
-      ]
-    }
+      ],
+    },
   };
 
   // Text page
@@ -180,7 +180,7 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
     color: {
       default: true,
       back_rgb: '#000500',
-      rgb: '#F91D00'
+      rgb: '#F91D00',
     },
     word_page: {
       valid: true,
@@ -214,7 +214,7 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
         '#005A',
         '#005B',
         '#005C'
-      ]
+      ],
     },
     frames: {
       valid: false,
@@ -224,9 +224,9 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
           frame_index: 0,
           'frame_RGB': [
             '#000000'
-          ]
+          ],
         }
-      ]
+      ],
     },
     keyframes: {
       valid: false,
@@ -236,10 +236,10 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
           frame_index: 0,
           'frame_RGB': [
             '#000000'
-          ]
+          ],
         }
-      ]
-    }
+      ],
+    },
   };
 
   // Streamer page
@@ -252,14 +252,14 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
     color: {
       default: false,
       back_rgb: '#000000',
-      rgb: '#000000'
+      rgb: '#000000',
     },
     word_page: {
       valid: false,
       word_len: 0,
       unicode: [
         '#0000'
-      ]
+      ],
     },
     frames: {
       valid: false,
@@ -269,9 +269,9 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
           frame_index: 0,
           'frame_RGB': [
             '#0000'
-          ]
+          ],
         }
-      ]
+      ],
     },
     keyframes: {
       valid: false,
@@ -281,10 +281,10 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
           frame_index: 0,
           'frame_RGB': [
             '#000000'
-          ]
+          ],
         }
-      ]
-    }
+      ],
+    },
   };
 
   // Custom pages (our display and keyboard LED layers)
@@ -297,7 +297,7 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
     color: {
       default: false,
       back_rgb: '#000000',
-      rgb: '#000000'
+      rgb: '#000000',
     },
     word_page: {
       valid: false,
@@ -326,7 +326,7 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
     color: {
       default: false,
       back_rgb: '#000000',
-      rgb: '#000000'
+      rgb: '#000000',
     },
     word_page: {
       valid: false,
@@ -355,7 +355,7 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
     color: {
       default: false,
       back_rgb: '#000000',
-      rgb: '#000000'
+      rgb: '#000000',
     },
     word_page: {
       valid: false,
@@ -426,7 +426,7 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
         ],
         long_key_out: [
           '#0007000E'
-        ]
+        ],
       },
       {
         ta_key_index: 1,
@@ -442,7 +442,7 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
         ],
         long_key_out: [
           '#00070012'
-        ]
+        ],
       }
     ],
     Fn_key_num: 5,
@@ -450,27 +450,27 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
       {
         Fn_key_index: 0,
         input_key: '#00070013',
-        out_key: '#00070014'
+        out_key: '#00070014',
       },
       {
         Fn_key_index: 1,
         input_key: '#00070014',
-        out_key: '#00070015'
+        out_key: '#00070015',
       },
       {
         Fn_key_index: 2,
         input_key: '#00070015',
-        out_key: '#00070016'
+        out_key: '#00070016',
       },
       {
         Fn_key_index: 3,
         input_key: '#00070016',
-        out_key: '#00070017'
+        out_key: '#00070017',
       },
       {
         Fn_key_index: 4,
         input_key: '#00070017',
-        out_key: '#00070018'
+        out_key: '#00070018',
       }
     ],
     MACRO_key_num: 3,
@@ -491,7 +491,7 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
           100,
           100,
           100
-        ]
+        ],
       },
       {
         MACRO_key_index: 1,
@@ -501,7 +501,7 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
         ],
         intvel_ms: [
           0
-        ]
+        ],
       },
       {
         MACRO_key_index: 2,
@@ -512,7 +512,7 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
         ],
         intvel_ms: [
           0
-        ]
+        ],
       }
     ],
     swap_key_num: 4,
@@ -520,22 +520,22 @@ export const syncKeyboard = async (selectedPort: PortInfo | null, displayLayers:
       {
         swap_key_index: 0,
         input_key: '#00070004',
-        out_key: '#00070005'
+        out_key: '#00070005',
       },
       {
         swap_key_index: 1,
         input_key: '#00070005',
-        out_key: '#00070004'
+        out_key: '#00070004',
       },
       {
         swap_key_index: 2,
         input_key: '#00070007',
-        out_key: '#00070008'
+        out_key: '#00070008',
       },
       {
         swap_key_index: 3,
         input_key: '#00070008',
-        out_key: '#00070009'
+        out_key: '#00070009',
       }
     ],
     key_layer: keyLayer,

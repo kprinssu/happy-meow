@@ -97,7 +97,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#8463bd",
         "#8463bd"
       ],
-      frame_index: 0
+      frame_index: 0,
     },
     {
       frame_RGB: [
@@ -192,7 +192,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#8463bd",
         "#8463bd"
       ],
-      frame_index: 1
+      frame_index: 1,
     },
     {
       frame_RGB: [
@@ -287,7 +287,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#8463bd"
       ],
-      frame_index: 2
+      frame_index: 2,
     },
     {
       frame_RGB: [
@@ -382,7 +382,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#8463bd"
       ],
-      frame_index: 3
+      frame_index: 3,
     },
     {
       frame_RGB: [
@@ -477,7 +477,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#8463bd"
       ],
-      frame_index: 4
+      frame_index: 4,
     },
     {
       frame_RGB: [
@@ -572,7 +572,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#8463bd"
       ],
-      frame_index: 5
+      frame_index: 5,
     },
     {
       frame_RGB: [
@@ -667,7 +667,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#8463bd"
       ],
-      frame_index: 6
+      frame_index: 6,
     },
     {
       frame_RGB: [
@@ -762,7 +762,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 7
+      frame_index: 7,
     },
     {
       frame_RGB: [
@@ -857,7 +857,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 8
+      frame_index: 8,
     },
     {
       frame_RGB: [
@@ -952,7 +952,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 9
+      frame_index: 9,
     },
     {
       frame_RGB: [
@@ -1047,7 +1047,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 10
+      frame_index: 10,
     },
     {
       frame_RGB: [
@@ -1142,7 +1142,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 11
+      frame_index: 11,
     },
     {
       frame_RGB: [
@@ -1237,7 +1237,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 12
+      frame_index: 12,
     },
     {
       frame_RGB: [
@@ -1332,7 +1332,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 13
+      frame_index: 13,
     },
     {
       frame_RGB: [
@@ -1427,7 +1427,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 14
+      frame_index: 14,
     },
     {
       frame_RGB: [
@@ -1522,7 +1522,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 15
+      frame_index: 15,
     },
     {
       frame_RGB: [
@@ -1617,7 +1617,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 16
+      frame_index: 16,
     },
     {
       frame_RGB: [
@@ -1712,7 +1712,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 17
+      frame_index: 17,
     },
     {
       frame_RGB: [
@@ -1807,7 +1807,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 18
+      frame_index: 18,
     },
     {
       frame_RGB: [
@@ -1902,7 +1902,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 19
+      frame_index: 19,
     },
     {
       frame_RGB: [
@@ -1997,7 +1997,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 20
+      frame_index: 20,
     },
     {
       frame_RGB: [
@@ -2092,7 +2092,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 21
+      frame_index: 21,
     },
     {
       frame_RGB: [
@@ -2187,7 +2187,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 22
+      frame_index: 22,
     },
     {
       frame_RGB: [
@@ -2282,7 +2282,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 23
+      frame_index: 23,
     },
     {
       frame_RGB: [
@@ -2377,7 +2377,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#3539a5",
         "#3539a5"
       ],
-      frame_index: 24
+      frame_index: 24,
     },
     {
       frame_RGB: [
@@ -2472,7 +2472,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#3539a5"
       ],
-      frame_index: 25
+      frame_index: 25,
     },
     {
       frame_RGB: [
@@ -2567,7 +2567,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#3539a5"
       ],
-      frame_index: 26
+      frame_index: 26,
     },
     {
       frame_RGB: [
@@ -2662,7 +2662,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#3539a5"
       ],
-      frame_index: 27
+      frame_index: 27,
     },
     {
       frame_RGB: [
@@ -2757,7 +2757,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#3539a5"
       ],
-      frame_index: 28
+      frame_index: 28,
     },
     {
       frame_RGB: [
@@ -2852,7 +2852,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 29
+      frame_index: 29,
     },
     {
       frame_RGB: [
@@ -2947,7 +2947,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 30
+      frame_index: 30,
     },
     {
       frame_RGB: [
@@ -3042,7 +3042,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 31
+      frame_index: 31,
     },
     {
       frame_RGB: [
@@ -3137,7 +3137,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 32
+      frame_index: 32,
     },
     {
       frame_RGB: [
@@ -3232,7 +3232,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 33
+      frame_index: 33,
     },
     {
       frame_RGB: [
@@ -3327,7 +3327,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 34
+      frame_index: 34,
     },
     {
       frame_RGB: [
@@ -3422,7 +3422,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 35
+      frame_index: 35,
     },
     {
       frame_RGB: [
@@ -3517,7 +3517,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 36
+      frame_index: 36,
     },
     {
       frame_RGB: [
@@ -3612,7 +3612,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 37
+      frame_index: 37,
     },
     {
       frame_RGB: [
@@ -3707,7 +3707,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 38
+      frame_index: 38,
     },
     {
       frame_RGB: [
@@ -3802,7 +3802,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#f79c52"
       ],
-      frame_index: 39
+      frame_index: 39,
     },
     {
       frame_RGB: [
@@ -3897,7 +3897,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 40
+      frame_index: 40,
     },
     {
       frame_RGB: [
@@ -3992,7 +3992,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 41
+      frame_index: 41,
     },
     {
       frame_RGB: [
@@ -4087,7 +4087,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 42
+      frame_index: 42,
     },
     {
       frame_RGB: [
@@ -4182,7 +4182,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 43
+      frame_index: 43,
     },
     {
       frame_RGB: [
@@ -4277,7 +4277,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 44
+      frame_index: 44,
     },
     {
       frame_RGB: [
@@ -4372,7 +4372,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 45
+      frame_index: 45,
     },
     {
       frame_RGB: [
@@ -4467,7 +4467,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 46
+      frame_index: 46,
     },
     {
       frame_RGB: [
@@ -4562,7 +4562,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 47
+      frame_index: 47,
     },
     {
       frame_RGB: [
@@ -4657,7 +4657,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 48
+      frame_index: 48,
     },
     {
       frame_RGB: [
@@ -4752,7 +4752,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 49
+      frame_index: 49,
     },
     {
       frame_RGB: [
@@ -4847,7 +4847,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 50
+      frame_index: 50,
     },
     {
       frame_RGB: [
@@ -4942,7 +4942,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 51
+      frame_index: 51,
     },
     {
       frame_RGB: [
@@ -5037,7 +5037,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 52
+      frame_index: 52,
     },
     {
       frame_RGB: [
@@ -5132,7 +5132,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 53
+      frame_index: 53,
     },
     {
       frame_RGB: [
@@ -5227,7 +5227,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 54
+      frame_index: 54,
     },
     {
       frame_RGB: [
@@ -5322,7 +5322,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 55
+      frame_index: 55,
     },
     {
       frame_RGB: [
@@ -5417,7 +5417,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 56
+      frame_index: 56,
     },
     {
       frame_RGB: [
@@ -5512,7 +5512,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 57
+      frame_index: 57,
     },
     {
       frame_RGB: [
@@ -5607,7 +5607,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 58
+      frame_index: 58,
     },
     {
       frame_RGB: [
@@ -5702,7 +5702,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 59
+      frame_index: 59,
     },
     {
       frame_RGB: [
@@ -5797,7 +5797,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 60
+      frame_index: 60,
     },
     {
       frame_RGB: [
@@ -5892,7 +5892,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 61
+      frame_index: 61,
     },
     {
       frame_RGB: [
@@ -5987,7 +5987,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#f79c52",
         "#f79c52"
       ],
-      frame_index: 62
+      frame_index: 62,
     },
     {
       frame_RGB: [
@@ -6082,7 +6082,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#eb9952",
         "#f79c52"
       ],
-      frame_index: 63
+      frame_index: 63,
     },
     {
       frame_RGB: [
@@ -6177,7 +6177,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#f79c52"
       ],
-      frame_index: 64
+      frame_index: 64,
     },
     {
       frame_RGB: [
@@ -6272,7 +6272,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#f79c52"
       ],
-      frame_index: 65
+      frame_index: 65,
     },
     {
       frame_RGB: [
@@ -6367,7 +6367,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#f79c52"
       ],
-      frame_index: 66
+      frame_index: 66,
     },
     {
       frame_RGB: [
@@ -6462,7 +6462,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#f79c52"
       ],
-      frame_index: 67
+      frame_index: 67,
     },
     {
       frame_RGB: [
@@ -6557,7 +6557,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 68
+      frame_index: 68,
     },
     {
       frame_RGB: [
@@ -6652,7 +6652,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 69
+      frame_index: 69,
     },
     {
       frame_RGB: [
@@ -6747,7 +6747,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 70
+      frame_index: 70,
     },
     {
       frame_RGB: [
@@ -6842,7 +6842,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 71
+      frame_index: 71,
     },
     {
       frame_RGB: [
@@ -6937,7 +6937,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 72
+      frame_index: 72,
     },
     {
       frame_RGB: [
@@ -7032,7 +7032,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 73
+      frame_index: 73,
     },
     {
       frame_RGB: [
@@ -7127,7 +7127,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 74
+      frame_index: 74,
     },
     {
       frame_RGB: [
@@ -7222,7 +7222,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 75
+      frame_index: 75,
     },
     {
       frame_RGB: [
@@ -7317,7 +7317,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 76
+      frame_index: 76,
     },
     {
       frame_RGB: [
@@ -7412,7 +7412,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 77
+      frame_index: 77,
     },
     {
       frame_RGB: [
@@ -7507,7 +7507,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 78
+      frame_index: 78,
     },
     {
       frame_RGB: [
@@ -7602,7 +7602,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 79
+      frame_index: 79,
     },
     {
       frame_RGB: [
@@ -7697,7 +7697,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 80
+      frame_index: 80,
     },
     {
       frame_RGB: [
@@ -7792,7 +7792,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 81
+      frame_index: 81,
     },
     {
       frame_RGB: [
@@ -7887,7 +7887,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 82
+      frame_index: 82,
     },
     {
       frame_RGB: [
@@ -7982,7 +7982,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 83
+      frame_index: 83,
     },
     {
       frame_RGB: [
@@ -8077,7 +8077,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 84
+      frame_index: 84,
     },
     {
       frame_RGB: [
@@ -8172,7 +8172,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#135559",
         "#135559"
       ],
-      frame_index: 85
+      frame_index: 85,
     },
     {
       frame_RGB: [
@@ -8267,7 +8267,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#135559"
       ],
-      frame_index: 86
+      frame_index: 86,
     },
     {
       frame_RGB: [
@@ -8362,7 +8362,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#135559"
       ],
-      frame_index: 87
+      frame_index: 87,
     },
     {
       frame_RGB: [
@@ -8457,7 +8457,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#135559"
       ],
-      frame_index: 88
+      frame_index: 88,
     },
     {
       frame_RGB: [
@@ -8552,7 +8552,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#135559"
       ],
-      frame_index: 89
+      frame_index: 89,
     },
     {
       frame_RGB: [
@@ -8647,7 +8647,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 90
+      frame_index: 90,
     },
     {
       frame_RGB: [
@@ -8742,7 +8742,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 91
+      frame_index: 91,
     },
     {
       frame_RGB: [
@@ -8837,7 +8837,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 92
+      frame_index: 92,
     },
     {
       frame_RGB: [
@@ -8932,7 +8932,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 93
+      frame_index: 93,
     },
     {
       frame_RGB: [
@@ -9027,7 +9027,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 94
+      frame_index: 94,
     },
     {
       frame_RGB: [
@@ -9122,7 +9122,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 95
+      frame_index: 95,
     },
     {
       frame_RGB: [
@@ -9217,7 +9217,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 96
+      frame_index: 96,
     },
     {
       frame_RGB: [
@@ -9312,7 +9312,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 97
+      frame_index: 97,
     },
     {
       frame_RGB: [
@@ -9407,7 +9407,7 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 98
+      frame_index: 98,
     },
     {
       frame_RGB: [
@@ -9502,8 +9502,8 @@ const keyboardLedLayer1: KeyboardLedLayer = {
         "#ec527d",
         "#ec527d"
       ],
-      frame_index: 99
-    },
+      frame_index: 99,
+    }
   ],
 };
 
@@ -9603,7 +9603,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 0
+      frame_index: 0,
     },
     {
       frame_RGB: [
@@ -9698,7 +9698,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 1
+      frame_index: 1,
     },
     {
       frame_RGB: [
@@ -9793,7 +9793,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 2
+      frame_index: 2,
     },
     {
       frame_RGB: [
@@ -9888,7 +9888,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 3
+      frame_index: 3,
     },
     {
       frame_RGB: [
@@ -9983,7 +9983,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 4
+      frame_index: 4,
     },
     {
       frame_RGB: [
@@ -10078,7 +10078,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 5
+      frame_index: 5,
     },
     {
       frame_RGB: [
@@ -10173,7 +10173,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 6
+      frame_index: 6,
     },
     {
       frame_RGB: [
@@ -10268,7 +10268,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 7
+      frame_index: 7,
     },
     {
       frame_RGB: [
@@ -10363,7 +10363,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 8
+      frame_index: 8,
     },
     {
       frame_RGB: [
@@ -10458,7 +10458,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 9
+      frame_index: 9,
     },
     {
       frame_RGB: [
@@ -10553,7 +10553,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 10
+      frame_index: 10,
     },
     {
       frame_RGB: [
@@ -10648,7 +10648,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 11
+      frame_index: 11,
     },
     {
       frame_RGB: [
@@ -10743,7 +10743,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 12
+      frame_index: 12,
     },
     {
       frame_RGB: [
@@ -10838,7 +10838,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 13
+      frame_index: 13,
     },
     {
       frame_RGB: [
@@ -10933,7 +10933,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 14
+      frame_index: 14,
     },
     {
       frame_RGB: [
@@ -11028,7 +11028,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 15
+      frame_index: 15,
     },
     {
       frame_RGB: [
@@ -11123,7 +11123,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 16
+      frame_index: 16,
     },
     {
       frame_RGB: [
@@ -11218,7 +11218,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 17
+      frame_index: 17,
     },
     {
       frame_RGB: [
@@ -11313,7 +11313,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 18
+      frame_index: 18,
     },
     {
       frame_RGB: [
@@ -11408,7 +11408,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 19
+      frame_index: 19,
     },
     {
       frame_RGB: [
@@ -11503,7 +11503,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 20
+      frame_index: 20,
     },
     {
       frame_RGB: [
@@ -11598,7 +11598,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 21
+      frame_index: 21,
     },
     {
       frame_RGB: [
@@ -11693,7 +11693,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 22
+      frame_index: 22,
     },
     {
       frame_RGB: [
@@ -11788,7 +11788,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 23
+      frame_index: 23,
     },
     {
       frame_RGB: [
@@ -11883,7 +11883,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 24
+      frame_index: 24,
     },
     {
       frame_RGB: [
@@ -11978,7 +11978,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 25
+      frame_index: 25,
     },
     {
       frame_RGB: [
@@ -12073,7 +12073,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 26
+      frame_index: 26,
     },
     {
       frame_RGB: [
@@ -12168,7 +12168,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 27
+      frame_index: 27,
     },
     {
       frame_RGB: [
@@ -12263,7 +12263,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 28
+      frame_index: 28,
     },
     {
       frame_RGB: [
@@ -12358,7 +12358,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 29
+      frame_index: 29,
     },
     {
       frame_RGB: [
@@ -12453,7 +12453,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 30
+      frame_index: 30,
     },
     {
       frame_RGB: [
@@ -12548,7 +12548,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 31
+      frame_index: 31,
     },
     {
       frame_RGB: [
@@ -12643,7 +12643,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 32
+      frame_index: 32,
     },
     {
       frame_RGB: [
@@ -12738,7 +12738,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 33
+      frame_index: 33,
     },
     {
       frame_RGB: [
@@ -12833,7 +12833,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 34
+      frame_index: 34,
     },
     {
       frame_RGB: [
@@ -12928,7 +12928,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 35
+      frame_index: 35,
     },
     {
       frame_RGB: [
@@ -13023,7 +13023,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 36
+      frame_index: 36,
     },
     {
       frame_RGB: [
@@ -13118,7 +13118,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 37
+      frame_index: 37,
     },
     {
       frame_RGB: [
@@ -13213,7 +13213,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 38
+      frame_index: 38,
     },
     {
       frame_RGB: [
@@ -13308,7 +13308,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 39
+      frame_index: 39,
     },
     {
       frame_RGB: [
@@ -13403,7 +13403,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 40
+      frame_index: 40,
     },
     {
       frame_RGB: [
@@ -13498,7 +13498,7 @@ const keyboardLedLayer2: KeyboardLedLayer = {
         "#191a26",
         "#191a26"
       ],
-      frame_index: 41
+      frame_index: 41,
     }
   ],
 };
@@ -13599,7 +13599,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 0
+      frame_index: 0,
     },
     {
       frame_RGB: [
@@ -13694,7 +13694,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 1
+      frame_index: 1,
     },
     {
       frame_RGB: [
@@ -13789,7 +13789,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#72fdc2",
         "#9042f8"
       ],
-      frame_index: 2
+      frame_index: 2,
     },
     {
       frame_RGB: [
@@ -13884,7 +13884,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#72fdc2",
         "#9042f8"
       ],
-      frame_index: 3
+      frame_index: 3,
     },
     {
       frame_RGB: [
@@ -13979,7 +13979,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#72fdc2",
         "#9042f8"
       ],
-      frame_index: 4
+      frame_index: 4,
     },
     {
       frame_RGB: [
@@ -14074,7 +14074,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#72fdc2",
         "#9042f8"
       ],
-      frame_index: 5
+      frame_index: 5,
     },
     {
       frame_RGB: [
@@ -14169,7 +14169,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#72fdc2",
         "#9042f8"
       ],
-      frame_index: 6
+      frame_index: 6,
     },
     {
       frame_RGB: [
@@ -14264,7 +14264,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#72fdc2",
         "#9042f8"
       ],
-      frame_index: 7
+      frame_index: 7,
     },
     {
       frame_RGB: [
@@ -14359,7 +14359,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#72fdc2",
         "#9042f8"
       ],
-      frame_index: 8
+      frame_index: 8,
     },
     {
       frame_RGB: [
@@ -14454,7 +14454,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#72fdc2",
         "#9042f8"
       ],
-      frame_index: 9
+      frame_index: 9,
     },
     {
       frame_RGB: [
@@ -14549,7 +14549,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 10
+      frame_index: 10,
     },
     {
       frame_RGB: [
@@ -14644,7 +14644,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 11
+      frame_index: 11,
     },
     {
       frame_RGB: [
@@ -14739,7 +14739,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#80f7d2",
         "#9042f8"
       ],
-      frame_index: 12
+      frame_index: 12,
     },
     {
       frame_RGB: [
@@ -14834,7 +14834,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#7df8ce",
         "#9042f8"
       ],
-      frame_index: 13
+      frame_index: 13,
     },
     {
       frame_RGB: [
@@ -14929,7 +14929,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 14
+      frame_index: 14,
     },
     {
       frame_RGB: [
@@ -15024,7 +15024,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 15
+      frame_index: 15,
     },
     {
       frame_RGB: [
@@ -15119,7 +15119,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 16
+      frame_index: 16,
     },
     {
       frame_RGB: [
@@ -15214,7 +15214,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 17
+      frame_index: 17,
     },
     {
       frame_RGB: [
@@ -15309,7 +15309,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 18
+      frame_index: 18,
     },
     {
       frame_RGB: [
@@ -15404,7 +15404,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 19
+      frame_index: 19,
     },
     {
       frame_RGB: [
@@ -15499,7 +15499,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 20
+      frame_index: 20,
     },
     {
       frame_RGB: [
@@ -15594,7 +15594,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 21
+      frame_index: 21,
     },
     {
       frame_RGB: [
@@ -15689,7 +15689,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 22
+      frame_index: 22,
     },
     {
       frame_RGB: [
@@ -15784,7 +15784,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 23
+      frame_index: 23,
     },
     {
       frame_RGB: [
@@ -15879,7 +15879,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 24
+      frame_index: 24,
     },
     {
       frame_RGB: [
@@ -15974,7 +15974,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 25
+      frame_index: 25,
     },
     {
       frame_RGB: [
@@ -16069,7 +16069,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 26
+      frame_index: 26,
     },
     {
       frame_RGB: [
@@ -16164,7 +16164,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 27
+      frame_index: 27,
     },
     {
       frame_RGB: [
@@ -16259,7 +16259,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 28
+      frame_index: 28,
     },
     {
       frame_RGB: [
@@ -16354,7 +16354,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 29
+      frame_index: 29,
     },
     {
       frame_RGB: [
@@ -16449,7 +16449,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 30
+      frame_index: 30,
     },
     {
       frame_RGB: [
@@ -16544,7 +16544,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 31
+      frame_index: 31,
     },
     {
       frame_RGB: [
@@ -16639,7 +16639,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 32
+      frame_index: 32,
     },
     {
       frame_RGB: [
@@ -16734,7 +16734,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 33
+      frame_index: 33,
     },
     {
       frame_RGB: [
@@ -16829,7 +16829,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 34
+      frame_index: 34,
     },
     {
       frame_RGB: [
@@ -16924,7 +16924,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 35
+      frame_index: 35,
     },
     {
       frame_RGB: [
@@ -17019,7 +17019,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 36
+      frame_index: 36,
     },
     {
       frame_RGB: [
@@ -17114,7 +17114,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 37
+      frame_index: 37,
     },
     {
       frame_RGB: [
@@ -17209,7 +17209,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 38
+      frame_index: 38,
     },
     {
       frame_RGB: [
@@ -17304,7 +17304,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 39
+      frame_index: 39,
     },
     {
       frame_RGB: [
@@ -17399,7 +17399,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 40
+      frame_index: 40,
     },
     {
       frame_RGB: [
@@ -17494,7 +17494,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 41
+      frame_index: 41,
     },
     {
       frame_RGB: [
@@ -17589,7 +17589,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 42
+      frame_index: 42,
     },
     {
       frame_RGB: [
@@ -17684,7 +17684,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 43
+      frame_index: 43,
     },
     {
       frame_RGB: [
@@ -17779,7 +17779,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 44
+      frame_index: 44,
     },
     {
       frame_RGB: [
@@ -17874,7 +17874,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 45
+      frame_index: 45,
     },
     {
       frame_RGB: [
@@ -17969,7 +17969,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 46
+      frame_index: 46,
     },
     {
       frame_RGB: [
@@ -18064,7 +18064,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 47
+      frame_index: 47,
     },
     {
       frame_RGB: [
@@ -18159,7 +18159,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 48
+      frame_index: 48,
     },
     {
       frame_RGB: [
@@ -18254,7 +18254,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 49
+      frame_index: 49,
     },
     {
       frame_RGB: [
@@ -18349,7 +18349,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 50
+      frame_index: 50,
     },
     {
       frame_RGB: [
@@ -18444,7 +18444,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 51
+      frame_index: 51,
     },
     {
       frame_RGB: [
@@ -18539,7 +18539,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 52
+      frame_index: 52,
     },
     {
       frame_RGB: [
@@ -18634,7 +18634,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 53
+      frame_index: 53,
     },
     {
       frame_RGB: [
@@ -18729,7 +18729,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 54
+      frame_index: 54,
     },
     {
       frame_RGB: [
@@ -18824,7 +18824,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9042f8"
       ],
-      frame_index: 55
+      frame_index: 55,
     },
     {
       frame_RGB: [
@@ -18919,7 +18919,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 56
+      frame_index: 56,
     },
     {
       frame_RGB: [
@@ -19014,7 +19014,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 57
+      frame_index: 57,
     },
     {
       frame_RGB: [
@@ -19109,7 +19109,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 58
+      frame_index: 58,
     },
     {
       frame_RGB: [
@@ -19204,7 +19204,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 59
+      frame_index: 59,
     },
     {
       frame_RGB: [
@@ -19299,7 +19299,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 60
+      frame_index: 60,
     },
     {
       frame_RGB: [
@@ -19394,7 +19394,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 61
+      frame_index: 61,
     },
     {
       frame_RGB: [
@@ -19489,7 +19489,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 62
+      frame_index: 62,
     },
     {
       frame_RGB: [
@@ -19584,7 +19584,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 63
+      frame_index: 63,
     },
     {
       frame_RGB: [
@@ -19679,7 +19679,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 64
+      frame_index: 64,
     },
     {
       frame_RGB: [
@@ -19774,7 +19774,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#f576fe",
         "#ffe633"
       ],
-      frame_index: 65
+      frame_index: 65,
     },
     {
       frame_RGB: [
@@ -19869,7 +19869,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#ffe633"
       ],
-      frame_index: 66
+      frame_index: 66,
     },
     {
       frame_RGB: [
@@ -19964,7 +19964,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#ffe633"
       ],
-      frame_index: 67
+      frame_index: 67,
     },
     {
       frame_RGB: [
@@ -20059,7 +20059,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9141f9"
       ],
-      frame_index: 68
+      frame_index: 68,
     },
     {
       frame_RGB: [
@@ -20154,7 +20154,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9141f9"
       ],
-      frame_index: 69
+      frame_index: 69,
     },
     {
       frame_RGB: [
@@ -20249,7 +20249,7 @@ const keyboardLedLayer3: KeyboardLedLayer = {
         "#73fcc2",
         "#9141f9"
       ],
-      frame_index: 70
+      frame_index: 70,
     }
   ],
 };

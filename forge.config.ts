@@ -23,7 +23,7 @@ const config: ForgeConfig = {
     new MakerSquirrel({}),
     new MakerZIP({}, ['darwin']),
     new MakerRpm({}),
-    new MakerDeb({}),
+    new MakerDeb({})
   ],
   plugins: [
     new WebpackPlugin({
@@ -38,16 +38,17 @@ const config: ForgeConfig = {
             preload: {
               js: './src/preload.ts',
             },
-          },
+          }
         ],
       },
-    }),
+    })
+    /*
     {
       name: '@electron-forge/plugin-electronegativity',
       config: {
         isSarif: true,
       },
-    },
+    }, */
   ],
   hooks: {
     readPackageJson: async (forgeConfig, packageJson) => {
@@ -71,7 +72,7 @@ const config: ForgeConfig = {
         const npmInstall = spawn('npm', ['install'], {
           cwd: buildPath,
           stdio: 'inherit',
-          shell: true
+          shell: true,
         });
 
         npmInstall.on('close', (code) => {
@@ -86,7 +87,7 @@ const config: ForgeConfig = {
           reject(error);
         });
       });
-    }
+    },
   },
 };
 

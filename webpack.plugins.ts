@@ -18,5 +18,5 @@ export const plugins = [
   new BundleAnalyzerPlugin({
     openAnalyzer: false,
   }),*/
-  new CompressionPlugin(),
+  new CompressionPlugin()
 ];

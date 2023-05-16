@@ -23,8 +23,8 @@ jest.mock('../commands/setTime', () => ({
 
 const setupMockPort = () => {
   MockBinding.reset();
-  MockBinding.createPort(portPath, { echo: true, record: true });
-  mockPort = new SerialPortMock({ path: portPath, baudRate: 9600, autoOpen: false });
+  MockBinding.createPort(portPath, { echo: true, record: true, });
+  mockPort = new SerialPortMock({ path: portPath, baudRate: 9600, autoOpen: false, });
 };
 
 describe('setTime', () => {

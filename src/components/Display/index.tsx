@@ -5,7 +5,7 @@ import {
   faPlus,
   faMinus,
   faPlay,
-  faPause,
+  faPause
 } from '@fortawesome/free-solid-svg-icons';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';

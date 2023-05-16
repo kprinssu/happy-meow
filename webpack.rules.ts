@@ -10,7 +10,7 @@ export const rules: Required<ModuleOptions>['rules'] = [
   },
   {
     test: /[/\\]node_modules[/\\].+\.(m?js|node)$/,
-    parser: { amd: false },
+    parser: { amd: false, },
     use: {
       loader: '@vercel/webpack-asset-relocator-loader',
       options: {
@@ -27,5 +27,5 @@ export const rules: Required<ModuleOptions>['rules'] = [
         transpileOnly: true,
       },
     },
-  },
+  }
 ];

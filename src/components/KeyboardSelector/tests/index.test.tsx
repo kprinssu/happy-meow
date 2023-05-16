@@ -53,7 +53,7 @@ describe('selected keyboard', () => {
 
     const select = selector.getByTestId('keyboard-port-selector') as HTMLSelectElement;
 
-    await act(async () => fireEvent.change(select, { target: { value: '0' } }));
+    await act(async () => fireEvent.change(select, { target: { value: '0', }, }));
     const state = store.getState();
     expect(state.keyboardPorts.selectedPort).toEqual(mockKeyboard);
   });

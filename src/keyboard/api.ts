@@ -6,7 +6,7 @@ import { createPort,
   openPort,
   writeToKeyboard,
   readFromKeyboard,
-  closePort,
+  closePort
 } from './io';
 import { generateSetTime } from './commands/setTime';
 import * as SetConfig from './commands/setConfig';

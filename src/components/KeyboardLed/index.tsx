@@ -5,7 +5,7 @@ import {
   faPlus,
   faMinus,
   faPlay,
-  faPause,
+  faPause
 } from '@fortawesome/free-solid-svg-icons';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
@@ -107,7 +107,7 @@ export default () => {
 
     const newFrame = keyboardLeds.layers[currentLayer].frames[frame.current].frame_RGB;
     const newLedLayer = JSON.parse(JSON.stringify(keyboardLeds.layers[currentLayer]));
-    newLedLayer.frames.splice(frame.current + 1, 0, { frame_RGB: newFrame });
+    newLedLayer.frames.splice(frame.current + 1, 0, { frame_RGB: newFrame, });
     dispatch(setLayer(newLedLayer));
     setFrames(newFrame);
     setMaxFrame(newLedLayer.frames.length);

@@ -11,7 +11,7 @@ type LedProps = {
 
 export default (props: LedProps) => {
   return (
-    <button key={uuid()} className="led" style={{backgroundColor: props.color}} onClick={(e) => props.gridClick(e, props.index)} data-testid={`display-led-${props.index}`}>
+    <button key={uuid()} className="led" style={{backgroundColor: props.color,}} onClick={(e) => props.gridClick(e, props.index)} data-testid={`display-led-${props.index}`}>
     </button>
   );
 };

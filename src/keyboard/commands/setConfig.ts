@@ -433,5 +433,5 @@ export {
   generateSwapKeyCommands,
   generateKeyLayerControlCommand,
   generateKeyLayerCommands,
-  generateStopCommand,
+  generateStopCommand
 };

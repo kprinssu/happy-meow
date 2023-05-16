@@ -3,7 +3,7 @@ import React from 'react';
 import {
   Routes,
   Route,
-  Navigate,
+  Navigate
 } from 'react-router-dom';
 
 import './body.css';
