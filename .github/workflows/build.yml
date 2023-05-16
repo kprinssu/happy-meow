@@ -1,9 +1,5 @@
 name: Build
-on:
-  push:
-    branches:
-      - main
-  pull_request:
+on: [push]
 jobs:
   build_for_mac:
     runs-on: macos-latest
@@ -17,6 +13,10 @@ jobs:
       - name: Build the app
         run: yarn make
         timeout-minutes: 10
+      - uses: actions/upload-artifact@v3
+        with:
+          name: mac_build
+          path: out/make/*
   build_for_linux:
     runs-on: ubuntu-latest
     steps:
@@ -29,4 +29,8 @@ jobs:
       - name: Build the app
         run: yarn make
         timeout-minutes: 10
+      - uses: actions/upload-artifact@v3
+        with:
+          name: linux_build
+          path: out/make/*
 
