@@ -6,7 +6,7 @@ interface KeyboardProductVendorId {
   productId: string;
 }
 
-const KEYBOARD_IDS: KeyboardProductVendorId[] = [{ vendorId: '05ac', productId: '0256' }];
+const KEYBOARD_IDS: KeyboardProductVendorId[] = [{ vendorId: '05ac', productId: '0256', }];
 
 const filterPort = (port: PortInfo) => {
   const foundKeyboard = KEYBOARD_IDS.find((e: KeyboardProductVendorId) => {

@@ -26,7 +26,7 @@ describe('keyboard keys', () => {
 
     // Change the selected key to 'K'
     const keySelector = await display.findByTestId('key-selector');
-    act(() => fireEvent.change(keySelector, { target: { value: '#0007000e' } }));
+    act(() => fireEvent.change(keySelector, { target: { value: '#0007000e', }, }));
 
     act(() => fireEvent.click(escKey));
     const postClick = escKey.getAttribute('data-key-value');

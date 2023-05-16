@@ -5,7 +5,7 @@ import {
   faPlus,
   faMinus,
   faPlay,
-  faPause,
+  faPause
 } from '@fortawesome/free-solid-svg-icons';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
@@ -107,7 +107,7 @@ export default () => {
 
     const newFrame = keyboardLeds.layers[currentLayer].frames[frame.current].frame_RGB;
     const newLedLayer = JSON.parse(JSON.stringify(keyboardLeds.layers[currentLayer]));
-    newLedLayer.frames.splice(frame.current + 1, 0, { frame_RGB: newFrame });
+    newLedLayer.frames.splice(frame.current + 1, 0, { frame_RGB: newFrame, });
     dispatch(setLayer(newLedLayer));
     setFrames(newFrame);
     setMaxFrame(newLedLayer.frames.length);
@@ -141,14 +141,14 @@ export default () => {
   }, [paused, speed, currentLayer, frame]);
 
   return (
-    <div className="keyboard-led" data-testid="keyboard-led" data-test-frame-number={frame.current} data-test-frame-count={maxFrame}>
+    <div className="keyboard-led mt-2 ml-1 text-sm" data-testid="keyboard-led" data-test-frame-number={frame.current} data-test-frame-count={maxFrame}>
       <ul className='inline-block'>
-        <li onClick={() => changeLayer(0)} data-testid="keyboard-led-layer-frame-1" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Frame: 1</li>
-        <li onClick={() => changeLayer(1)} data-testid="keyboard-led-layer-frame-2" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Frame: 2</li>
-        <li onClick={() => changeLayer(2)} data-testid="keyboard-led-layer-frame-3" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Frame: 3</li>
+        <li onClick={() => changeLayer(0)} data-testid="keyboard-led-layer-frame-1" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Layer 1</li>
+        <li onClick={() => changeLayer(1)} data-testid="keyboard-led-layer-frame-2" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Layer 2</li>
+        <li onClick={() => changeLayer(2)} data-testid="keyboard-led-layer-frame-3" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Layer 3</li>
       </ul>
 
-      <div className="keyboard-frame-infobar keyboard-top-infobar mb-2">
+      <div className="keyboard-frame-infobar keyboard-top-infobar mb-2 mt-2 text-base">
         <span data-testid="keyboard-layer">Layer {currentLayer + 1}</span>
         <div className="keyboard-frame-infobar-speed">
           <span>Speed</span>

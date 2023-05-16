@@ -6,7 +6,7 @@ import { createPort,
   openPort,
   writeToKeyboard,
   readFromKeyboard,
-  closePort,
+  closePort
 } from '../io';
 
 jest.mock('serialport', () => {
@@ -19,7 +19,7 @@ jest.mock('serialport', () => {
 const path = '/dev/CB00';
 beforeEach(() => {
   MockBinding.reset();
-  MockBinding.createPort(path, { echo: true, record: true });
+  MockBinding.createPort(path, { echo: true, record: true, });
 });
 
 describe('createPort', () => {

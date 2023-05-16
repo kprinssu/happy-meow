@@ -42,11 +42,15 @@ export default () => {
   };
 
   return (
-    <div className="keyboard-keys">
+    <div className="keyboard-keys ml-1 mt-2 text-sm">
       <ul className='inline-block'>
         <li onClick={() => changeLayer(0)} data-testid="display-layer-frame-1" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Layer 1</li>
         <li onClick={() => changeLayer(1)} data-testid="display-layer-frame-2" className="inline-block mr-1 bg-white rounded-full p-1 cursor-pointer hover:bg-slate-300">Layer 2</li>
       </ul>
+
+      <div className="keyboard-key-infobar text-base mt-2">
+        <span data-testid="display-layer">Layer {currentLayer + 1}</span>
+      </div>
 
       <Keyboard {...keyboardProps} />
 

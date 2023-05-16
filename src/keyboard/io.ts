@@ -94,5 +94,5 @@ export {
   openPort,
   writeToKeyboard,
   readFromKeyboard,
-  closePort,
+  closePort
 };

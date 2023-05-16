@@ -1,14 +1,14 @@
 import {
   UnknownInfoCommand,
   FunctionKeyInfoCommand,
-  SwapKeyInfoCommand,
+  SwapKeyInfoCommand
 } from '../../parser/Cyberboard';
 import { readJSON } from '../../parser/reader';
 import { expectedPageControl,
   expectedWordPage,
   expectedExchaneKeyData,
   expectedTabKey,
-  expectedMacroKeyData,
+  expectedMacroKeyData
 } from './expectedData';
 
 const validJsonConfig = readJSON('./src/keyboard/tests/_files_/valid.json');
@@ -19,14 +19,14 @@ describe('Cyberboard', () => {
       const parsedCyberboard =  (await validJsonConfig);
 
       const expectedData: UnknownInfoCommand[] = [
-        { pageIndex: 0, wordNum: 0, frameNum: 0, keyframeNum: 0 },
-        { pageIndex: 1, wordNum: 0, frameNum: 0, keyframeNum: 0 },
-        { pageIndex: 2, wordNum: 0, frameNum: 0, keyframeNum: 0 },
-        { pageIndex: 3, wordNum: 28, frameNum: 0, keyframeNum: 0 },
-        { pageIndex: 4, wordNum: 0, frameNum: 0, keyframeNum: 0 },
-        { pageIndex: 5, wordNum: 0, frameNum: 80, keyframeNum: 123 },
-        { pageIndex: 6, wordNum: 0, frameNum: 79, keyframeNum: 42 },
-        { pageIndex: 7, wordNum: 0, frameNum: 60, keyframeNum: 71 }
+        { pageIndex: 0, wordNum: 0, frameNum: 0, keyframeNum: 0, },
+        { pageIndex: 1, wordNum: 0, frameNum: 0, keyframeNum: 0, },
+        { pageIndex: 2, wordNum: 0, frameNum: 0, keyframeNum: 0, },
+        { pageIndex: 3, wordNum: 28, frameNum: 0, keyframeNum: 0, },
+        { pageIndex: 4, wordNum: 0, frameNum: 0, keyframeNum: 0, },
+        { pageIndex: 5, wordNum: 0, frameNum: 80, keyframeNum: 123, },
+        { pageIndex: 6, wordNum: 0, frameNum: 79, keyframeNum: 42, },
+        { pageIndex: 7, wordNum: 0, frameNum: 60, keyframeNum: 71, }
       ];
 
       expect(parsedCyberboard.unknownInfos).toEqual(expectedData);
@@ -78,11 +78,11 @@ describe('Cyberboard', () => {
           functionKeyCount: 5,
           keyNumber: 5,
           functionKeys: [
-            { Fn_key_index: 0, input_key: '#00070013', out_key: '#00070014' },
-            { Fn_key_index: 1, input_key: '#00070014', out_key: '#00070015' },
-            { Fn_key_index: 2, input_key: '#00070015', out_key: '#00070016' },
-            { Fn_key_index: 3, input_key: '#00070016', out_key: '#00070017' },
-            { Fn_key_index: 4, input_key: '#00070017', out_key: '#00070018' }
+            { Fn_key_index: 0, input_key: '#00070013', out_key: '#00070014', },
+            { Fn_key_index: 1, input_key: '#00070014', out_key: '#00070015', },
+            { Fn_key_index: 2, input_key: '#00070015', out_key: '#00070016', },
+            { Fn_key_index: 3, input_key: '#00070016', out_key: '#00070017', },
+            { Fn_key_index: 4, input_key: '#00070017', out_key: '#00070018', }
           ],
         }
       ];
@@ -104,11 +104,11 @@ describe('Cyberboard', () => {
           swapKeyCount: 4,
           keyNumber: 4,
           swapKeys: [
-            { swap_key_index: 0, input_key: '#00070004', out_key: '#00070005' },
-            { swap_key_index: 1, input_key: '#00070005', out_key: '#00070004' },
-            { swap_key_index: 2, input_key: '#00070007', out_key: '#00070008' },
-            { swap_key_index: 3, input_key: '#00070008', out_key: '#00070009' }
-          ]
+            { swap_key_index: 0, input_key: '#00070004', out_key: '#00070005', },
+            { swap_key_index: 1, input_key: '#00070005', out_key: '#00070004', },
+            { swap_key_index: 2, input_key: '#00070007', out_key: '#00070008', },
+            { swap_key_index: 3, input_key: '#00070008', out_key: '#00070009', }
+          ],
         }
       ];
 

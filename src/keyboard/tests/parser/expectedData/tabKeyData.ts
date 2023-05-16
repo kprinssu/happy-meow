@@ -7,7 +7,7 @@ export const expectedTabKey: CyberboardTypes.TabKeyInfoCommand[] = [
     single_key_out: [ '#0007000B' ],
     double_key_out: [ '#0007000C' ],
     three_key_out: [ '#0007000D' ],
-    long_key_out: [ '#0007000E' ]
+    long_key_out: [ '#0007000E' ],
   },
   {
     ta_key_index: 1,
@@ -15,6 +15,6 @@ export const expectedTabKey: CyberboardTypes.TabKeyInfoCommand[] = [
     single_key_out: [ '#0007000F' ],
     double_key_out: [ '#00070010' ],
     three_key_out: [ '#0007011' ],
-    long_key_out: [ '#00070012' ]
+    long_key_out: [ '#00070012' ],
   }
 ];

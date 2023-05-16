@@ -20,5 +20,5 @@ export const mainConfig: Configuration = {
   },
   optimization: {
     usedExports: true,
-  }
+  },
 };

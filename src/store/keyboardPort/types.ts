@@ -7,5 +7,5 @@ interface KeyboardPortState {
 
 export {
   PortInfo,
-  KeyboardPortState,
+  KeyboardPortState
 };

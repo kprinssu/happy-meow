@@ -5,7 +5,10 @@
     "node": true
   },
   "rules": {
-    "semi": [2, "always"]
+    "semi": [2, "always"],
+    "comma-dangle": ["error", {
+      "objects": "always"
+    }]
   },
   "extends": [
     "eslint:recommended",

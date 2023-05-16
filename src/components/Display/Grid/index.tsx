@@ -13,7 +13,7 @@ export default (props: GridProps) => {
   return (
     <div className="led-display" data-testid="display-led-grid" data-test-frame-number={props.frameNumber}>
       {props.frames.map((color, index) => (
-        Led({ color: color, index: index, gridClick: props.gridClick })
+        Led({ color: color, index: index, gridClick: props.gridClick, })
       ))}
     </div>
   );

@@ -99,12 +99,12 @@ export const expectedPageControl: CyberboardTypes.PageControlInfoCommand[] = [
     usbFrameCount: 2,
     usbFrameIndex: 0,
     pageNum: 4,
-    controlInfos: controlInfos1
+    controlInfos: controlInfos1,
   },
   {
     usbFrameCount: 2,
     usbFrameIndex: 1,
     pageNum: 4,
-    controlInfos: controlInfos2
+    controlInfos: controlInfos2,
   }
 ];
