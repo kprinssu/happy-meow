@@ -1,5 +1,5 @@
-import { useAppSelector } from '../../hooks';
-import { syncKeyboard } from '../../store/keyboardPort/actions';
+import { useAppSelector } from '../../../../../../hooks';
+import { syncKeyboard } from '../../../../../../store/keyboardPort/actions';
 
 export default () => {
   const selectedPort = useAppSelector(state => state.keyboardPorts.selectedPort);

@@ -5,10 +5,10 @@ import { act } from 'react-dom/test-utils';
 
 import KeyboardSyncButton from '../index';
 
-import store from '../../../store';
-import { renderWithProviders } from '../../../utils/testHelpers';
-import { PortInfo } from '../../../store/keyboardPort/types';
-import { setSelectedPort } from '../../../store/keyboardPort/actions';
+import store from '../../../../../../../store';
+import { renderWithProviders } from '../../../../../../../utils/testHelpers';
+import { PortInfo } from '../../../../../../../store/keyboardPort/types';
+import { setSelectedPort } from '../../../../../../../store/keyboardPort/actions';
 
 describe('sync button', () => {
   it('starts the sync to the currently selected keyboard', async () => {
