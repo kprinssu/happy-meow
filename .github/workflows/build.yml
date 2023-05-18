@@ -15,7 +15,7 @@ jobs:
         run: yarn install
       - name: Build the app
         run: yarn make
-        timeout-minutes: 10
+        timeout-minutes: 20
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.os }}
