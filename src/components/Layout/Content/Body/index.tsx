@@ -9,7 +9,7 @@ import {
 import './body.css';
 
 import Display from './children/Display';
-import KeyboardLed from '../../../KeyboardLed';
+import KeyboardLed from './children/KeyboardLed';
 import KeyboardKeys from './children/KeyboardKeys';
 
 export default () => {

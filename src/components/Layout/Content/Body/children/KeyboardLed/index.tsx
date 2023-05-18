@@ -8,10 +8,10 @@ import {
   faPause
 } from '@fortawesome/free-solid-svg-icons';
 
-import { useAppDispatch, useAppSelector } from '../../hooks';
-import { setLayer } from '../../store/keyboardLed/actions';
+import { useAppDispatch, useAppSelector } from '../../../../../../hooks';
+import { setLayer } from '../../../../../../store/keyboardLed/actions';
 
-import Keyboard, { setupLedProperties, KeyboardProps } from '../Keyboard';
+import Keyboard, { setupLedProperties, KeyboardProps } from '../../../../../Keyboard';
 
 import './KeyboardLed.css';
 

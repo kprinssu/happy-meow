@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils';
 
 import KeyboardLed from '..';
 
-import { renderWithProviders } from '../../../utils/testHelpers';
+import { renderWithProviders } from '../../../../../../../utils/testHelpers';
 
 describe('play/pause', () => {
   it('should play animation when the pause/play button is pressed', async () => {
