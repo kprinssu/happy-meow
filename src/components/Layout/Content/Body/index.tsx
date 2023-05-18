@@ -8,7 +8,7 @@ import {
 
 import './body.css';
 
-import Display from '../../../Display';
+import Display from './children/Display';
 import KeyboardLed from '../../../KeyboardLed';
 import KeyboardKeys from '../../../KeyboardKeys';
 

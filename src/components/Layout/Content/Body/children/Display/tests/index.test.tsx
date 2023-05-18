@@ -5,8 +5,8 @@ import { act } from 'react-dom/test-utils';
 
 import Display from '../index';
 
-import store from '../../../store';
-import { renderWithProviders } from '../../../utils/testHelpers';
+import store from '../../../../../../../store';
+import { renderWithProviders } from '../../../../../../../utils/testHelpers';
 
 describe('play/pause', () => {
   it('should play animation when the pause/play button is pressed', async () => {

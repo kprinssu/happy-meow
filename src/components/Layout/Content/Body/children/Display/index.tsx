@@ -8,8 +8,8 @@ import {
   faPause
 } from '@fortawesome/free-solid-svg-icons';
 
-import { useAppDispatch, useAppSelector } from '../../hooks';
-import { setLayer } from '../../store/keyboardDisplay/actions';
+import { useAppDispatch, useAppSelector } from '../../../../../../hooks';
+import { setLayer } from '../../../../../../store/keyboardDisplay/actions';
 
 import './Display.css';
 import Grid from './Grid';
