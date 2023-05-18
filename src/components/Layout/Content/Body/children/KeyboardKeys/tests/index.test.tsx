@@ -4,7 +4,7 @@ import { fireEvent } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
 import KeyboardKeys  from '..';
-import { renderWithProviders } from '../../../utils/testHelpers';
+import { renderWithProviders } from '../../../../../../../utils/testHelpers';
 
 describe('keyboard keys', () => {
   it('changes the key to \'None\' when clicked', async () => {
