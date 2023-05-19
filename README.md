@@ -6,7 +6,7 @@ This is the Happy Meow is designed to help you customise your Cyberboard keyboar
 
 ### Downloads
 
-All platforms are supported and release builds can be found under the releases section. The UI is s
+All platforms are supported and release builds can be found under the releases section. The UI is built on top of Electron.
 
 Direct Downloads (TBD)
 

@@ -7,8 +7,8 @@ import { PortInfo } from '@serialport/bindings-cpp';
 
 import KeyboardSelector from '../index';
 
-import { renderWithProviders } from '../../../utils/testHelpers';
-import store from '../../../store';
+import { renderWithProviders } from '../../../../../../../utils/testHelpers';
+import store from '../../../../../../../store';
 
 const mockKeyboard: PortInfo = {
   vendorId: '05ac',

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from '../../hooks';
-import { KeyboardKeyLayer } from '../../store/keyboardKey/types';
-import { setKeyLayer } from '../../store/keyboardKey/actions';
+import { useAppDispatch, useAppSelector } from '../../../../../../hooks';
+import { KeyboardKeyLayer } from '../../../../../../store/keyboardKey/types';
+import { setKeyLayer } from '../../../../../../store/keyboardKey/actions';
 
-import Keyboard, { setupKeyProperties, KeyboardProps } from '../Keyboard';
-import { KEYBOARD_KEYS } from '../../utils/keyboardKeys';
+import Keyboard, { setupKeyProperties, KeyboardProps } from '../../../../../Keyboard';
+import { KEYBOARD_KEYS } from '../../../../../../utils/keyboardKeys';
 
 export default () => {
   const dispatch = useAppDispatch();

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import KeyboardSelector from '../../../KeyboardSelector';
-import KeyboardSyncButton from '../../../KeyboardSyncButton';
+import KeyboardSelector from './children/KeyboardSelector';
+import KeyboardSyncButton from './children/KeyboardSyncButton';
 import './footer.css';
 
 export default () => {

@@ -24,6 +24,7 @@
     "@electron-forge/cli": "^6.0.5",
     "@electron-forge/maker-deb": "^6.0.5",
     "@electron-forge/maker-rpm": "^6.0.5",
+    "@electron-forge/maker-snap": "^6.1.1",
     "@electron-forge/maker-squirrel": "^6.0.5",
     "@electron-forge/maker-zip": "^6.0.5",
     "@electron-forge/plugin-auto-unpack-natives": "^6.1.1",
@@ -33,6 +34,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@hello-pangea/color-picker": "^3.2.2",
     "@jest/globals": "^29.5.0",
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",
@@ -52,6 +54,7 @@
     "css-loader": "^6.0.0",
     "easy-crc": "^1.1.0",
     "electron": "24.3.0",
+    "electron-squirrel-startup": "^1.0.0",
     "eslint": "^8.0.1",
     "eslint-plugin-import": "^2.25.0",
     "fork-ts-checker-webpack-plugin": "^7.2.13",
@@ -71,8 +74,6 @@
     "zod": "^3.21.4"
   },
   "dependencies": {
-    "@hello-pangea/color-picker": "^3.2.2",
-    "electron-squirrel-startup": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",

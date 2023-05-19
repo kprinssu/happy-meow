@@ -1,8 +1,8 @@
 import { useEffect, FormEvent } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import { useAppDispatch, useAppSelector } from '../../hooks';
-import { fetchKeyboardPorts, setSelectedPort } from '../../store/keyboardPort/actions';
+import { useAppDispatch, useAppSelector } from '../../../../../../hooks';
+import { fetchKeyboardPorts, setSelectedPort } from '../../../../../../store/keyboardPort/actions';
 
 const KeyboardPortSelection = () => {
   const dispatch = useAppDispatch();

@@ -8,9 +8,9 @@ import {
 
 import './body.css';
 
-import Display from '../../../Display';
-import KeyboardLed from '../../../KeyboardLed';
-import KeyboardKeys from '../../../KeyboardKeys';
+import Display from './children/Display';
+import KeyboardLed from './children/KeyboardLed';
+import KeyboardKeys from './children/KeyboardKeys';
 
 export default () => {
   return (
