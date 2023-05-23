@@ -10,7 +10,7 @@ declare global {
       setTime: (portPath: string) => Promise<void>,
       syncKeyboard: (portPath: string, rawConfig: CyberboardConfig) => Promise<void>,
       writeConfig: (portPath: string, jsonPath: string) => Promise<void>,
-      loadConfig: (path: string) => Promise<string>,
+      loadConfig: (path: string) => Promise<Cyberboard>,
     };
   }
 }
