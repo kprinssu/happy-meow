@@ -2,6 +2,7 @@ import { PortInfo } from '@serialport/bindings-cpp';
 
 import './App';
 import { CyberboardConfig } from './keyboard/parser/schema';
+import { Cyberboard } from './keyboard/parser';
 
 declare global {
   interface Window {
