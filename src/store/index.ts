@@ -6,6 +6,10 @@ import keyboardDisplaySlice from './keyboardDisplay/slice';
 import keyboardLedSlice from './keyboardLed/slice';
 import keyboardKeySlice from './keyboardKey/slice';
 
+import { saveState, loadState } from './storage';
+
+const persistedState = loadState();
+
 const store = configureStore({
   reducer: {
     keyboardPorts: keyboardPortSlice.reducer,
@@ -27,6 +31,16 @@ const store = configureStore({
 
     return getDefaultMiddleware();
   },
+  preloadedState: persistedState,
+});
+
+store.subscribe(() => {
+  saveState({
+    keyboardPorts: store.getState().keyboardPorts,
+    keyboardDisplay: store.getState().keyboardDisplay,
+    keyboardLeds: store.getState().keyboardLeds,
+    keyboardKeys: store.getState().keyboardKeys,
+  });
 });
 
 export type RootState = ReturnType<typeof store.getState>;
