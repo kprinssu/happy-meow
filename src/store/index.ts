@@ -8,7 +8,17 @@ import keyboardKeySlice from './keyboardKey/slice';
 
 import { saveState, loadState } from './storage';
 
-const persistedState = loadState();
+let preloadedState = loadState();
+
+// If there is no preloaded state, initialize it with the initial state of each slice
+if (preloadedState === null) {
+  preloadedState = {
+    keyboardPorts: keyboardPortSlice.getInitialState(),
+    keyboardDisplay: keyboardDisplaySlice.getInitialState(),
+    keyboardLeds: keyboardLedSlice.getInitialState(),
+    keyboardKeys: keyboardKeySlice.getInitialState(),
+  };
+}
 
 const store = configureStore({
   reducer: {
@@ -31,7 +41,7 @@ const store = configureStore({
 
     return getDefaultMiddleware();
   },
-  preloadedState: persistedState,
+  preloadedState,
 });
 
 store.subscribe(() => {

@@ -23,5 +23,5 @@ const loadState = (): any | null => {
 
 export {
   saveState,
-  loadState,
+  loadState
 };
