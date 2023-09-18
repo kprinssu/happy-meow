@@ -53,7 +53,7 @@
     "compression-webpack-plugin": "^10.0.0",
     "css-loader": "^6.0.0",
     "easy-crc": "^1.1.0",
-    "electron": "24.7.1",
+    "electron": "24.8.3",
     "electron-squirrel-startup": "^1.0.0",
     "eslint": "^8.0.1",
     "eslint-plugin-import": "^2.25.0",
