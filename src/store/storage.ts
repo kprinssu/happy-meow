@@ -1,11 +1,5 @@
-type StoreState = {
-  keyboardPorts: Record<string, unknown>;
-  keyboardDisplay: Record<string, unknown>;
-  keyboardLeds: Record<string, unknown>;
-  keyboardKeys: Record<string, unknown>;
-};
 
-const saveState = (state: StoreState) => {
+const saveState = (state: unknown) => {
   try {
     const serializedState = JSON.stringify(state);
     localStorage.setItem('state', serializedState);
@@ -15,7 +9,7 @@ const saveState = (state: StoreState) => {
   }
 };
 
-const loadState = (): StoreState | null => {
+const loadState = (): unknown => {
   try {
     const serializedState = localStorage.getItem('state');
     if (serializedState != null) {

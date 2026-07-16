@@ -8,7 +8,7 @@ import keyboardKeySlice from './keyboardKey/slice';
 
 import { saveState, loadState } from './storage';
 
-let preloadedState = loadState();
+let preloadedState = loadState() as any;
 
 // If there is no preloaded state, initialize it with the initial state of each slice
 if (preloadedState === null) {

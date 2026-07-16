@@ -7,7 +7,7 @@ export default () => {
   const dispatch = useAppDispatch();
 
   const loadProfile =  async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
+    const file = event.target.files?.[0] as any;
     if (!file) {
       return;
     }
