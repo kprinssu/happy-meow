@@ -7,8 +7,8 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
       - name: Install Yarn packages
@@ -16,7 +16,7 @@ jobs:
       - name: Build the app
         run: yarn make
         timeout-minutes: 20
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.os }}
           path: out/make/*
